@@ -211,7 +211,9 @@ sort($visualizers);
 		<!-- BEGIN SIDEBAR -->
 		<div class="page-sidebar navbar-collapse collapse">
 			<!-- BEGIN SIDEBAR MENU -->
-			<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+			<ul class="page-sidebar-menu  page-header-fixed "
+				data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200"
+				style="padding-top: 20px">
 				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 				<li class="sidebar-toggler-wrapper hide">
 					<div class="sidebar-toggler">
@@ -225,10 +227,15 @@ sort($visualizers);
 						<span class="title">Homepage</span>
 					</a>
 				</li>
+				<li class="nav-item <?php if ($currentSubSection == 'lc') { ?>active open<?php } ?>">
+					<a href="getdata/getSites.php" class="nav-link ">
+						<span class="title">DT4H Network</span>
+					</a>
+				</li>
 				<li class="nav-item  <?php if ($currentSection == 'uw') { ?>active open<?php } ?>">
 					<a href="workspace/" class="nav-link nav-toggle">
 						<i class="icon-screen-desktop"></i>
-						<span class="title">User Workspace</span>
+						<span class="title">My Workspace</span>
 					</a>
 				</li>
 				<li class="nav-item  <?php if ($currentSection == 'dt') { ?>active open<?php } ?>">
@@ -240,18 +247,13 @@ sort($visualizers);
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item <?php if ($currentSubSection == 'lc') { ?>active open<?php } ?>">
-							<a href="getdata/getSites.php" class="nav-link ">
-								<span class="title">Manage Sites</span>
-							</a>
-						</li>
-						<li class="nav-item <?php if ($currentSubSection == 'lc') { ?>active open<?php } ?>">
 							<a href="getdata/uploadForm.php" class="nav-link ">
 								<span class="title">Upload Data</span>
 							</a>
 						</li>
 						<li class="nav-item <?php if ($currentSubSection == 'rp') { ?>active open<?php } ?>">
 							<a href="javascript:;" class="nav-link nav-toggle ">
-								<span class="title">From Catalogue</span>
+								<span class="title">From DT4H Catalogue</span>
 								<span class="arrow"></span>
 							</a>
 							<ul class="sub-menu">
