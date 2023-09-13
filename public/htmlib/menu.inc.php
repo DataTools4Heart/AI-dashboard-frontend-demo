@@ -190,11 +190,11 @@ switch (pathinfo($_SERVER['PHP_SELF'])['filename']) {
 		break;
 }
 
-// load all tools 
+// load all tools
 $tools = getTools_List();
 sort($tools);
 
-// load all visualizers 
+// load all visualizers
 $visualizers = getVisualizers_List();
 sort($visualizers);
 
@@ -240,8 +240,13 @@ sort($visualizers);
 					</a>
 					<ul class="sub-menu">
 						<li class="nav-item <?php if ($currentSubSection == 'lc') { ?>active open<?php } ?>">
+							<a href="getdata/getSites.php" class="nav-link ">
+								<span class="title">Manage Sites</span>
+							</a>
+						</li>
+						<li class="nav-item <?php if ($currentSubSection == 'lc') { ?>active open<?php } ?>">
 							<a href="getdata/uploadForm.php" class="nav-link ">
-								<span class="title">Upload Files</span>
+								<span class="title">Upload Data</span>
 							</a>
 						</li>
 						<li class="nav-item <?php if ($currentSubSection == 'rp') { ?>active open<?php } ?>">
@@ -320,7 +325,7 @@ sort($visualizers);
 										$arrSect[] = $sec['help'];
 									} ?>
 									<li class="nav-item <?php if ($currentSubSubSection == $t["_id"]) { ?>active open<?php } ?>">
-                                                                                <a href="help/toolhelp.php?tool=<?php echo $t["_id"]; ?>&sec=help" class="nav-link">
+                                          <a href="help/toolhelp.php?tool=<?php echo $t["_id"]; ?>&sec=help" class="nav-link">
 											<span class="title"> <?php echo $t["name"]; ?> </span>
 											<span class="arrow <?php if ($currentSubSubSection == $t["_id"]) { ?>open<?php } ?>"></span>
 										</a>
@@ -461,7 +466,7 @@ sort($visualizers);
 					</li>
 				<?php } ?>
 
-				<li class="nav-item active open beta-long" style="color:#b4bcc8;margin-left:18px;margin-top:10px;font-size:12px;">This is the 1.1 version of <?php echo $GLOBALS['AppPrefix']; ?> VRE</li>
+				<li class="nav-item active open beta-long" style="color:#b4bcc8;margin-left:18px;margin-top:10px;font-size:12px;">This is the 0.1 version of <?php echo $GLOBALS['AppPrefix']; ?> VRE</li>
 				<li class="nav-item active open beta-short" style="color:#b4bcc8;margin-left:8px;margin-top:10px;font-size:12px;display:none;">v1.1</li>
 
 			</ul>

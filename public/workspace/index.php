@@ -102,7 +102,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 					</div>
 
 					<div class="input-group" style="float:right; width:200px; margin-right:10px;">
-						<span class="input-group-addon" style="background:#5e738b;"><i class="fa fa-sitemap font-white"></i></span>
+						<span class="input-group-addon" style="background:#ce0d1b;"><i class="fa fa-sitemap font-white"></i></span>
 						<select class="form-control" id="select_project" onchange="loadProjectWS(this);">
 							<?php foreach ($projects as $p_id => $p) {
 								$selected = (($_SESSION['User']['dataDir'] == $p_id) ? "selected" : ""); ?>
@@ -175,7 +175,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 
 					}
 
-						// show Error messages		
+						// show Error messages
 						print printErrorDivision();
 
 
@@ -229,8 +229,8 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											}
 											if (isset($_REQUEST["from"])){
 												print "<input type=\"hidden\" id=\"from\" value=\"".$_REQUEST['from']."\"";
-											} 	
-											
+											}
+
 											// print FILES in TABLE
 
 											print printTable($files);
@@ -301,12 +301,12 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 						</div>
 					</div>
 					<?php
-						
-					// show Error messages          
+
+					// show Error messages
 					print printErrorDivision();
 
 					?>
-							
+
 					<!-- SUMMARY AND DISK QUOTA ROW -->
 
 

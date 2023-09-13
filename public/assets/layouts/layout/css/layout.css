@@ -40,7 +40,7 @@ Page Header
   min-height: 50px;
   filter: none;
   background-image: none;
-  border-bottom: 2px solid #e4032e;
+  border-bottom: 2px solid #ae0d1b;
   /* Fixed header */
   /* Header logo */
   /* Search box */
@@ -427,8 +427,8 @@ Page Header
       .page-header.navbar .search-form.search-form-expanded .input-group .input-group-btn .btn.submit {
         margin-left: 0; } }
 
-/*** 
-Horizontal Menu 
+/***
+Horizontal Menu
 ***/
 .page-header.navbar {
   /* Header container */
@@ -1482,7 +1482,7 @@ Page content
     color: #888; }
   .page-content-white .page-title,
   .page-container-bg-solid .page-title {
-    color: #666;
+    color: #ce0d1b;
     margin-bottom: 20px;
     margin-top: 20px; }
     .page-content-white .page-title small,
@@ -1558,7 +1558,7 @@ Page content
       .page-content-white .page-bar .page-breadcrumb > li > span,
       .page-container-bg-solid .page-bar .page-breadcrumb > li > a,
       .page-container-bg-solid .page-bar .page-breadcrumb > li > span {
-        color: #888; }
+        color: #333; }
       .page-content-white .page-bar .page-breadcrumb > li > i,
       .page-container-bg-solid .page-bar .page-breadcrumb > li > i {
         color: #aaa; }
@@ -2280,8 +2280,8 @@ Page Quick Sidebar
       .page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-settings .page-quick-sidebar-settings-list .list-items li select.form-control {
         padding: 4px 0px !important; }
 
-/***  
-Page Loading       
+/***
+Page Loading
 ***/
 .page-on-load {
   background: #fefefe; }
