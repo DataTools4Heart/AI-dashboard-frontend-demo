@@ -203,6 +203,7 @@ body  {
 
 .page-sidebar  {
      background-color:  #9b2b33!important;
+     background-image: url("/assets/layouts/layout/img/DT4Hbg.png")!important;
  }
 
 .page-sidebar .page-sidebar-menu>li.active.open>a, .page-sidebar .page-sidebar-menu>li.active>a,
