@@ -699,7 +699,12 @@
                   "structure",
                   "tool_intermediate_file",
                   "tool_statistics",
-                  "tss_classification_by_nucleosomes"
+                  "tss_classification_by_nucleosomes",
+                  "site_manifest",
+                  "site_status",
+                  "dataset_manifest",
+                  "dataset_quality_status",
+                  "ML_DL_model_coefficients"
                 ]
               },
               "file_path": {
