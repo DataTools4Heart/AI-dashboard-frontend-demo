@@ -140,9 +140,7 @@
                 "tool_statistics",
                 "tss_classification_by_nucleosomes",
                 "site_manifest",
-                "site_id",
                 "dataset_manifest",
-                "dataset_id",
                 "ML_DL_model",
                 "ML_DL_model_coefficients"
               ]
@@ -334,9 +332,7 @@
                 "tool_statistics",
                 "tss_classification_by_nucleosomes",
                 "site_manifest",
-                "site_id",
                 "dataset_manifest",
-                "dataset_id",
                 "ML_DL_model",
                 "ML_DL_model_coefficients"
               ]
@@ -579,9 +575,8 @@
                   "tool_statistics",
                   "tss_classification_by_nucleosomes",
                   "site_manifest",
-                  "site_status",
                   "dataset_manifest",
-                  "dataset_quality_status",
+                  "dataset_quality_report",
                   "ML_DL_model_coefficients"
                 ]
               },
