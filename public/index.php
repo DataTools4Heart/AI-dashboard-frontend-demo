@@ -12,8 +12,10 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']){
     }
     $r = loadUser($_REQUEST['id'],false);
 
-// Create guest    
+// Create guest
 }else{
+    // Force login
+    redirect("login.php");
 
     // Load WS with sample data, if tool requested
     $tool = array();
@@ -32,7 +34,7 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']){
           $sd = $tool['_id'];
        }
     }
-       
+
     // Get access creating an a anonymous guest account
     $r = createUserAnonymous($sd);
     if (!$r)

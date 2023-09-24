@@ -80,6 +80,9 @@ switch (pathinfo($_SERVER['PHP_SELF'])['filename']) {
 		$currentSection = 'he';
 		$currentSubSection = 'h11';
 		break;
+	case 'dt4hsites':
+		$currentSection = 'h2';
+		break;
 	case 'datasets':
 		$currentSection = 'dt';
 		$currentSubSection = 'rp';
@@ -227,8 +230,8 @@ sort($visualizers);
 						<span class="title">Homepage</span>
 					</a>
 				</li>
-				<li class="nav-item <?php if ($currentSubSection == 'lc') { ?>active open<?php } ?>">
-					<a href="getdata/getSites.php" class="nav-link ">
+				<li class="nav-item <?php if ($currentSection == 'h2') { ?>active open<?php } ?>">
+					<a href="getdata/dt4hsites.php" class="nav-link ">
 						<span class="title">DT4H Network</span>
 					</a>
 				</li>

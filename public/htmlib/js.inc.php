@@ -19,8 +19,8 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'editFile':
 	case 'editFile2':
 	?>
-	
-	<?php break; 
+
+	<?php break;
 }
 ?>
 
@@ -40,23 +40,23 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 <?php
 switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'index2': ?>
-		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>	
+		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>
 			<script src="assets/global/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/jquery-knob/js/jquery.knob.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/ngl.last.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
-		<?php } elseif(basename(dirname($_SERVER['PHP_SELF'])) == 'home'){ ?>	
+		<?php } elseif(basename(dirname($_SERVER['PHP_SELF'])) == 'home'){ ?>
 			<script src="assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
 		<?php } else { ?>
 			<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
-		<?php } 
-		break; 
+		<?php }
+		break;
 	case 'resetPassword':
 	case 'index': ?>
-		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>	
+		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>
 			<script src="assets/global/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/jquery-knob/js/jquery.knob.js" type="text/javascript"></script>
@@ -64,50 +64,51 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 			<script src="assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/clipboardjs/clipboard.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
-		<?php } elseif(basename(dirname($_SERVER['PHP_SELF'])) == 'launch'){ ?>	
+		<?php } elseif(basename(dirname($_SERVER['PHP_SELF'])) == 'launch'){ ?>
 			<script src="assets/global/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
-		<?php } elseif((basename(dirname($_SERVER['PHP_SELF'])) == 'home') || basename((dirname($_SERVER['PHP_SELF'])) == 'publicsite')){ ?>	
+		<?php } elseif((basename(dirname($_SERVER['PHP_SELF'])) == 'home') || basename((dirname($_SERVER['PHP_SELF'])) == 'publicsite')){ ?>
 			<script src="assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
 		<?php } else { ?>
 			<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 			<script src="assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
 		<?php }
-		break; 
-	case 'lockScreen': ?>		
+		break;
+	case 'lockScreen': ?>
 		<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 		<?php
-		break; 
+		break;
 	case 'logs':
-	case 'datasets': ?>
+	case 'datasets':
+	case 'dt4hsites': ?>
 		<script src="assets/global/scripts/datatable.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-		<?php break; 	
+		<?php break;
 	case 'usrProfile': ?>
 		<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/clipboardjs/clipboard.min.js" type="text/javascript"></script>
-		<?php break; 	
+		<?php break;
 	case 'restoreLink': ?>
 		<script src="assets/global/plugins/clipboardjs/clipboard.min.js" type="text/javascript"></script>
-		<?php break; 	
+		<?php break;
 	case 'listOfProjects': ?>
 		<script src="assets/global/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'uploadForm': ?>
-		<script src="assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>	
+		<script src="assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'dataFromTxt': ?>
 		<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'uploadForm2':
 	case 'editFile':
 	case 'editFile2':?>
@@ -116,13 +117,13 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 		<script src="assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'dataFromID': ?>
 		<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'sampleDataList': ?>
 		<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
@@ -143,7 +144,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 		<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'adminTools': ?>
 		<script src="assets/global/scripts/datatable.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
@@ -163,7 +164,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 		<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'newTool':
 	case 'vmURL':
 	case 'createTest':?>
@@ -258,10 +259,10 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 <?php
 switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'resetPassword': ?>
-		<script src="assets/pages/scripts/resetPassword.js?v=<?php echo rand(); ?>" type="text/javascript"></script>	
-		<?php break; 
+		<script src="assets/pages/scripts/resetPassword.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
+		<?php break;
 	case 'index': ?>
-		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>		
+		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>
 			<script src="assets/pages/scripts/datatables-page.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 			<script src="assets/pages/scripts/components-knob-dials.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 			<script src="assets/pages/scripts/run-tools.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
@@ -269,9 +270,9 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.24/webcomponents-lite.min.js"></script>
 			<script src="assets/pages/scripts/actions-home.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 			<script src="assets/pages/scripts/restore-link.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php } elseif(basename(dirname($_SERVER['PHP_SELF'])) == 'launch'){ ?>	
+		<?php } elseif(basename(dirname($_SERVER['PHP_SELF'])) == 'launch'){ ?>
 			<script src="assets/pages/scripts/launch-tool.js" type="text/javascript"></script>
-		<?php } elseif((basename(dirname($_SERVER['PHP_SELF'])) == 'home') || (basename(dirname($_SERVER['PHP_SELF'])) == 'publicsite')){ ?>		
+		<?php } elseif((basename(dirname($_SERVER['PHP_SELF'])) == 'home') || (basename(dirname($_SERVER['PHP_SELF'])) == 'publicsite')){ ?>
 			<script src="assets/pages/scripts/home.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 			<script src="assets/pages/scripts/portfolio.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php } elseif(basename(dirname($_SERVER['PHP_SELF'])) == 'helpdesk'){ ?>
@@ -279,68 +280,71 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 		<?php } else { ?>
 			<script src="assets/pages/scripts/login.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php } ?>
-		<?php break; 
-	case 'lockScreen': ?>	
-		<script src="assets/pages/scripts/lock.js?v=<?php echo rand(); ?>" type="text/javascript"></script>	
-		<?php break; 
+		<?php break;
+	case 'lockScreen': ?>
+		<script src="assets/pages/scripts/lock.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
+		<?php break;
 	case 'usrProfile': ?>
 		<script src="assets/pages/scripts/profile.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'datasets': ?>
 		<script src="assets/pages/scripts/table-datasets.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
+	case 'dt4hsites': ?>
+		<script src="assets/pages/scripts/table-sites.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
+		<?php break;
 	case 'logs': ?>
 		<script src="assets/pages/scripts/table-logs.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'listOfProjects': ?>
 		<script src="assets/pages/scripts/list-projects.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
-	case 'uploadForm': ?>	
+	case 'uploadForm': ?>
 		<script src="assets/pages/scripts/form-dropzone.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<script src="assets/pages/scripts/form-down-remotefile.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<script src="assets/pages/scripts/form-validateinput.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
 	case 'editFile':
-	case 'editFile2':?>	
+	case 'editFile2':?>
 		<script src="assets/pages/scripts/form-validatefiles.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<script src="assets/pages/scripts/get-taxon-id.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
-	case 'uploadForm2': ?>	
+	case 'uploadForm2': ?>
 		<script src="assets/pages/scripts/form-validatefiles.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<script src="assets/pages/scripts/get-taxon-id.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
-	case 'dataFromTxt':?>	
+	case 'dataFromTxt':?>
 		<script src="assets/pages/scripts/form-validateinput.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
 	case 'dataFromID':?>
-		<script src="assets/pages/scripts/pdb-typeahead.js?v=<?php echo rand(); ?>" type="text/javascript"></script>	
+		<script src="assets/pages/scripts/pdb-typeahead.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<script src="assets/pages/scripts/form-validateinput.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
 	case 'adminUsers': ?>
 		<script src="assets/pages/scripts/table-datatables-editable.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
-	case 'editUser': 
-		?>	
-		<script src="assets/pages/scripts/edit-user.js?v=<?php echo rand(); ?>" type="text/javascript"></script>	
-		<?php break; 
+	case 'editUser':
+		?>
+		<script src="assets/pages/scripts/edit-user.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
+		<?php break;
 	case 'adminTools': ?>
 		<script src="assets/pages/scripts/adminTools.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'adminJobs': ?>
 		<script src="assets/pages/scripts/adminJobs.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'myNewTools': ?>
-		<script src="assets/pages/scripts/myNewTools.js?v=<?php echo rand(); ?>" type="text/javascript"></script>	
-		<?php break; 
+		<script src="assets/pages/scripts/myNewTools.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
+		<?php break;
 	case 'newTool': ?>
 		<script src="assets/pages/scripts/newTool.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'vmURL': ?>
 		<script src="assets/pages/scripts/vmURL.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'createTest': ?>
 		<script src="assets/pages/scripts/createTest.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'dashboard': ?>
 		<script src="assets/pages/scripts/dashboard.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
@@ -353,17 +357,17 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'tools':
 	case 'visualizers': ?>
 		<script src="assets/pages/scripts/portfolio.tools.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'sampleDataList': ?>
 		<script src="assets/pages/scripts/sample-data.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 	
+		<?php break;
 	case 'restoreLink': ?>
 		<script src="assets/pages/scripts/restore-link.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 	
+		<?php break;
 	case 'newProject':
 	case 'editProject': ?>
 		<script src="assets/pages/scripts/new-project.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 	
+		<?php break;
 	case 'input': ?>
 		<script src="assets/pages/scripts/home.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
@@ -375,7 +379,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'results':
 	case 'tutorials':
 	case 'references':?>
-		<script src="/assets/pages/scripts/help-editor.js?v=<?php echo rand(); ?>" type="text/javascript"></script>	
+		<script src="/assets/pages/scripts/help-editor.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;?>
 <?php } ?>
 <!-- END PAGE LEVEL SCRIPTS -->
@@ -385,18 +389,19 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <?php
 switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
-	case 'index2': 				
-	case 'index': 
-	case 'home': 
+	case 'index2':
+	case 'index':
+	case 'home':
 	case 'datasets':
+	case 'dt4hsites':
 	case 'usrProfile':
 	case 'restoreLink':
 	case 'uploadForm':
-	case 'uploadForm2': 
+	case 'uploadForm2':
 	case 'editFile':
 	case 'editFile2':
-	case 'adminUsers': 
-	case 'newUser': 
+	case 'adminUsers':
+	case 'newUser':
 	case 'newProject':
 	case 'editProject':
 	case 'listOfProjects':
@@ -413,11 +418,11 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'dataFromTxt':
 	case 'dataFromID':
 	case 'input':
-	case 'output': 
+	case 'output':
 	case 'loading_output':
 	case 'general':
 	case 'starting':
-	case 'upload':		
+	case 'upload':
 	case 'ws':
 	case 'launch':
 	case 'hdesk':
@@ -447,10 +452,10 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 
 <?php
 switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
-	case 'home': 
+	case 'home':
 	case 'repositoryList':?>
 		<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-		<?php break; 
+		<?php break;
 	case 'dashboard':
 	case 'dataFromTxt':
 	case 'dataFromID':
@@ -458,7 +463,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'output':
 	case 'general':
 	case 'starting':
-	case 'upload':		
+	case 'upload':
 	case 'ws':
 	case 'launch':
 	case 'hdesk':
@@ -476,11 +481,11 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'tools':
 	case 'visualizers':?>
 		<script src="assets/pages/scripts/cookie.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php break; 
-	case 'index': 
+		<?php break;
+	case 'index':
 		if((basename(dirname($_SERVER['PHP_SELF'])) == 'workspace') || (basename(dirname($_SERVER['PHP_SELF'])) == '/home')){ ?>
 			<script src="assets/pages/scripts/cookie.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
-		<?php } 
+		<?php }
 		break; ?>
 <?php } ?>
 

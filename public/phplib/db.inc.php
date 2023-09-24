@@ -10,7 +10,7 @@ if (($F = fopen($GLOBALS['db_credentials'], "r")) !== FALSE) {
 	}
     }
     fclose($F);
-}   
+}
 
 // connect DB
 try {
@@ -24,7 +24,7 @@ try {
 
 } catch (MongoConnectionException $e){
 	//die('Error Connecting Mongo DB: ' . $e->getMessage());
-	header('Location: '.$GLOBALS['BASEURL'].'/htmlib/errordb.php?msg=Cannot connect to VRE MuG database');	
+	header('Location: '.$GLOBALS['BASEURL'].'/htmlib/errordb.php?msg=Cannot connect to VRE MuG database');
 
 } catch (MongoException $e) {
 	die('Error: ' . $e->getMessage());
@@ -49,5 +49,4 @@ $GLOBALS['dataTypesCol']    = $GLOBALS['db']->data_types;
 $GLOBALS['helpsCol']        = $GLOBALS['db']->helps;
 $GLOBALS['sampleDataCol']   = $GLOBALS['db']->sampleData;
 $GLOBALS['logExecutionsCol']= $GLOBALS['db']->log_executions;
-
-?>
+$GLOBALS['sitesCol']        = $GLOBALS['db']->sites;
