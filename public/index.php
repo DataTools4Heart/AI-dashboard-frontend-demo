@@ -12,10 +12,11 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']){
     }
     $r = loadUser($_REQUEST['id'],false);
 
-// Create guest
-}else{
-    // Force login
-    redirect("login.php");
+// JL Create guest if !$GLOBALS['auth_required'] otherwise force login
+} else {
+    if ($GLOBALS['auth_required']) {
+        redirect("login.php");
+    }
 
     // Load WS with sample data, if tool requested
     $tool = array();
