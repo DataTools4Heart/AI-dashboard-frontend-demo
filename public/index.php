@@ -4,6 +4,10 @@ require __DIR__."/../config/bootstrap.php";
 
 // Check if PHP session exists
 $r = checkLoggedIn();
+// if $GLOBALS['auth_required'] force login
+if ($GLOBALS['auth_required']) {
+    redirect("login.php");
+}
 
 // Recover guest user
 if (isset($_REQUEST['id']) && $_REQUEST['id']){
@@ -12,11 +16,8 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']){
     }
     $r = loadUser($_REQUEST['id'],false);
 
-// JL Create guest if !$GLOBALS['auth_required'] otherwise force login
+// Create guest
 } else {
-    if ($GLOBALS['auth_required']) {
-        redirect("login.php");
-    }
 
     // Load WS with sample data, if tool requested
     $tool = array();
