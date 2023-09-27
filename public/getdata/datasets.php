@@ -5,7 +5,7 @@ require __DIR__ . "/../../config/bootstrap.php";
 redirectOutside();
 
 //Retrive communities
-$communities = getCommunities();
+$dt4hsites = getSitesInfo("data");
 
 // Print page
 ?>
@@ -35,11 +35,11 @@ $communities = getCommunities();
               <i class="fa fa-circle"></i>
             </li>
             <li>
-              <span>From Repository</span>
+              <span>From D4TH catalogue</span>
               <i class="fa fa-circle"></i>
             </li>
             <li>
-              <span>Repository Name</span>
+              <span>Datasets</span>
             </li>
           </ul>
         </div>
@@ -47,17 +47,14 @@ $communities = getCommunities();
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
           <a href="javascript:;" target="_blank"><img src="assets/layouts/layout/img/icon.png" width=100></a>
-          My Datasets
+          Available Datasets from DT4H catalogue
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
-
-
-
 	<?php
 
 	// inject error Message
-	$_SESSION['errorData']['Info'][]="Data catalogue under construction";
+//	$_SESSION['errorData']['Info'][]="Data catalogue under construction";
 
 
 	// print PHP ERROR MESSAGES
@@ -73,7 +70,7 @@ $communities = getCommunities();
 			?><div class="alert alert-info"><?php
 		} else {
 			?><div class="alert alert-warning"><?php
-		} 
+		}
 		foreach ($_SESSION['errorData'] as $subTitle => $txts) {
 			print "$subTitle<br/>";
 			foreach ($txts as $txt) {
@@ -108,89 +105,73 @@ $communities = getCommunities();
                       <th> Title </th>
                       <th> Description </th>
                       <th> Version </th>
-                      <th> Type </th>
-                      <th> Study </th>
-                      <th> Access credentials </th>
-                      <th> Import </th>
-
+                      <?php foreach ($dt4hsites as $site) {?>
+                        <th><?=$site['_id']?></th>
+                      <?php } ?>
+                      <th> Materialize </th>
                     </tr>
                   </thead>
-  
+
                   <tbody>
                     <!-- process and display each result row -->
-                    
+
 			<?php
-	$ds_list =  getDatasets();	
+//	$ds_list =  getDatasets();
 	//JL DEMO
 	$ds_list = True;
-	if ($ds_list){
-		$datasets=[
-			['_id'=>'EGAD0001000309',
-			'name'=> 'UK10K_OBESITY_GS REL-2012-11-27',
-			'description' => '',
-			'version' => '',
-			'datatype' => 'Exome Seq',
-			'study' => 'UK10K_OBESITY_GS',
-			'access' => 'pending'
-		]];
+	if ($ds_list) {
+    $i = 1000309;
+    $n = 1;
+    while ($i < 1000320) {
+      $data =
+			['_id'=>'DT4H'.$i,
+			'name'=> 'DT4H_UC1_'.$n,
+			'description' => 'Some UC1 data '.$n,
+			'version' => '1.0 [2023-09-30]',
+      'catalogue_url' => "https://catalogue.datatools4heart.eu/dataset/?DT4H".$i
+      ];
+      foreach ($dt4hsites as $site) {
+        $data[$site['_id']] = rand(0,100);
+      }
+      $datasets[] = $data;
+      $i++;
+      $n++;
+    }
+
 		//		foreach (getDatasets() as $obj) {
 		foreach ($datasets as $obj) {
-				if($obj['type'] != "participant") {
-					
-                        ?>
-                        <tr>
-                          <td> <?php echo $obj["_id"]; ?> </td>
-                          <td> <?php echo $obj["name"]; ?> </td>
-                          <td> <?php echo $obj["description"]; ?> </td>
-                          <td> <?php echo $obj["version"]; ?> </td>
-			  <td> <?php echo $obj["datatype"]; ?> </td>
-                          <td> <?php echo $obj["study"]; ?> </td>
-                          <td> <?php echo $obj['access']; ?> </td>
-                          <td style="vertical-align:middle;">
-			    
-                            <?php
-                              $dataset_uri = ($obj->datalink->uri? $obj->datalink->uri:"");
-			    ?> 
-			    <!-- Send via GET url and metadata to getData.php // CURRENTLY DONE VIA POST-->
+	                      ?>
+             <tr>
+                <td> <?= $obj["_id"]; ?> </td>
+                <td> <?= $obj["name"]; ?> </td>
+                <td> <?= $obj["description"]; ?> </td>
+                <td> <?= $obj["version"]; ?> </td>
+                <?php foreach ($dt4hsites as $site) {?>
+                  <td><?= $obj[$site['_id']]?></th>
+                <?php } ?>
 
-                            <?php  
-			      /*
-                              $GET_metadata = http_build_query(array(
-                                "uploadType"       => "repository",
-                                "url"              => $dataset_uri,
-				"data_type"        => "metrics_reference",
-				"description"      => $obj->description,
-                                "oeb_dataset_id"   => $obj->_id,
-                                "oeb_community_ids"=> (array) $obj->community_ids
-                              ));
-                              */
-                            ?>
-                            <!-- <a <?php //if(!$dataset_uri){echo 'class="disabled" style="opacity: 0.4;"';}?> href="applib/getData.php?<?php //echo $GET_metadata; ?>">
-                              <i class="font-green fa fa-download tooltips disabled" aria-hidden="true" style="font-size:22px;" data-container="body" data-html="true" data-placement="right" data-original-title="<p align='left' style='margin:0'>Import dataset to workspace</p>"></i></a> -->
+                <td style="vertical-align:middle;">
+                <?php
+                  //$dataset_uri = ($obj->datalink->uri? $obj->datalink->uri:"");
+			          ?>
 
-			    <!-- Send via POST url and metadata to getData.php -->
+			  <!-- Send via POST url and metadata to dataMaterialize -->
 
-			    <form action="applib/getData.php" method="post">
-				<input type="hidden" name="uploadType"        value="repository"/> 
-				<input type="hidden" name="url"               value="<?php echo htmlspecialchars($dataset_uri);?>" />
-				<input type="hidden" name="data_type"         value="<?php echo htmlspecialchars($obj->type);?>"/>
-				<input type="hidden" name="description"       value="<?php echo htmlspecialchars($obj->description);?>"/>
-				<input type="hidden" name="oeb_dataset_id"    value="<?php echo htmlspecialchars($obj->_id);?>" />
-				<?php foreach((array)$obj->community_ids as $community_id){ ?>
-				    <input type="hidden" name="oeb_community_ids[]" value="<?php echo htmlspecialchars($community_id);?>" />
-				<?php } ?> 
-				<button type="submit" class="btn green dropdown-toggle" value="submit">
-				    <i class="fa fa-download tooltips font-white" data-original-title="Import dataset to workspace"></i>
-				</button>
-			    </form>
-
-                          </td>
-                          
-                        </tr>
-                          
-                        
-                      <?php }
-                     }}  ?>
+			  <form action="tools/dataMaterialize/input.php" method="post">
+				  <input type="hidden" name="uploadType"        value="data-sites"/>
+				  <input type="hidden" name="data_type"         value="<?= htmlspecialchars($obj->type);?>"/>
+				  <input type="hidden" name="description"       value="<?= htmlspecialchars($obj->description);?>"/>
+				  <input type="hidden" name="dataset_id"        value="<?= htmlspecialchars($obj->_id);?>" />
+  				<button type="submit" class="btn green dropdown-toggle" value="submit">
+				    <i class="fa fa-download tooltips font-white" data-original-title="Materialize datasets"></i>
+	  			</button>
+		    </form>
+        </td>
+                </tr>
+        <?php
+            }
+          }
+        ?>
 
                   </tbody>
                 </table>
@@ -208,8 +189,3 @@ $communities = getCommunities();
 
     require "../htmlib/footer.inc.php";
     require "../htmlib/js.inc.php";
-    
-    
-    
-
-    ?>
