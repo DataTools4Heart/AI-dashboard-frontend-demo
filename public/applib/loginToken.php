@@ -85,10 +85,10 @@ if (!isset($_GET['code'])) {
     if($user){
         // remediate resource user, if needed 
         if (!isset($resourceOwner['vre_id'])){
-            // inject user['id'] into auth server (keycloak) as 'vre_id' (so APIs will find it in /openid-connect/userinfo endpoint)
-		$r = injectMugIdToKeycloak($resourceOwner['email'],$user['id']);
-            if (!$r)
-                $_SESSION['errorData']['Error'][] = "Central authorization Server has no 'vre_id' for '".$resourceOwner['email'];
+	    // inject user['id'] into auth server (keycloak) as 'vre_id' (so APIs will find it in /openid-connect/userinfo endpoint)
+	    #$r = injectMugIdToKeycloak($resourceOwner['email'],$user['id']);
+            #if (!$r)
+            #    $_SESSION['errorData']['Error'][] = "Central authorization Server has no 'vre_id' for '".$resourceOwner['email'];
         }
         redirect("../home/redirect.php");
     }else{
