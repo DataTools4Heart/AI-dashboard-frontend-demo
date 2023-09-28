@@ -1,4 +1,4 @@
-[{
+{
   "_id": "wget",
   "title": "Remote file retrieving from URLs",
   "name": "Get remote file",
@@ -77,7 +77,7 @@
       }
     }
   ]
-},
+}
 {
   "_id": "siteDiscovery",
   "name": "DT4H Site discovery",
@@ -148,7 +148,7 @@
       }
     }
   ]
-},
+}
 {
   "_id": "dataDiscovery",
   "name": "DT4H DataSet discovery",
@@ -225,7 +225,7 @@
       }
     }
   ]
-},
+}
 {
   "_id": "dataMaterialize",
   "name": "DT4H Materialize Datasets",
@@ -322,7 +322,7 @@
       }
     }
   ]
-},
+}
 {
   "_id": "dataQuality",
   "name": "DataSet Quality check",
@@ -404,7 +404,7 @@
       }
     }
   ]
-},
+}
 {
   "_id": "FLExperiment",
   "name": "DT4H Generic FL Experiment",
@@ -475,7 +475,7 @@
       }
     }
   ]
-},
+}
 {
   "_id": "FLXGBoost",
   "name": "DT4H XGBoost",
@@ -547,7 +547,7 @@
       }
     }
   ]
-},
+}
 {
   "_id": "FLLogRegression",
   "name": "DT4H Logistic Regression",
@@ -619,4 +619,4 @@
       }
     }
   ]
-}]
+}

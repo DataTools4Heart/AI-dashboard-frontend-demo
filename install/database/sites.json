@@ -1,0 +1,72 @@
+{
+  "_id": "ATH",
+  "name": "Athena Research & Innovation Centre",
+  "type": "comp",
+  "status": 0
+}
+{
+  "_id": "TRANS",
+  "name": "Translated",
+  "type": "comp",
+  "status": 0
+}
+{
+  "_id": "BSC",
+  "name": "Barcelona Supercomputing Center",
+  "type": "comp",
+  "status": 2
+}
+{
+  "_id": "VHIR",
+  "name": "Vall d'Hebron Research Institute",
+  "type": "data",
+  "status": 0
+}
+{
+  "_id": "AUMC",
+  "name": "Amsterdam University Medical Centre",
+  "type": "data",
+  "status": 1
+}
+{
+  "_id": "UMCU",
+  "name": "University Medical Centre Utrecht",
+  "type": "data",
+  "status": 1
+}
+{
+  "_id": "UCLH",
+  "name": "University College London Hospital",
+  "type": "data",
+  "status": 2
+}
+{
+  "_id": "KUH",
+  "name": "Karolinska University Hospital",
+  "type": "data",
+  "status": 2
+}
+{
+  "_id": "ICRC",
+  "name": "St. Anne's University Hospital Brno",
+  "type": "data",
+  "status": 2
+}
+{
+  "_id": "GEM",
+  "name": "Fondazione Policlinico A. Gemelli IRCCS",
+  "type": "data",
+  "status": 2
+}
+{
+  "_id": "BUCH",
+  "name": "Bucharest Emergency Clinical Hospital",
+  "type": "data",
+  "status": 0
+}
+{
+  "_id": "UB",
+  "name": "University of Barcelona",
+  "type": "both",
+  "status": 2
+}
