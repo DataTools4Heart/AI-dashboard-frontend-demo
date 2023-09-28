@@ -1,4 +1,4 @@
-[{
+{
   "_id": "TAR",
   "extension": [
     "TAR",
@@ -6,32 +6,32 @@
     "TBZ",
     "TBZ2"
   ]
-},
+}
 {
   "_id": "JSON",
   "extension": [
     "json"
   ]
-},
+}
 {
   "_id": "TXT",
   "extension": [
     "TXT",
     "LOG"
   ]
-},
+}
 {
   "_id": "CSV",
   "extension": [
     "CSV"
   ]
-},
+}
 {
   "_id": "TSV",
   "extension": [
     "TSV"
   ]
-},
+}
 {
   "_id": "FASTA",
   "extension": [
@@ -39,4 +39,4 @@
     "FA",
     "FN"
   ]
-}]
+}
