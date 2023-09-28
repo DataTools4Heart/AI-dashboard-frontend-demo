@@ -1110,6 +1110,7 @@ class Tooljob {
     public function submit($tool){
 	    switch ($tool['infrastructure']['clouds'][$this->cloudName]['launcher']){
     	    case "SGE":
+    	    case "docker_SGE":
     		    return $this->enqueue($tool);
         		break;
         	    case "PMES":
