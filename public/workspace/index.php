@@ -132,10 +132,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 							</div>
 						<?php }
 
-					if ($_SESSION['User']['Type'] == 3) {
-
-						?>
-
+					if ($_SESSION['User']['Type'] == 3) {?>
 							<div class="profile-content">
 								<div class="row">
 									<div class="col-md-12">
@@ -150,8 +147,6 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											</div>
 											<div class="portlet-body">
 												<div class="tab-content">
-
-
 													<div class="tab-pane active" id="tab_1_1">
 														<div class="input-group">
 															<input id="mt-target-1" type="text" class="form-control" value="<?php echo $GLOBALS['URL'] . "?id=" . $_SESSION['User']['_id']; ?>" readonly style="background:#fff;">
@@ -160,36 +155,25 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 															</span>
 														</div>
 														<br />
-
 													</div>
-
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+			<?php }
+			// show Error messages
+			print printErrorDivision();
 
-						<?php
-
-					}
-
-						// show Error messages
-						print printErrorDivision();
-
-
-						// fetch tool of lists
-						$toolsList = getTools_List();
-						sort($toolsList);
-						?>
-
+			// fetch tool of lists
+			$toolsList = getTools_List();
+			sort($toolsList);
+			?>
 							<!-- BEGIN EXAMPLE TABLE PORTLET -->
-
 							<div class="row">
 								<div class="col-md-12 col-sm-12">
-
 									<div class="portlet light bordered">
-
 										<div class="portlet-title">
 											<div class="caption">
 												<i class="icon-share font-dark hide"></i>
@@ -201,7 +185,6 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 										</div>
 
 										<div class="portlet-body">
-
 											<div class="input-group" style="margin-bottom:20px;">
 												<span class="input-group-addon" style="background:#ce0d1b;"><i class="fa fa-wrench font-white"></i></span>
 												<select class="form-control" style="width:100%;" onchange="loadWSTool(this)">
@@ -218,7 +201,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											<form name="gesdir" action="workspace/workspace.php" method="post" enctype="multipart/form-data">
 												<input type="hidden" name="op" value="" />
 												<input type="hidden" id="base-url" value="<?php echo $GLOBALS['BASEURL']; ?>" />
-											<?php
+										<?php
 											if (isset($_REQUEST["userId"])){
 												print "<input type=\"hidden\" id=\"userId\" value=\"".$_SESSION['userId']."\">";
 											}
@@ -232,7 +215,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											// print FILES in TABLE
 
 											print printTable($files);
-											?>
+										?>
 
 											</form>
 											<!--<button class="btn green" type="submit" id="btn-run-files" style="margin-top:20px;" >Run Selected Files</button>-->
@@ -256,7 +239,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 									</div>
 									<div class="actions" style="display:none!important;" id="btn-av-tools">
 										<div class="btn-group">
-											<a class="btn btn-sm blue-madison" href="javascript:;" data-toggle="dropdown">
+											<a class="btn btn-sm red" href="javascript:;" data-toggle="dropdown">
 												<i class="fa fa-cogs"></i> Actions
 												<i class="fa fa-angle-down"></i>
 											</a>
@@ -268,14 +251,14 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											</ul>
 										</div>
 										<div class="btn-group">
-											<a class="btn btn-sm purple-intense" id="visualization" href="javascript:;" data-toggle="dropdown">
+											<a class="btn btn-sm red" id="visualization" href="javascript:;" data-toggle="dropdown">
 												<i class="fa fa-eye"></i> Visualization
 												<i class="fa fa-angle-down"></i>
 											</a>
 											<ul class="dropdown-menu pull-right" id="visualizers_list" role="menu"> </ul>
 										</div>
 										<div class="btn-group">
-											<a class="btn btn-sm blue-dark" id="av_tools" href="javascript:;" data-toggle="dropdown">
+											<a class="btn btn-sm red" id="av_tools" href="javascript:;" data-toggle="dropdown">
 												<i class="fa fa-wrench"></i> Available Tools
 												<i class="fa fa-angle-down"></i>
 											</a>
@@ -313,6 +296,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 					$toolsList = getTools_List();
 					//var_dump($toolsHelp);
 					sort($toolsList);
+
 					?>
 
 
@@ -609,13 +593,13 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 					<div class="modal-content">
 						<div class="modal-header">
 							<h4 class="modal-title"></h4>
-							Welcome to MuG Virtual Research Environment!
+							Welcome to DT4H Virtual Research Environment!
 						</div>
 						<div class="modal-body">
 							<!--As an <strong>anonymous user</strong>, you can access to all VRE functionalities, yet your workpace is not permanent!<br/>
 If you want to <strong>re-use your session</strong>, make sure you save the <strong><em>'Restore link'</em></strong> that appears on your workspace. Otherwise, your data will be unreachable in the moment the session ends. <br/>
 														<img source=""/>-->
-							As an <strong>anonymous user</strong>, you can access to all VRE functionalities, yet your workspace is not permanent!
+							As an <strong>anonymous user</strong>, you can access to all functionalities, yet your workspace is not permanent!
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn dark btn-outline" data-dismiss="modal">Understood</button>
