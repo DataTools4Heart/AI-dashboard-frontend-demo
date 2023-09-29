@@ -3,7 +3,6 @@
 require __DIR__ . "/../../config/bootstrap.php";
 redirectOutside();
 
-
 // Print header
 
 require "../htmlib/header.inc.php";
@@ -204,7 +203,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 										<div class="portlet-body">
 
 											<div class="input-group" style="margin-bottom:20px;">
-												<span class="input-group-addon" style="background:#5e738b;"><i class="fa fa-wrench font-white"></i></span>
+												<span class="input-group-addon" style="background:#ce0d1b;"><i class="fa fa-wrench font-white"></i></span>
 												<select class="form-control" style="width:100%;" onchange="loadWSTool(this)">
 													<option value="">Filter files by tool</option>
 													<?php foreach ($toolsList as $tl) { ?>
@@ -216,19 +215,18 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											<div id="loading-datatable">
 												<div id="loading-spinner">LOADING</div>
 											</div>
-
 											<form name="gesdir" action="workspace/workspace.php" method="post" enctype="multipart/form-data">
 												<input type="hidden" name="op" value="" />
 												<input type="hidden" id="base-url" value="<?php echo $GLOBALS['BASEURL']; ?>" />
 											<?php
 											if (isset($_REQUEST["userId"])){
-												print "input type=\"hidden\" id=\"userId\" value=\"".$_SESSION['userId']."\"";
+												print "<input type=\"hidden\" id=\"userId\" value=\"".$_SESSION['userId']."\">";
 											}
 											if (isset($_REQUEST["tool"])){
-												print "input type=\"hidden\" id=\"toolSelected\" value=\"".$_REQUEST['tool']."\"";
+												print "<input type=\"hidden\" id=\"toolSelected\" value=\"".$_REQUEST['tool']."\">";
 											}
 											if (isset($_REQUEST["from"])){
-												print "<input type=\"hidden\" id=\"from\" value=\"".$_REQUEST['from']."\"";
+												print "<input type=\"hidden\" id=\"from\" value=\"".$_REQUEST['from']."\">";
 											}
 
 											// print FILES in TABLE
