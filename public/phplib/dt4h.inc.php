@@ -4,5 +4,10 @@ function getSitesInfo($type="") {
     if ($type) {
         $query = ["type"=> $type];
     }
-    return iterator_to_array($GLOBALS['sitesCol']->find($query));
+    return iterator_to_array($GLOBALS['sitesCol']->find(
+        $query,
+        $options=[
+            "sort"=>["_id"=>1]
+        ]
+    ));
 }
