@@ -8,9 +8,9 @@ redirectOutside();
 
 $dt4hsites = getSitesInfo();
 
-$status = ['down', 'in progress', 'active'];
+$progress = ['pending', 'testing', 'active'];
 $types = ['comp'=> 'Computational', 'data'=> 'Data', 'both'=>'Data & Computational'];
-
+$status = ['inactive', 'active'];
 // Print page
 
 ?>
@@ -103,6 +103,7 @@ $types = ['comp'=> 'Computational', 'data'=> 'Data', 'both'=>'Data & Computation
                       <th> Site Id </th>
                       <th> Full Name </th>
                       <th> Type </th>
+                      <th> Progress </th>
                       <th> Status </th>
                       <th> Resources </th>
                     </tr>
@@ -115,8 +116,14 @@ $types = ['comp'=> 'Computational', 'data'=> 'Data', 'both'=>'Data & Computation
                         <td> <?= $obj["_id"] ?> </td>
                         <td> <?= $obj["name"] ?> </td>
                         <td> <?= $types[$obj["type"]] ?> </td>
+                        <td> <?= $progress[$obj["progress"]] ?> </td>
                         <td> <?= $status[$obj["status"]] ?> </td>
-			            <td> <?= $obj["resources"]; ?> </td>
+			                  <td>
+                          CPUs: <?= $obj["cpu_count"]?> (<?=$obj['cpu_percent']?>%),
+                          GPUs <?= $obj['gpu_count']?>,
+                          Free RAM: <?= $obj['memory']['available']?>/<?= $obj['memory']['total']?>,
+                          Conn: <?=$obj["outbound_connectivity"]?>
+                        </td>
                     </tr>
                 <?php } ?>
 
