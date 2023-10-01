@@ -8,10 +8,10 @@ class Tooljob {
     public $project;           // User defined. Correspond to the project
     public $toolId;
     public $pub_dir;           // Public dir mounted to VMs. Path as seen by VRE
-    public $root_dir;          // User dataDir. Mounted to VMs in PMES. Already there in SGE. Path as seen by VRE 
+    public $root_dir;          // User dataDir. Mounted to VMs in PMES. Already there in SGE. Path as seen by VRE
     public $root_dir_virtual;  // User dataDir. Mounted to VMs in PMES. Already there im SGE. Path as seen by VMs
-    public $root_dir_mug;      // MuG  dataDir parent of user dataDir. Mounted to VMs in PMES. Already there im SGE. Path as seen by VMs 
-    public $pub_dir_virtual;   // Public dir mounted to VMs. Path as seen by VMs  
+    public $root_dir_mug;      // MuG  dataDir parent of user dataDir. Mounted to VMs in PMES. Already there im SGE. Path as seen by VMs
+    public $pub_dir_virtual;   // Public dir mounted to VMs. Path as seen by VMs
     public $cloudName;         // Cloud name where tool should be executed. Available clouds set in GLOBALS['clouds']
     public $description;
     public $working_dir;
@@ -48,7 +48,7 @@ class Tooljob {
      * @param string $toolId Tool Id as appears in Mongo
     */
     public function __construct($tool,$execution="",$project="",$descrip="",$output_dir=""){
-    
+
 
     	// Setting Tooljob
     	$this->toolId    = $tool['_id'];
@@ -80,7 +80,7 @@ class Tooljob {
 
     	// Creating execution folder
         if ($execution != "0"){
-            //create Project Folder 
+            //create Project Folder
             $this->hasExecutionFolder = true;
             $this->__setWorking_dir($execution);
             $this->output_dir = $this->working_dir;
@@ -90,7 +90,7 @@ class Tooljob {
             $this->__setWorking_inTmp($tool['_id']);
             $this->output_dir = $output_dir;
         }
-    
+
         // Set description
         if ($descrip != "")
     		$this->setDescription($descrip,$tool['name']);
@@ -114,7 +114,7 @@ class Tooljob {
 
 
     /**
-     * Fetch tool entry in Mongo 
+     * Fetch tool entry in Mongo
      * @param string $toolId Tool Id as appears in Mongo
     */
     protected function getTool($toolId){
@@ -174,7 +174,7 @@ class Tooljob {
 	    $dataDirPath = getAttr_fromGSFileId($_SESSION['User']['dataDir'],"path");
     	$wdFN   = $dataDirPath."/$execution";
     	$wd     = $GLOBALS['dataDir']."/$wdFN";
-	
+
     	if (!$overwrite){
     		$prevs = $GLOBALS['filesCol']->findOne(array('path' => $wdFN, 'owner' => $_SESSION['User']['id']));
     		if ($prevs){
@@ -247,11 +247,11 @@ class Tooljob {
     	}
     	$dirfn = str_replace($GLOBALS['dataDir']."/","",$this->working_dir);
 
-    
+
         $hasExecutionFolder = $this->hasExecutionFolder;
     	// create working dir - disk and db
     	if (!is_dir($this->working_dir)){
-    	
+
             if ($hasExecutionFolder){
             	$dirId = createGSDirBNS($dirfn);
 	        	if ($dirId=="0"){
@@ -275,7 +275,7 @@ class Tooljob {
 		        return 0;
     			//if ($dirId=="0")
     			//	$_SESSION['errorData']['Error'][]="Cannot create execution folder: already in disk but not in mongo. Try using a new execution name other than ".basename($this->working_dir);
-    	
+
     			//$this->_id = $dirId;
 	    	}else{
     			$this->_id = 1;
@@ -288,11 +288,11 @@ class Tooljob {
     	        	$_SESSION['errorData']['Error'][]="Cannot write and set new execution directory: '$this->working_dir' with id '$this->_id'";
     			return 0;
     		}
-    	
+
     	        $input_ids = array();
     	        array_walk_recursive($this->input_files, function($v, $k) use (&$input_ids){ $input_ids[] = $v; });
     	        $input_ids = array_unique($input_ids);
-    	
+
     		$projDirMeta=array(
     			'description'     => $this->description,
     		        'input_files'     => $input_ids,
@@ -318,7 +318,7 @@ class Tooljob {
      * @param array $tool Fill in config file: input_files, arguments and output_files
     */
     public function setConfiguration_file($tool){
-	
+
 	$config_rfn = $this->config_file;
 
 	if (!$this->working_dir){
@@ -445,9 +445,9 @@ class Tooljob {
 			break;
 		    case "boolean":
 			if ($arg_value===true || $arg_value=="on" || $arg_value == "1" || $arg_value == 1)
-				$arg_value=true;	
+				$arg_value=true;
 			elseif ($arg_value===false || $arg_value=="off"|| $arg_value == "0" || $arg_value == 0 )
-				$arg_value=false;	
+				$arg_value=false;
 			else{
 			    $_SESSION['errorData']['Error'][]="Invalid argument. In '$arg_name' a boolean was expected, but found: $arg_value";
 		 	    return 0;
@@ -480,9 +480,9 @@ class Tooljob {
 		 	return 0;
 		}
 	    }
-	    // setting arguments 
+	    // setting arguments
 	    $this->arguments[$arg_name]=$arg_value;
-		
+
 	}
         return 1;
     }
@@ -509,7 +509,7 @@ class Tooljob {
 			if (!isset($tool['input_files'][$input_name])){
 				$_SESSION['errorData']['Internal'][]="Input file '$input_name' not found in tool definition. '$this->toolId' is not properly registered";
 				return 0;
-            } 
+            }
             // checking required value not empty
 			if (!$fn){
 			    if ($tool['input_files'][$input_name]['required'] === true ){
@@ -533,7 +533,7 @@ class Tooljob {
 				$_SESSION['errorData']['Error'][]="Input file '$input_name' not valid. Stopping '$this->toolId' execution";
 				return 0;
             }*/
-		    }   
+		    }
 	    }
         // setting input_files
         if (count($fns)){
@@ -612,7 +612,7 @@ class Tooljob {
 
     /**
      * Store its metadata in Tooljob for recovering it latter, while stageout register
-     * Needed when tool has not APP (internal), and no out_metadata is generated. 
+     * Needed when tool has not APP (internal), and no out_metadata is generated.
      * @param array $outs Array of outputfiles
      * @param array $tool Tool array containing input_files type and requirements TODO
      * @param array $metadata Files metadata extracted from DB TODO
@@ -626,7 +626,7 @@ class Tooljob {
 	foreach ($out_files['output_files'] as $out_name => $info){
 		//Validate out_files against tool document
 		//TODO
-		
+
 		//Add output file metadata
 		$this->stageout_data['output_files'][$out_name]=$info;
 	}
@@ -768,11 +768,11 @@ class Tooljob {
 		$r = $this->setConfiguration_file($tool);
 		if ($r=="0")
 		    return 0;
-	
+
 		$this->setMetadata_file($metadata,$metadata_pub);
 		if ($r=="0")
 		    return 0;
-	
+
 		if (!is_file($this->config_file) && !is_file($this->metadata_file) ){
 			$_SESSION['errorData']['Internal Error'][]="Cannot set tool command line. It required configuration file ($this->config_file) and metadata file ($this->metadata_file)";
 	            	return 0;
@@ -783,8 +783,8 @@ class Tooljob {
 			$cmd  = $this->setBashCmd_SGE($tool);
 			if (!$cmd)
 				return 0;
-	
-			$submission_rfn = $this->createSubmitFile_SGE($cmd); 
+
+			$submission_rfn = $this->createSubmitFile_SGE($cmd);
 			if (!is_file($submission_rfn))
 				return 0;
 			break;
@@ -808,32 +808,32 @@ class Tooljob {
 			if (!is_file($submission_rfn))
 				return 0;
 			break;
-	
+
 		    default:
 			$_SESSION['errorData']['Error'][]="Tool '$this->toolId' not properly registered. Launcher for '$this->toolId' is set to \"$launcher\". Case not implemented.";
 			return 0;
 		}
 
-		return 1;	
+		return 1;
 
 	//internal tool
 	}elseif ($tool['external'] === false){
 
 		switch ($launcher){
-	
+
 		    case "SGE":
 			$cmd = $this->setBashCmd_withoutApp($tool,$metadata);
 			if (!$cmd)
 				return 0;
 
-			$submission_rfn = $this->createSubmitFile_SGE($cmd); 
+			$submission_rfn = $this->createSubmitFile_SGE($cmd);
 			if (!is_file($submission_rfn))
 				return 0;
 			break;
-		
+
 		    case "PMES":
 			//TODO
-	
+
 		    default:
 			$_SESSION['errorData']['Error'][]="Internal Tool '$this->toolId' not properly registered. Launcher for '$this->toolId' is set to \"$launcher\". Case not implemented.";
 			return 0;
@@ -861,7 +861,7 @@ class Tooljob {
             return 0;
 	}
 	#docker run --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /home/user/dockerized_vre/volumes/shared_data/public:/shared_data/public -v /home/user/dockerized_vre/volumes/shared_data/userdata/user1:/shared_data/userdata/user1 re /response_estimation/VRE_RUNNER --config /shared_data/userdata/user1/proj1/runlaia/config.json --in_metadata /shared_data/userdata/user1/proj1/runlaia/in_metadata.json --out_metadata /shared_data/userdata/user1/proj1/runlaia/out_metadata.json --log_file /shared_data/userdata/user1/proj1/runlaia/VRE_RUNNER.log
-	
+
 
 	$cmd_vre = $tool['infrastructure']['executable'] .
                                 " --config "         .$this->config_file_virtual .
@@ -888,12 +888,12 @@ class Tooljob {
             return 0;
 	}
 
-	//Setting defaults from tool definition 
+	//Setting defaults from tool definition
 	if (!isset($tool['infrastructure']['wallTime']) )
 	   $tool['infrastructure']['wallTime'] = "1440"; // 24h
 
     if (!isset($tool['infrastructure']['interpreter'])){
-        $tool['infrastructure']['interpreter']="";  // only required if "Single". Examples:  "bash", "python3" 
+        $tool['infrastructure']['interpreter']="";  // only required if "Single". Examples:  "bash", "python3"
     }
     $cloud   = $tool['infrastructure']['clouds'][$this->cloudName];
 
@@ -915,7 +915,7 @@ class Tooljob {
 		$tool['infrastructure']['cpus']     = $flavor['cpus'];
         $this->imageType = $flavor;
     }
-    
+
 
 	//Setting PMES execution user (name,uid,gid, token)
 	exec("stat  -c '%u:%g' ".$this->working_dir,$stat_out);
@@ -925,7 +925,7 @@ class Tooljob {
     $token_id="";
     if ($GLOBALS['clouds'][$this->cloudName]['auth']['required']){
             switch ($this->cloudName){
-                // get openstack token 
+                // get openstack token
                 case 'mug-ebi':
                     $token=0;
                     // get token from session
@@ -947,7 +947,7 @@ class Tooljob {
                     }
                     $token_id= $token['id'];
                     break;
-                
+
                 // other clouds are opennebula. Auth via certs instead of tokens
                 default:
                     $_SESSION['errorData']['Error']= "Cannot submit job. Requested cloud ($this->cloudName) requires authorization but no credentials found for VRE.";
@@ -963,13 +963,13 @@ class Tooljob {
 	//Building PMES json data
 	$data = array(
 		   array(
-		"jobName"          => $this->execution, 
+		"jobName"          => $this->execution,
         "compssWorkingDir" => $this->root_dir_virtual."/".$this->project."/".$this->execution,
 
-        "wallTime"   => $tool['infrastructure']['wallTime'], 
+        "wallTime"   => $tool['infrastructure']['wallTime'],
 		"memory"     => $tool['infrastructure']['memory'],
 		"cores"      => $tool['infrastructure']['cpus'],
-		"minimumVMs" => $cloud['minimumVMs'], 
+		"minimumVMs" => $cloud['minimumVMs'],
 		"maximumVMs" => $cloud['maximumVMs'],
 		"limitVMs"   => $cloud['limitVMs'],
 		"initialVMs" => $cloud['initialVMs'],
@@ -981,12 +981,12 @@ class Tooljob {
 				    array("target"     => $this->root_dir_virtual,
 					   "device"     => $GLOBALS['clouds'][$this->cloudName]['dataDir_fs']."/".$_SESSION['User']['id'],
 					   "permissions"=> "rw"
-				    ), 
+				    ),
 				    array( "target"     => $this->pub_dir_virtual,
 					   "device"     => $GLOBALS['clouds'][$this->cloudName]['pubDir_fs'],
 					   "permissions"=> "r"
 				    )
-				), 
+				),
 		"numNodes"   => "1",                                           //TODO OBSOLETE?
 		"user"       => array (
               			"username"   => $user_name,                     // PMES creates /home/username/
@@ -999,7 +999,7 @@ class Tooljob {
 					)
 				),
 		"img"        => array(
-				"imageName" => $cloud['imageName'], 
+				"imageName" => $cloud['imageName'],
 				"imageType" => $cloud['imageType']
 				),
       	"app"        => array(
@@ -1016,10 +1016,10 @@ class Tooljob {
                         "out_metadata"=> $this->stageout_file_virtual
 						),
         			"type" => $cloud['workflowType']    // COMPSs || Single
-				),				
+				),
 	  //"compss_flags" => array( "flag" => " -g --summary --base_log_dir=".$this->root_dir_virtual."/".$this->execution)
         "compss_flags" => array( "flag" => " -g --summary -d "),
-        "compssLogDir" => $this->root_dir_virtual."/".$this->project."/".$this->execution 
+        "compssLogDir" => $this->root_dir_virtual."/".$this->project."/".$this->execution
 
 		)
     );
@@ -1070,11 +1070,11 @@ class Tooljob {
 	fwrite($fout, "#!/bin/bash\n");
 	fwrite($fout, "# Generated by MuG VRE\n");
 	fwrite($fout, "cd $working_dir\n");
-	
+
 	fwrite($fout, "\n# Running $this->toolId tool ...\n");
 	fwrite($fout, "\necho '# Start time:' \$(date) > $log_rfn\n");
 
-	
+
 	fwrite($fout, "\n$cmd >> $log_rfn 2>&1\n");
 	fwrite($fout, "\necho '# End time:' \$(date) >> $log_rfn\n");
 	fclose($fout);
@@ -1099,12 +1099,12 @@ class Tooljob {
 	}
 	fwrite($fout, json_encode($data,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 	fclose($fout);
-	
+
 	return $json_rfn;
     }
 
     /**
-     * Submits 
+     * Submits
      * @param string $inputs_request _REQUEST data from inputs.php form
     */
     public function submit($tool){
@@ -1121,16 +1121,16 @@ class Tooljob {
     		    return 0;
     	}
 	    return 1;
-    }	    
+    }
 
 
     protected function enqueue($tool){
-	
+
     	logger("");
     	$memory = $tool['infrastructure']['memory'];
     	$cpus   = $tool['infrastructure']['cpus'];
     	$queue  = $tool['infrastructure']['clouds'][$this->cloudName]['queue'];
-    
+
     	list($pid,$errMesg) = execJob($this->working_dir, $this->submission_file, $queue, $cpus, $memory);
         if (!$pid){
             log_addError($pid,$errMesg,NULL, $this->toolId,$this->cloudName,"SGE",$cpus,$memory);
@@ -1139,7 +1139,7 @@ class Tooljob {
         }
         logger("USER:".$_SESSION['User']['_id'].", ID:".$_SESSION['User']['id'].", LAUNCHER:SGE, TOOL:".$this->toolId.", PID:$pid");
         log_addSubmission($pid,$this->toolId,$this->cloudName,"SGE",$cpus,$memory,$this->working_dir);
-    
+
     	$this->pid = $pid;
         return $pid;
     }
@@ -1169,12 +1169,12 @@ class Tooljob {
         if (preg_match('/^\//',$path)){
             return preg_replace('/^\//',"",str_replace($GLOBALS['dataDir']."/".$_SESSION['User']['id']."/","",$path));
         }else{
-            return preg_replace('/^\//',"",str_replace($_SESSION['User']['id']."/","",$path)); 
+            return preg_replace('/^\//',"",str_replace($_SESSION['User']['id']."/","",$path));
         }
-    }   
+    }
 
     /**
-     * Convert internal VRE file format into DM MuG file  
+     * Convert internal VRE file format into DM MuG file
      * @file  VRE file object, resulting from merging MuGVRE Mongo collections Files + FilesMetadata
     */
     protected function fromVREfile_toMUGfile($file) {
@@ -1259,17 +1259,17 @@ class Tooljob {
         unset($file['path']);
         unset($file['mtime']);
         unset($file['format']);
-        unset($file['data_type']); 
-        unset($file['tracktype']); 
-        unset($file['submission_file']); 
-        unset($file['log_file']); 
+        unset($file['data_type']);
+        unset($file['tracktype']);
+        unset($file['submission_file']);
+        unset($file['log_file']);
         unset($file['input_files']);
         unset($file['owner']);
 
 		// other -> meta_data
                 $mugfile['meta_data']  = $file;
 
-		// refGenome -> assembly	
+		// refGenome -> assembly
                 if (isset($mugfile['meta_data']['refGenome']) ){
                         $mugfile['meta_data']['assembly'] = $mugfile['meta_data']['refGenome'];
 			unset($mugfile['meta_data']['refGenome']);
@@ -1293,7 +1293,7 @@ class Tooljob {
      	    }
 	}
 	return $obj;
-    } 
+    }
 
 
     /**
@@ -1306,7 +1306,7 @@ class Tooljob {
 		$_SESSION['errorData']['Error'][] = "Internal Error: No cloud infrastructure available in the current VRE installation.";
 		return 0;
 	}
-	
+
 	if (isset($tool['infrastructure']['clouds'])){
 		// 1, set cloudName from default cloud, as tool specifies
 		foreach ($tool['infrastructure']['clouds'] as $name=>$toolInfo){
@@ -1405,7 +1405,7 @@ class Tooljob {
                     continue;
                 }
                 // get fn and  metadata from DMP #TODO : right now this data is not registered!!
-                
+
                 // create fake metadata
             	$fn  = createLabel()."_dummy";
                 $file = array(
@@ -1438,7 +1438,7 @@ class Tooljob {
     }
 
     /**
-     * Assign tool VM size (image type) according the demanded CPUS and RAM 
+     * Assign tool VM size (image type) according the demanded CPUS and RAM
      * @cpus integer requested VM cores
      * @mem  integer requested VM RAM memory
     */
@@ -1448,7 +1448,7 @@ class Tooljob {
        $mem         = 0;
 
        // if not flavors list defined, complain and try default flavor
-        
+
        if (!count($GLOBALS['clouds'][$this->cloudName]['imageTypes'])){
            $cpus        = 4;
            $mem         = 8;
@@ -1501,7 +1501,7 @@ class Tooljob {
     */
     public function parseSubmissionFile(){
 	return 1;
-	
+
     }
 }
 ?>

@@ -22,17 +22,16 @@ if ($debug){
 	var_dump($_REQUEST['input_files_public_dir']);
 	print "<br/>";
 	foreach ($_REQUEST as $k=>$v){
-	if ($k!="arguments" && $k!="input_files" && $k!="input_files_public_dir" && $k!="fn"){
-		print "<br/><br/>REQUEST[$k]</br>";
-		var_dump($v);
-	}
+		if ($k!="arguments" && $k!="input_files" && $k!="input_files_public_dir" && $k!="fn"){
+			print "<br/><br/>REQUEST[$k]</br>";
+			var_dump($v);
+		}
 	}
 }
 //
 // Get tool.
 
 $tool = getTool_fromId($_REQUEST['tool'],1);
-
 
 
 if (empty($tool)){
@@ -55,7 +54,7 @@ if (!isset($_REQUEST['execution']) || !isset($_REQUEST['project'])){
     redirect($GLOBALS['BASEURL']."workspace/");
 }
 
-$jobMeta  = new Tooljob($tool,$_REQUEST['execution'],$_REQUEST['project'],$_REQUEST['description']); 
+$jobMeta  = new Tooljob($tool,$_REQUEST['execution'],$_REQUEST['project'],$_REQUEST['description']);
 
 if ($debug){
 	print "<br/>NEW TOOLJOB SET:</br>";
@@ -65,7 +64,7 @@ if ($debug){
 //
 // Check input file requirements
 
-if (!isset($_REQUEST['input_files'])){
+if (!isset($_REQUEST['input_files']) && !isset($_REQUEST['input_files_public_dir'])) {
     $_SESSION['errorData']['Error'][]="Tool is not receiving input files. Please, select them from your workspace table.";
     redirect($GLOBALS['BASEURL']."workspace/");
 }
@@ -75,7 +74,7 @@ if (!isset($_REQUEST['input_files'])){
 //
 // Get input_files medatada (with associated_files)
 
-$files   = Array(); // distinct file Objs to stage in 
+$files   = Array(); // distinct file Objs to stage in
 
 $filesId = Array();
 foreach($_REQUEST['input_files'] as $input_file){
@@ -104,7 +103,7 @@ foreach ($filesId as $fnId){
 	    }
     	$files[$assocFile['_id']]=$assocFile;
     }
-	
+
 }
 
 if ($debug){
@@ -203,7 +202,7 @@ if($r == 0){
 //
 // Launching Tooljob
 
-$pid = $jobMeta->submit($tool);		
+$pid = $jobMeta->submit($tool);
 
 if ($debug)
 	echo "<br/></br>JOB SUBMITTED. PID = $pid<br/>";
