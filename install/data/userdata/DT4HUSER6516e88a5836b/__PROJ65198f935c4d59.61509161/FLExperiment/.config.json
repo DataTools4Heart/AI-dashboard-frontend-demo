@@ -1,0 +1,65 @@
+{
+    "input_files": [
+        {
+            "name": "parameters",
+            "value": "DT4HUSER6516e88a5836b_651997cce21bb7.08802457",
+            "required": true,
+            "allow_multiple": false
+        },
+        {
+            "name": "datasets",
+            "value": "DT4HUSER6516e88a5836b_651990b62eb140.68949617",
+            "required": true,
+            "allow_multiple": true
+        },
+        {
+            "name": "datasets",
+            "value": "DT4HUSER6516e88a5836b_651990c2c4d978.82085325",
+            "required": true,
+            "allow_multiple": true
+        },
+        {
+            "name": "datasets",
+            "value": "DT4HUSER6516e88a5836b_651990ce3a0d92.00664990",
+            "required": true,
+            "allow_multiple": true
+        },
+        {
+            "name": "datasets",
+            "value": "DT4HUSER6516e88a5836b_651990da562999.17552920",
+            "required": true,
+            "allow_multiple": true
+        }
+    ],
+    "arguments": [
+        {
+            "name": "execution",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/FLExperiment"
+        },
+        {
+            "name": "project",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/FLExperiment"
+        },
+        {
+            "name": "description",
+            "value": null
+        }
+    ],
+    "output_files": [
+        {
+            "name": "Final_coefficients",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "JSON",
+                "data_type": "ML_DL_coefficients",
+                "meta_data": {
+                    "visible": true,
+                    "tool": "FLExperiment",
+                    "description": "Final coefficients"
+                },
+                "file_path": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/FLExperiment/FL_Coefficients.json"
+            }
+        }
+    ]
+}

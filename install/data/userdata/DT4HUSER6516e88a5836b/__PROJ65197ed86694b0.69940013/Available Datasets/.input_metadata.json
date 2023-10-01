@@ -1,0 +1,31 @@
+[
+    {
+        "_id": "DT4HUSER6516e88a5836b_6519805d92e6d1.42811715",
+        "file_path": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197ed86694b0.69940013/uploads/simple_FE_file.json",
+        "file_type": "JSON",
+        "data_type": "FE_Query",
+        "compressed": 0,
+        "sources": [],
+        "user_id": "DT4HUSER6516e88a5836b",
+        "creation_time": {
+            "$date": {
+                "$numberLong": "1696170077000"
+            }
+        },
+        "taxon_id": 0,
+        "meta_data": {
+            "expiration": {
+                "$date": {
+                    "$numberLong": "1711894877000"
+                }
+            },
+            "parentDir": "/shared_data/userdata//DT4HUSER6516e88a5836b/DT4HUSER6516e88a5836b/__PROJ65197ed86694b0.69940013/uploads",
+            "project": "__PROJ65197ed86694b0.69940013",
+            "size": 169,
+            "validated": 1,
+            "description": "Simple list of features",
+            "taxon_id": 0,
+            "visible": true
+        }
+    }
+]

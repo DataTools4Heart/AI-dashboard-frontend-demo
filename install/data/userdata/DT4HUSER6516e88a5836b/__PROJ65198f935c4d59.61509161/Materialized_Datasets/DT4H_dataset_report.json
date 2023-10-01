@@ -1,0 +1,33 @@
+[{
+        "site": "GEM",
+        "datasets": [{
+            "id": "DT4H100310",
+            "local_path": "userdata/DT4H100310",
+            "metadata": "some_metadata"
+        }]
+    },
+    {
+        "site": "ICRC",
+        "datasets": [{
+            "id": "DT4H100310",
+            "local_path": "userdata/DT4H100310",
+            "metadata": "some_metadata"
+        }]
+    },
+    {
+        "site": "KUH",
+        "datasets": [{
+            "id": "DT4H100310",
+            "local_path": "userdata/DT4H100310",
+            "metadata": "some_metadata"
+        }]
+    },
+    {
+        "site": "UCLH",
+        "datasets": [{
+            "id": "DT4H100310",
+            "local_path": "userdata/DT4H100310",
+            "metadata": "some_metadata"
+        }]
+    }
+]

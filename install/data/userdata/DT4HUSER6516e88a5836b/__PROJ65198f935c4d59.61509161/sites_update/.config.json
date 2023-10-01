@@ -1,0 +1,41 @@
+{
+    "input_files": [
+        {
+            "name": "manifest",
+            "value": "DT4HUSER6516e88a5836b_65198fab6c09d7.96398957",
+            "required": true,
+            "allow_multiple": false
+        }
+    ],
+    "arguments": [
+        {
+            "name": "execution",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/run000"
+        },
+        {
+            "name": "project",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/run000"
+        },
+        {
+            "name": "description",
+            "value": null
+        }
+    ],
+    "output_files": [
+        {
+            "name": "DT4H_dataset_quality_report",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "JSON",
+                "data_type": "data_quality_report",
+                "meta_data": {
+                    "visible": true,
+                    "tool": "dataQuality",
+                    "description": "Report on the quality of selected datasets"
+                },
+                "file_path": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/run000/DT4H_dataset_quality_report.json"
+            }
+        }
+    ]
+}

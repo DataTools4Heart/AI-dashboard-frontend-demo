@@ -1,0 +1,41 @@
+{
+    "input_files": [
+        {
+            "name": "DT4H_sites",
+            "value": "DT4HUSER6516e88a5836b_65197cef1960f5.20670013_dummy",
+            "required": true,
+            "allow_multiple": null
+        }
+    ],
+    "arguments": [
+        {
+            "name": "execution",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197c26792db2.44671219/Available_Datasets"
+        },
+        {
+            "name": "project",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197c26792db2.44671219/Available_Datasets"
+        },
+        {
+            "name": "description",
+            "value": null
+        }
+    ],
+    "output_files": [
+        {
+            "name": "DT4H_dataset_report",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "JSON",
+                "data_type": "data_manifest",
+                "meta_data": {
+                    "visible": true,
+                    "tool": "dataDiscovery",
+                    "description": "Report of materialized datasets"
+                },
+                "file_path": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197c26792db2.44671219/Available_Datasets/DT4H_dataset_report.json"
+            }
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "features": [
+        "gender",
+        "birthdate",
+        "ethnicity",
+        "hemoglobin",
+        "herritin",
+        "BMI",
+        "SpO2"
+    ]
+}

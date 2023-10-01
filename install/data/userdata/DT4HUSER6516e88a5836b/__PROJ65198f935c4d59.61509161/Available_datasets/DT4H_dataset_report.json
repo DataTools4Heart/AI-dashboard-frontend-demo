@@ -1,0 +1,57 @@
+[{
+        "site": "GEM",
+        "datasets": [{
+                "id": "DT4H100299",
+                "local_path": "userdata/DT4H100299",
+                "metadata": "some_metadata"
+            },
+            {
+                "id": "DT4H100300",
+                "local_path": "userdata/DT4H100300",
+                "metadata": "some_metadata"
+            }
+        ]
+    },
+    {
+        "site": "ICRC",
+        "datasets": [{
+                "id": "DT4H100299",
+                "local_path": "userdata/DT4H100299",
+                "metadata": "some_metadata"
+            },
+            {
+                "id": "DT4H100300",
+                "local_path": "userdata/DT4H100300",
+                "metadata": "some_metadata"
+            }
+        ]
+    },
+    {
+        "site": "KUH",
+        "datasets": [{
+                "id": "DT4H100300",
+                "local_path": "userdata/DT4H100300",
+                "metadata": "some_metadata"
+            },
+            {
+                "id": "DT4H100304",
+                "local_path": "userdata/DT4H100304",
+                "metadata": "some_metadata"
+            }
+        ]
+    },
+    {
+        "site": "UCLH",
+        "datasets": [{
+                "id": "DT4H100299",
+                "local_path": "userdata/DT4H100299",
+                "metadata": "some_metadata"
+            },
+            {
+                "id": "DT4H100300",
+                "local_path": "userdata/DT4H100300",
+                "metadata": "some_metadata"
+            }
+        ]
+    }
+]

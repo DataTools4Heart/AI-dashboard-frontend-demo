@@ -1,0 +1,41 @@
+{
+    "input_files": [
+        {
+            "name": "DT4H_sites",
+            "value": "DT4HUSER6516e88a5836b_65197c4ada0310.17887931_dummy",
+            "required": true,
+            "allow_multiple": null
+        }
+    ],
+    "arguments": [
+        {
+            "name": "execution",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197c26792db2.44671219/Sites_Update"
+        },
+        {
+            "name": "project",
+            "value": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197c26792db2.44671219/Sites_Update"
+        },
+        {
+            "name": "description",
+            "value": null
+        }
+    ],
+    "output_files": [
+        {
+            "name": "DT4H_sites_report",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "JSON",
+                "data_type": "site_manifest",
+                "meta_data": {
+                    "visible": true,
+                    "tool": "siteDiscovery",
+                    "description": "Report ot status and resources"
+                },
+                "file_path": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197c26792db2.44671219/Sites_Update/DT4H_sites_report.json"
+            }
+        }
+    ]
+}

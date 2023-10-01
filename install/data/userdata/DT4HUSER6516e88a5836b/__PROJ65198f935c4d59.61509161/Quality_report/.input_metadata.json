@@ -1,0 +1,31 @@
+[
+    {
+        "_id": "DT4HUSER6516e88a5836b_65198fab6c09d7.96398957",
+        "file_path": "/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/uploads/DT4H_dataset_report.json",
+        "file_type": "JSON",
+        "data_type": "data_manifest",
+        "compressed": 0,
+        "sources": [],
+        "user_id": "DT4HUSER6516e88a5836b",
+        "creation_time": {
+            "$date": {
+                "$numberLong": "1696173995000"
+            }
+        },
+        "taxon_id": 0,
+        "meta_data": {
+            "expiration": {
+                "$date": {
+                    "$numberLong": "1711898795000"
+                }
+            },
+            "parentDir": "/shared_data/userdata//DT4HUSER6516e88a5836b/DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/uploads",
+            "project": "__PROJ65198f935c4d59.61509161",
+            "size": 763,
+            "validated": 1,
+            "description": "",
+            "taxon_id": 0,
+            "visible": true
+        }
+    }
+]
