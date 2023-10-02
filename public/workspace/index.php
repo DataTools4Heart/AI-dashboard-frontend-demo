@@ -1,4 +1,4 @@
-<?php
+<?phpphp
 
 require __DIR__ . "/../../config/bootstrap.php";
 redirectOutside();
@@ -101,7 +101,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 					</div>
 
 					<div class="input-group" style="float:right; width:200px; margin-right:10px;">
-						<span class="input-group-addon" style="background:#ce0d1b;"><i class="fa fa-sitemap font-white"></i></span>
+						<span class="input-group-addon" style="background:#333741;"><i class="fa fa-sitemap font-white"></i></span>
 						<select class="form-control" id="select_project" onchange="loadProjectWS(this);">
 							<?php foreach ($projects as $p_id => $p) {
 								$selected = (($_SESSION['User']['dataDir'] == $p_id) ? "selected" : ""); ?>
@@ -186,7 +186,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 
 										<div class="portlet-body">
 											<div class="input-group" style="margin-bottom:20px;">
-												<span class="input-group-addon" style="background:#ce0d1b;"><i class="fa fa-wrench font-white"></i></span>
+												<span class="input-group-addon" style="background:#333741;"><i class="fa fa-wrench font-white"></i></span>
 												<select class="form-control" style="width:100%;" onchange="loadWSTool(this)">
 													<option value="">Filter files by tool</option>
 													<?php foreach ($toolsList as $tl) { ?>
@@ -239,7 +239,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 									</div>
 									<div class="actions" style="display:none!important;" id="btn-av-tools">
 										<div class="btn-group">
-											<a class="btn btn-sm red" href="javascript:;" data-toggle="dropdown">
+											<a class="btn btn-sm blue href="javascript:;" data-toggle="dropdown">
 												<i class="fa fa-cogs"></i> Actions
 												<i class="fa fa-angle-down"></i>
 											</a>
@@ -251,14 +251,14 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											</ul>
 										</div>
 										<div class="btn-group">
-											<a class="btn btn-sm red" id="visualization" href="javascript:;" data-toggle="dropdown">
+											<a class="btn btn-sm blue" id="visualization" href="javascript:;" data-toggle="dropdown">
 												<i class="fa fa-eye"></i> Visualization
 												<i class="fa fa-angle-down"></i>
 											</a>
 											<ul class="dropdown-menu pull-right" id="visualizers_list" role="menu"> </ul>
 										</div>
 										<div class="btn-group">
-											<a class="btn btn-sm red" id="av_tools" href="javascript:;" data-toggle="dropdown">
+											<a class="btn btn-sm blue" id="av_tools" href="javascript:;" data-toggle="dropdown">
 												<i class="fa fa-wrench"></i> Available Tools
 												<i class="fa fa-angle-down"></i>
 											</a>
@@ -273,7 +273,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 										<div id="desc-run-tools">In order to run the tools on the files, please select them clicking on the checkboxes from the table above.</div>
 									</div>
 									<div class="scroller-footer">
-										<a class="btn btn-sm red pull-right display-hide" id="btn-rmv-all" href="javascript:;">
+										<a class="btn btn-sm blue pull-right display-hide" id="btn-rmv-all" href="javascript:;">
 											<i class="fa fa-times-circle"></i> Clear all files from list
 										</a>
 									</div>
@@ -640,7 +640,7 @@ If you want to <strong>re-use your session</strong>, make sure you save the <str
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn dark btn-outline" data-dismiss="modal">Cancel</button>
-							<button type="button" class="btn red btn-modal-del">Delete</button>
+							<button type="button" class="btn blue btn-modal-del">Delete</button>
 						</div>
 					</div>
 				</div>
@@ -658,7 +658,7 @@ If you want to <strong>re-use your session</strong>, make sure you save the <str
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn dark btn-outline" data-dismiss="modal">Cancel</button>
-							<button type="button" class="btn red btn-modal-del">Delete</button>
+							<button type="button" class="btn blue btn-modal-del">Delete</button>
 						</div>
 					</div>
 				</div>

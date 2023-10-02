@@ -217,7 +217,7 @@ div.tooltip-inner {
 /* SIDEBAR */
 
 body {
-    background-color: #9b2b33!important;
+    background-color: #333741!important;
 }
 
 .page-sidebar {
@@ -752,8 +752,8 @@ tr.first-tr td {
 .btn.btn-outline.blue:active:hover,
 .btn.btn-outline.blue:focus,
 .btn.btn-outline.blue:hover {
-    background-color: #ce061b;
-    border-color: #ce0d1b;
+    background-color: #333741;
+    border-color: #333741;
 }
 
 .btn.btn-outline.blue {

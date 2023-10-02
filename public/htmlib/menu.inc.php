@@ -232,7 +232,7 @@ sort($visualizers);
 				</li>
 				<li class="nav-item <?php if ($currentSection == 'h2') { ?>active open<?php } ?>">
 					<a href="getdata/dt4hsites.php" class="nav-link ">
-						<span class="title">DT4H Network</span>
+						<span class="title">EUCAIM Network</span>
 					</a>
 				</li>
 				<li class="nav-item  <?php if ($currentSection == 'uw') { ?>active open<?php } ?>">
@@ -256,7 +256,7 @@ sort($visualizers);
 						</li>
 						<li class="nav-item <?php if ($currentSubSection == 'rp') { ?>active open<?php } ?>">
 							<a href="javascript:;" class="nav-link nav-toggle ">
-								<span class="title">From DT4H Catalogue</span>
+								<span class="title">From EUCAIM Catalogue</span>
 								<span class="arrow"></span>
 							</a>
 							<ul class="sub-menu">

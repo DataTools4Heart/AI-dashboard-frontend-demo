@@ -5,7 +5,7 @@ require __DIR__ . "/../../config/bootstrap.php";
 redirectOutside();
 
 //Retrive communities
-$dt4hsites = getSitesInfo("data");
+$sites = getSitesInfo("data");
 
 // Print page
 ?>
@@ -47,7 +47,7 @@ $dt4hsites = getSitesInfo("data");
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
           <a href="javascript:;" target="_blank"><img src="assets/layouts/layout/img/icon.png" width=100></a>
-          Available Datasets from DT4H catalogue
+          Available Datasets from EUCAIM catalogue
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -105,7 +105,7 @@ $dt4hsites = getSitesInfo("data");
                       <th> Title </th>
                       <th> Description </th>
                       <th> Version </th>
-                      <?php foreach ($dt4hsites as $site) {?>
+                      <?php foreach ($sites as $site) {?>
                         <th><?=$site['_id']?></th>
                       <?php } ?>
                       <th> Materialize </th>
@@ -124,13 +124,13 @@ $dt4hsites = getSitesInfo("data");
     $n = 1;
     while ($i < 1000320) {
       $data =
-			['_id'=>'DT4H'.$i,
-			'name'=> 'DT4H_UC1_'.$n,
+			['_id'=>'EUCAIM'.$i,
+			'name'=> 'EUCAIM_UC1_'.$n,
 			'description' => 'Some UC1 data '.$n,
 			'version' => '1.0 [2023-09-30]',
-      'catalogue_url' => "https://catalogue.datatools4heart.eu/dataset/?DT4H".$i
+      'catalogue_url' => "https://catalogue.datatools4heart.eu/dataset/?EUCAIM".$i
       ];
-      foreach ($dt4hsites as $site) {
+      foreach ($sites as $site) {
         $data[$site['_id']] = rand(0,100);
       }
       $datasets[] = $data;
@@ -146,7 +146,7 @@ $dt4hsites = getSitesInfo("data");
                 <td> <?= $obj["name"]; ?> </td>
                 <td> <?= $obj["description"]; ?> </td>
                 <td> <?= $obj["version"]; ?> </td>
-                <?php foreach ($dt4hsites as $site) {?>
+                <?php foreach ($sites as $site) {?>
                   <td><?= $obj[$site['_id']]?></th>
                 <?php } ?>
 

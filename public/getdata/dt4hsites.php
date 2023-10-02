@@ -6,7 +6,7 @@ redirectOutside();
 
 //Retrive sites
 
-$dt4hsites = getSitesInfo();
+$sites = getSitesInfo();
 
 $progress = ['pending', 'testing', 'active'];
 $types = ['comp'=> 'Computational', 'data'=> 'Data', 'both'=>'Data & Computational'];
@@ -52,7 +52,7 @@ $status = ['inactive', 'active'];
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
           <a href="javascript:;" target="_blank"><img src="assets/layouts/layout/img/icon.png" width=100></a>
-          DT4H Network
+          EUCAIM Network
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -93,7 +93,7 @@ $status = ['inactive', 'active'];
               <div class="portlet-title">
                 <div class="caption">
                   <i class="icon-share font-red-sunglo hide"></i>
-                  <span class="caption-subject font-dark bold">DT4H sites status and available resources</span>
+                  <span class="caption-subject font-dark bold">EUCAIM sites. Status and available resources</span>
                 </div>
               </div>
               <div class="portlet-body">
@@ -111,7 +111,7 @@ $status = ['inactive', 'active'];
 
                   <tbody>
                     <!-- process and display each result row -->
-                <?php foreach ($dt4hsites as $obj) { ?>
+                <?php foreach ($sites as $obj) { ?>
                     <tr>
                         <td> <?= $obj["_id"] ?> </td>
                         <td> <?= $obj["name"] ?> </td>
