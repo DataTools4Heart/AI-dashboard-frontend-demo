@@ -1,39 +1,5 @@
 [
     {
-        "_id": "ATH",
-        "name": "Athena Research & Innovation Centre",
-        "type": "comp",
-        "progress": 0,
-        "status": 0,
-        "cpu_count": 0,
-        "cpu_percent": 0,
-        "gpu_count": 0,
-        "memory": {
-            "virtual": 0,
-            "available": 0,
-            "total": 0
-        },
-        "outbound_connectivity": false,
-        "inbound_ports_connectivity": false
-    },
-    {
-        "_id": "AUMC",
-        "name": "Amsterdam University Medical Centre",
-        "type": "data",
-        "status": 0,
-        "progress": 1,
-        "cpu_count": 0,
-        "cpu_percent": 0,
-        "gpu_count": 0,
-        "memory": {
-            "virtual": 0,
-            "available": 0,
-            "total": 0
-        },
-        "outbound_connectivity": false,
-        "inbound_ports_connectivity": false
-    },
-    {
         "_id": "BSC",
         "name": "Barcelona Supercomputing Center",
         "type": "comp",
@@ -54,11 +20,27 @@
         ]
     },
     {
-        "_id": "BUCH",
-        "name": "Bucharest Emergency Clinical Hospital",
+        "_id": "CHUP",
+        "name": "Centro Hospitalar Universitario de Porto",
+        "type": "data",
+        "cpu_count": 4,
+        "cpu_percent": 100,
+        "gpu_count": 1,
+        "memory": {
+            "available": 16,
+            "total": 16
+        },
+        "outbound_connectivity": true,
+        "inbound_ports_connectivity": false,
+        "progress": 2,
+        "status": 1
+    },
+    {
+        "_id": "EMC",
+        "name": "Erasmus Medical Centre",
         "type": "data",
         "status": 0,
-        "progress": 0,
+        "progress": 1,
         "cpu_count": 0,
         "cpu_percent": 0,
         "gpu_count": 0,
@@ -71,7 +53,7 @@
         "inbound_ports_connectivity": false
     },
     {
-        "_id": "GEM",
+        "_id": "FPG",
         "name": "Fondazione Policlinico A. Gemelli IRCCS",
         "type": "data",
         "status": 1,
@@ -87,20 +69,38 @@
         "inbound_ports_connectivity": false
     },
     {
-        "_id": "ICRC",
-        "name": "St. Anne's University Hospital Brno",
+        "_id": "HPAH",
+        "name": "Assitance Publique Hospitaux de Paris",
         "type": "data",
+        "progress": 2,
+        "status": 1,
         "cpu_count": 4,
-        "cpu_percent": 100,
+        "cpu_percent": 50,
         "gpu_count": 1,
         "memory": {
-            "available": 16,
-            "total": 16
+            "virtual": 32,
+            "available": 32,
+            "total": 32
         },
         "outbound_connectivity": true,
-        "inbound_ports_connectivity": false,
-        "progress": 2,
-        "status": 1
+        "inbound_ports_connectivity": false
+    },
+    {
+        "_id": "HULAFE",
+        "name": "Hospital Universitario La Fe",
+        "type": "data",
+        "status": 0,
+        "progress": 1,
+        "cpu_count": 0,
+        "cpu_percent": 0,
+        "gpu_count": 0,
+        "memory": {
+            "virtual": 0,
+            "available": 0,
+            "total": 0
+        },
+        "outbound_connectivity": false,
+        "inbound_ports_connectivity": false
     },
     {
         "_id": "KUH",
@@ -116,23 +116,6 @@
             "total": 32
         },
         "outbound_connectivity": true,
-        "inbound_ports_connectivity": false
-    },
-    {
-        "_id": "TRANS",
-        "name": "Translated",
-        "type": "comp",
-        "progress": 0,
-        "status": 0,
-        "cpu_count": 0,
-        "cpu_percent": 0,
-        "gpu_count": 0,
-        "memory": {
-            "virtual": 0,
-            "available": 0,
-            "total": 0
-        },
-        "outbound_connectivity": false,
         "inbound_ports_connectivity": false
     },
     {
@@ -156,43 +139,10 @@
         ]
     },
     {
-        "_id": "UCLH",
-        "name": "University College London Hospital",
-        "type": "data",
-        "progress": 2,
-        "status": 1,
-        "cpu_count": 4,
-        "cpu_percent": 50,
-        "gpu_count": 1,
-        "memory": {
-            "virtual": 32,
-            "available": 32,
-            "total": 32
-        },
-        "outbound_connectivity": true,
-        "inbound_ports_connectivity": false
-    },
-    {
-        "_id": "UMCU",
-        "name": "University Medical Centre Utrecht",
-        "type": "data",
-        "status": 0,
-        "progress": 1,
-        "cpu_count": 0,
-        "cpu_percent": 0,
-        "gpu_count": 0,
-        "memory": {
-            "virtual": 0,
-            "available": 0,
-            "total": 0
-        },
-        "outbound_connectivity": true,
-        "inbound_ports_connectivity": false
-    },
-    {
-        "_id": "VHIR",
-        "name": "Vall d'Hebron Research Institute",
-        "type": "data",
+        "_id": "UPV",
+        "name": "Universidad Politecnica de Valencia",
+        "type": "comp",
+        "progress": 0,
         "status": 0,
         "cpu_count": 0,
         "cpu_percent": 0,

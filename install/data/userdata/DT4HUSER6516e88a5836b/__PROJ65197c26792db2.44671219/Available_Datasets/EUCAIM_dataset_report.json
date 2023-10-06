@@ -1,55 +1,55 @@
 [{
-        "site": "GEM",
+        "site": "FPG",
         "datasets": [{
-                "id": "DT4H100299",
-                "local_path": "userdata/DT4H100299",
+                "id": "EUCAIM100299",
+                "local_path": "userdata/EUCAIM100299",
                 "metadata": "some_metadata"
             },
             {
-                "id": "DT4H100300",
-                "local_path": "userdata/DT4H100300",
+                "id": "EUCAIM100300",
+                "local_path": "userdata/EUCAIM100300",
                 "metadata": "some_metadata"
             }
         ]
     },
     {
-        "site": "ICRC",
+        "site": "HPAP",
         "datasets": [{
-                "id": "DT4H100299",
-                "local_path": "userdata/DT4H100299",
+                "id": "EUCAIM100299",
+                "local_path": "userdata/EUCAIM100299",
                 "metadata": "some_metadata"
             },
             {
-                "id": "DT4H100300",
-                "local_path": "userdata/DT4H100300",
+                "id": "EUCAIM100300",
+                "local_path": "userdata/EUCAIM100300",
                 "metadata": "some_metadata"
             }
         ]
     },
     {
-        "site": "KUH",
+        "site": "KI",
         "datasets": [{
-                "id": "DT4H100300",
-                "local_path": "userdata/DT4H100300",
+                "id": "EUCAIM100300",
+                "local_path": "userdata/EUCAIM100300",
                 "metadata": "some_metadata"
             },
             {
-                "id": "DT4H100304",
-                "local_path": "userdata/DT4H100304",
+                "id": "EUCAIM100304",
+                "local_path": "userdata/EUCAIM100304",
                 "metadata": "some_metadata"
             }
         ]
     },
     {
-        "site": "UCLH",
+        "site": "HULAFE",
         "datasets": [{
-                "id": "DT4H100299",
-                "local_path": "userdata/DT4H100299",
+                "id": "EUCAIM100299",
+                "local_path": "userdata/EUCAIM100299",
                 "metadata": "some_metadata"
             },
             {
-                "id": "DT4H100300",
-                "local_path": "userdata/DT4H100300",
+                "id": "EUCAIM100300",
+                "local_path": "userdata/EUCAIM100300",
                 "metadata": "some_metadata"
             }
         ]
