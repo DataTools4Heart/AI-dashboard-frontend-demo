@@ -1,84 +1,8 @@
 {"_id":"DT4HUSER6516e88a5836b_6516e88a5a2852.22230753","expiration":-1,"description":"Uploaded personal data"}
 {"_id":"DT4HUSER6516e88a5836b_6516e88a597805.63019149","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
 {"_id":"DT4HUSER6516e88a5836b_6516e88a5aa395.16004168","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON6516eb88a6f3f_6516eb88a76d14.81176335","expiration":-1,"description":"Root user data"}
 {"_id":"DT4HUSER6516e88a5836b_6516e88a6262f9.04208268","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6516eb88a6f3f_6516eb88a92e84.59914063","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6516eb88a6f3f_6516eb88a9ca89.90227830","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON6516fa00055ea_6516fa0005c9c3.74507488","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6516eb88a6f3f_6516eb88aad964.02249933","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6516fa00055ea_6516fa0006b3a8.30112014","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON6516fa00055ea_6516fa00078a64.09650749","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6516eb88a6f3f_6516eb88a844e1.50826064","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65192ca27d052_65192ca2862b73.40873865","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6516fa00055ea_6516fa00090bf5.70115821","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON65192ca27d052_65192ca2873774.43589435","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65192ca27d052_65192ca28806a7.46968854","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON65192ca27d052_65192ca2889f72.10584217","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON65192ca27d052_65192ca2914a02.53933232","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON65192e2e742e0_65192e2e7b6b02.29581391","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON65192e2e742e0_65192e2e7ca6c8.81724814","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65192e2e742e0_65192e2e7d7434.64250097","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON65192e2e742e0_65192e2e7e00c0.30639233","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON65192ebcebe11_65192ebcf37ab3.94836338","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON65192e2e742e0_65192e2e7f0e53.67285310","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6516fa00055ea_6516fa00080b84.34024887","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON65192ebcebe11_65192ebd00b307.24571772","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65192ebcebe11_65192ebd01a089.72912553","expiration":-1,"description":"Uploaded personal data"}
 {"_id":"DT4HUSER6516e88a5836b_6516e88a5890e5.27902841","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON65192ebcebe11_65192ebd035866.66077299","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6519306554dc1_651930655c9bb8.70963341","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519306554dc1_651930655edf04.86592334","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6519306554dc1_651930655f7230.70188166","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON6519306554dc1_651930655dfb27.56215316","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON6519306554dc1_65193065607fd7.80709534","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6519311381df8_651931138aa137.47030580","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65192ebcebe11_65192ebd024534.04599432","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON6519311381df8_651931138bed01.28159588","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON6519311381df8_651931138b66b2.48619142","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6519311381df8_65193113895a73.68870399","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519320c5efc2_6519320c668081.40715591","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519320c5efc2_6519320c67b8c1.71707301","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON6519311381df8_651931138cf2c8.23125411","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6519320c5efc2_6519320c68b073.57456587","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON651934c603e4f_651934c60bd8d6.74892001","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519320c5efc2_6519320c693ff3.83131061","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON651934c603e4f_651934c60e1219.44713873","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON651934c603e4f_651934c60ea959.33871668","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON651934c603e4f_651934c60d2fc3.11357448","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65193969cfb1b_65193969d04485.22595701","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519320c5efc2_651932318a5db2.71154449","description":null,"input_files":[],"tool":"siteDiscovery","submission_file":"/shared_data/userdata//DT4HANON6519320c5efc2/__PROJ6519320c5efc33.87977655/run000/.submit","log_file":"/shared_data/userdata//DT4HANON6519320c5efc2/__PROJ6519320c5efc33.87977655/run000/.tool.log","arguments":{"DT4H_sites":"DT4H_sites.json"}}
-{"_id":"DT4HANON651934c603e4f_651934c61003d7.50693832","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON65193969cfb1b_65193969d22803.92928155","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6519320c5efc2_6519320c6a5de7.74175250","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON65193969cfb1b_65193969d2cca1.30172707","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON65193969cfb1b_65193969d13a23.87145203","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65193b118bc71_65193b11959a28.66634461","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON65193b118bc71_65193b11963730.08002745","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON65193b118bc71_65193b11976660.76380026","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6519477e71505_6519477e71c455.54847293","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON65193b118bc71_65193b11934274.52552372","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519477e71505_6519477e729780.43521202","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON6519477e71505_6519477e734737.89722660","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6519477e71505_6519477e73e6b1.11262378","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON65195b0ef2705_65195b0ef2f009.59723356","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519477e71505_6519477e750785.66314214","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON65193969cfb1b_65193969d41577.71429408","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON65195b0ef2705_65195b0f0092b3.17441395","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON65195b0ef2705_65195b0f014bc0.99924411","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON6519784eb4474_6519784ebb9e08.25059719","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON65195b0ef2705_65195b0ef3cdf3.94477041","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65195b0ef2705_65195b0f026909.18459377","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6519784eb4474_6519784ebdc145.59136624","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6519784eb4474_6519784ebce3c3.31876899","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON6519784eb4474_6519784ebe5590.40871690","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON6519784eb4474_6519784ebfa496.74663998","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON65197aa144d6b_65197aa14e0a67.88242626","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65197aa144d6b_65197aa14edde0.23763559","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON65197aa144d6b_65197aa14f7661.22707990","expiration":-1,"description":"Remote personal data"}
-{"_id":"DT4HANON65197aa144d6b_65197aa14cb8e6.82735657","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON65197aa144d6b_65197aa1508b80.61869287","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HUSER6516e88a5836b_65197b5c034791.74899324","name":"Sites Discovery","description":"","keywords":"","is_a":"project","project_type":"private"}
 {"_id":"DT4HUSER6516e88a5836b_65197b5c0418c9.03617918","expiration":-1,"description":"Uploaded personal data"}
 {"_id":"DT4HUSER6516e88a5836b_65197b5c04b0d2.16746545","expiration":-1,"description":"Remote personal data"}
 {"_id":"DT4HUSER6516e88a5836b_65197bac092857.84411284","validated":1,"data_type":"site_manifest","description":"Sites update report","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
@@ -96,15 +20,9 @@
 {"_id":"DT4HUSER6516e88a5836b_65197ed868a5a5.50500937","expiration":-1,"description":"Remote personal data"}
 {"_id":"DT4HUSER6516e88a5836b_65197ed86ab449.69449634","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_6519805d92e6d1.42811715","validated":1,"data_type":"FE_Query","description":"Simple list of features","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HANON6519860e46eb1_6519860e477099.37974189","expiration":-1,"description":"Root user data"}
-{"_id":"DT4HANON6519860e46eb1_6519860e485a19.42304003","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
+{"_id":"DT4HUSER6516e88a5836b_65197b5c034791.74899324","name":"Sites Discovery","description":"","keywords":"","is_a":"project","project_type":"private"}
 {"_id":"DT4HUSER6516e88a5836b_65198104e532e3.54332819","description":null,"input_files":["DT4HUSER6516e88a5836b_6519805d92e6d1.42811715"],"tool":"dataMaterialize","submission_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197ed86694b0.69940013/A/.submit","log_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197ed86694b0.69940013/A/.tool.log","arguments":[]}
-{"_id":"DT4HANON6519860e46eb1_6519860e495ef5.18943165","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON6519860e46eb1_6519860e49eb80.16345980","expiration":-1,"description":"Remote personal data"}
 {"_id":"DT4HUSER6516e88a5836b_651981423bd905.74015559","description":null,"input_files":["DT4HUSER6516e88a5836b_6519805d92e6d1.42811715"],"tool":"dataMaterialize","submission_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197ed86694b0.69940013/Materialized_Datasets/.submit","log_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65197ed86694b0.69940013/Materialized_Datasets/.tool.log","arguments":[]}
-{"_id":"DT4HANON6519860e46eb1_6519860e516393.95713389","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HANON6519860e46eb1_651986140a14b6.03948930","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HANON6519860e46eb1_6519862df12f59.79437061","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_6519867cbd0554.50950450","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_65198694e0bb87.74984368","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651986b40df257.24768709","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
@@ -123,39 +41,33 @@
 {"_id":"DT4HUSER6516e88a5836b_651989d20b3b99.77629962","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651989e47a4923.68638485","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651989f17333e0.04701387","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HUSER6516e88a5836b_65198a3eaf8d71.72003772","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_65198a2ea76430.47739834","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
+{"_id":"DT4HUSER6516e88a5836b_65198a3eaf8d71.72003772","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_65198a53863078.20090327","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HUSER6516e88a5836b_65198ad82557a4.10961191","validated":1,"data_type":"data_manifest","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_65198a6cb406e2.56424828","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
+{"_id":"DT4HUSER6516e88a5836b_65198ad82557a4.10961191","validated":1,"data_type":"data_manifest","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_65198f935d1062.45419115","name":"Data Quality","description":"","keywords":"","is_a":"project","project_type":"private"}
-{"_id":"DT4HANON65193b118bc71_65193b11948eb8.28756076","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HUSER6516e88a5836b_65198f93601810.77652442","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
-{"_id":"DT4HUSER6516e88a5836b_65198f935ed516.73797340","expiration":-1,"description":"Remote personal data"}
 {"_id":"DT4HUSER6516e88a5836b_65198fab6c09d7.96398957","validated":1,"data_type":"data_manifest","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
+{"_id":"DT4HUSER6516e88a5836b_65198f935ed516.73797340","expiration":-1,"description":"Remote personal data"}
 {"_id":"DT4HUSER6516e88a5836b_65198ff9155e63.41784467","description":null,"input_files":["DT4HUSER6516e88a5836b_65198fab6c09d7.96398957"],"tool":"dataQuality","submission_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/Quality_report/.submit","log_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/Quality_report/.tool.log","arguments":[]}
 {"_id":"DT4HUSER6516e88a5836b_65198f935e4723.99268121","expiration":-1,"description":"Uploaded personal data"}
 {"_id":"DT4HUSER6516e88a5836b_65199012e54bb7.35462131","description":null,"input_files":["DT4HUSER6516e88a5836b_65198fab6c09d7.96398957"],"tool":"dataQuality","submission_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/run000/.submit","log_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/run000/.tool.log","arguments":[]}
 {"_id":"DT4HUSER6516e88a5836b_6519903dcf9337.27248740","description":null,"input_files":[],"tool":"dataDiscovery","submission_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/run000/.submit","log_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/run000/.tool.log","arguments":{"DT4H_sites":"DT4H_sites.json"}}
 {"_id":"DT4HUSER6516e88a5836b_65198f9f93d671.42574782","validated":1,"data_type":"FE_Query","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
+{"_id":"DT4HUSER6516e88a5836b_65198f93601810.77652442","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651990b62eb140.68949617","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HUSER6516e88a5836b_651990ce3a0d92.00664990","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651990da562999.17552920","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651990fc59fc71.45119185","validated":1,"data_type":"data_manifest","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_6519913c7beff6.48226975","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
+{"_id":"DT4HUSER6516e88a5836b_651990ce3a0d92.00664990","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651990961343f2.66915853","description":null,"input_files":[],"tool":"dataDiscovery","submission_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/Materialized_Datasets/.submit","log_file":"/shared_data/userdata//DT4HUSER6516e88a5836b/__PROJ65198f935c4d59.61509161/Materialized_Datasets/.tool.log","arguments":{"DT4H_sites":"DT4H_sites.json"}}
 {"_id":"DT4HUSER6516e88a5836b_6519912b94a5c5.92846817","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_6519914e2d32a3.71269160","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_6519917aebc958.76268242","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_6519917093dd19.98310291","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651990c2c4d978.82085325","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HANON65199419abf32_65199419ac7809.46238368","expiration":-1,"description":"Root user data"}
 {"_id":"DT4HUSER6516e88a5836b_6519919ec4bc90.69036074","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HANON65199419abf32_65199419ae4688.18335085","expiration":-1,"description":"Uploaded personal data"}
-{"_id":"DT4HANON65199419abf32_65199419ad60d7.13826895","name":"MyFirstProject","description":"This is my first VRE project, automatically created when entering into 'DataTools4Heart UI'. It is going to include my first data and executions.","keywords":"default","is_a":"project","project_type":"private"}
-{"_id":"DT4HUSER6516e88a5836b_6519918c47c7b0.59570216","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_6519915cb92bd8.16260505","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HANON65199419abf32_65199419aefd13.12465313","expiration":-1,"description":"Remote personal data"}
+{"_id":"DT4HUSER6516e88a5836b_6519918c47c7b0.59570216","validated":1,"data_type":"dataset_reference","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651997cce21bb7.08802457","validated":1,"data_type":"FLCore_parameters","description":"","format":"YAML","input_files":[0],"taxon_id":0,"visible":true}
 {"_id":"DT4HUSER6516e88a5836b_651998c7b72620.59883056","validated":1,"data_type":"site_manifest","description":"","format":"JSON","input_files":[0],"taxon_id":0,"visible":true}
-{"_id":"DT4HANON65199419abf32_65199419b0da96.29892472","compressed":false,"data_type":"configuration_file","description":"my first VRE file","format":"TXT","sources":[0],"validated":true,"visible":true}
