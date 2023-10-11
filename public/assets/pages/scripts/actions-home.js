@@ -392,7 +392,9 @@ viewResults = function(execution, tool) {
 				boxed: true,
 		message: 'Creating tool output, this operation may take a while, please don\'t close the tab...'
 			});
-
+	
+	setTimeout(function(){ location.href = 'tools/' + tool + '/output.php?execution=' + execution; }, 500);
+	
 	$.ajax({
 		type: "POST",
 		url: baseURL + "/applib/loadOutput.php",
