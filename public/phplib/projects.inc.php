@@ -1230,7 +1230,7 @@ function processPendingFiles($sessionId,$files=array()){
 	}else{
 	    log_addFinish($pid,"Workspace reload detects job $pid is not running anymore");
 
-	    unset($_SESSION['errorData']);
+	    #unset($_SESSION['errorData']);
 	    $job_in_err=0;
 
 	    //get tool info
@@ -1282,8 +1282,15 @@ function processPendingFiles($sessionId,$files=array()){
 				
 		// start 	
 		foreach ($outs_data as $out_data){
-			if ($debug)
-				print "<br/> START OUTPUT ITEM REGISTRATION<br/>\n";
+			if ($debug){
+				print "<br/> START OUTPUT ITEM REGISTRATION FOR THE FOLLOWING OUT_DATA:<br/>\n";
+var_dump($out_data);
+			print "<\br>_____________\n";
+			var_dump($out_data['file_path']);
+			print "<\br>_____________\n";
+			var_dump($out_data['meta_data']);
+			print "<\br>_____________\n";
+		    }
 
 		    	//check requirement : required
 			if (!isset($out_data['file_path'])){
@@ -1674,7 +1681,11 @@ function  build_outputs_list($tool,$stageout_job,$stageout_file){
 				continue;
 			}
 		}
+}else{
+	    $_SESSION['errorData']['Warning'][]=date("h:i:s").": Tool stageout file '".$stageout_file."' is not found";
 	}
+print "\n__________FROM FILE________________\n";
+    $json_string = json_encode($stageout_meta, JSON_PRETTY_PRINT);
 	// check stageout data
 	$stageout_data = Array();
 	if ($stageout_job){
@@ -1703,11 +1714,11 @@ function  build_outputs_list($tool,$stageout_job,$stageout_file){
 		$outs_meta[$out_name] = Array();
 		if (!isset($out_data['file'])){
 			$out_data['file']=Array();
-			//print "Tool has no file attribute for output_file '$out_name'";
+			print "Tool has no file attribute for output_file '$out_name'";
 		}
 
 		if (!isset($stageout_meta[$out_name])){
-			//print "Tool stageout file/data has no metadata for output_file '$out_name'.";
+			print "Tool stageout file/data has no metadata for output_file '$out_name'.";
 			array_push($outs_meta[$out_name],$out_data);
 			continue;
 		}
@@ -2043,7 +2054,7 @@ function resolvePath_toLocalAbsolutePath($path,$job){
 		 $rfn = str_replace($job['root_dir_virtual'],$GLOBALS['dataDir'].$_SESSION['User']['id'],$path);
 		 
       	     //SGE finds mounted dataDir as root_dir_virtual
-	    }elseif ($job['launcher'] == "SGE"){
+	    }elseif ($job['launcher'] == "SGE" || $job['launcher'] == "docker_SGE"){
 	   	    $rfn = str_replace($job['root_dir_mug'],$GLOBALS['dataDir'],$path);
 	    }
 	// direct from file_path

@@ -66,7 +66,7 @@ class Tooljob {
         switch ($this->launcher){
             case "SGE":
             case "docker_SGE":
-                $this->root_dir_virtual = $GLOBALS['clouds'][$this->cloudName]['dataDir_virtual'];
+                $this->root_dir_virtual = $GLOBALS['clouds'][$this->cloudName]['dataDir_virtual']. "/".$_SESSION['User']['id'];
                 $this->root_dir_mug      = $GLOBALS['clouds'][$this->cloudName]['dataDir_virtual'];
                 $this->pub_dir_virtual  = $GLOBALS['clouds'][$this->cloudName]['pubDir_virtual'];
                 break;
@@ -873,7 +873,7 @@ class Tooljob {
 	$cmd = "docker run --privileged" .
 		" -v /var/run/docker.sock:/var/run/docker.sock " .
 		" -v " . $GLOBALS['host_path']."/..".$GLOBALS['pubDir']. ":" . $this->pub_dir_virtual ."_tmp" .
-		" -v " . $GLOBALS['host_path']."/..".$this->root_dir .":" . $this->root_dir_virtual . "_tmp" .
+		" -v " . $GLOBALS['host_path']."/..".$this->root_dir.":".$GLOBALS['dataDir'] . "_tmp/". $_SESSION['User']['id'].
 		" ".$tool['infrastructure']['container_image'] . " $cmd_vre";
 
         return $cmd;
