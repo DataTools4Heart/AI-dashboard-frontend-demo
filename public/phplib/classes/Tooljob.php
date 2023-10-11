@@ -872,8 +872,8 @@ class Tooljob {
 // JL adapted to run, to check whether is the correct setting
 	$cmd = "docker run --privileged" .
 		" -v /var/run/docker.sock:/var/run/docker.sock " .
-		" -v " . $GLOBALS['host_path']."/..".$GLOBALS['pubDir']. ":" . $this->pub_dir_virtual  .
-		" -v " . $GLOBALS['host_path']."/..".$this->root_dir .":" . $this->root_dir_virtual .
+		" -v " . $GLOBALS['host_path']."/..".$GLOBALS['pubDir']. ":" . $this->pub_dir_virtual ."_tmp" .
+		" -v " . $GLOBALS['host_path']."/..".$this->root_dir .":" . $this->root_dir_virtual . "_tmp" .
 		" ".$tool['infrastructure']['container_image'] . " $cmd_vre";
 
         return $cmd;
