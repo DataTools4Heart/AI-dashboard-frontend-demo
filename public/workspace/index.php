@@ -200,7 +200,7 @@ $proj_name_active   = getAttr_fromGSFileId($_SESSION['User']['dataDir'], "name")
 											</div>
 											<form name="gesdir" action="workspace/workspace.php" method="post" enctype="multipart/form-data">
 												<input type="hidden" name="op" value="" />
-												<input type="hidden" id="base-url" value="<?php echo $GLOBALS['BASEURL']; ?>" />
+												<input type="hidden" id="base-url" value="<?php echo $GLOBALS['SERVER'].$GLOBALS['BASEURL']; ?>" />
 										<?php
 											if (isset($_REQUEST["userId"])){
 												print "<input type=\"hidden\" id=\"userId\" value=\"".$_SESSION['userId']."\">";
