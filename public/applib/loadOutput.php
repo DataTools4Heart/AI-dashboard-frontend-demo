@@ -15,7 +15,7 @@ if($_REQUEST){
 		// check if content uncompressed
 
 		if(file_exists($indexFile)) {
-		
+
 			$results = file($indexFile);
 			//var_dump($results);
 
@@ -40,10 +40,8 @@ if($_REQUEST){
 		$has_statistics = false;
 		foreach($files["files"] as $id) {
 
-			$fMeta = iterator_to_array($GLOBALS['filesMetaCol']->find(array('_id' => $id,
-																																			'data_type'  => "tool_statistics",
-																																			'format'     =>'TAR',
-																																			'compressed' =>"gzip")));
+			$fMeta = iterator_to_array($GLOBALS['filesMetaCol']->find(
+				array('_id' => $id,'data_type'  => "tool_statistics", 'format' =>'TAR','compressed' =>"gzip")));
 
 			if(count($fMeta) != 0) {
 				$has_statistics = true;

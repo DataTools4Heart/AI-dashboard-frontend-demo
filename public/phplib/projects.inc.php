@@ -25,7 +25,7 @@ function prepUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData=arra
     // create worskspace data
 	$dataDirId = setUserWorkSpace($homeDir,$projectDir,$sampleData,$projectData,$verbose,$asRoot);
 
-	return $dataDirId;	
+	return $dataDirId;
     }
 
 function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verbose=FALSE,$asRoot=0) {
@@ -47,7 +47,7 @@ function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verb
     $homeDirP  = $GLOBALS['dataDir']."/$homeDir";
     $homeDirId = getGSFileId_fromPath($homeDir,$asRoot);
 
-    
+
     if (! isGSDirBNS($GLOBALS['filesCol'],$homeDirId) || ! is_dir($homeDirP)){
 
 		$homeDirId  = createGSDirBNS($homeDir,1);
@@ -77,7 +77,7 @@ function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verb
     );
 
     // creating user workspace for given project
-     
+
     $dataDir   = "$homeDir/$projectDir";
 	$dataDirP  = $GLOBALS['dataDir']."/$dataDir";
 	$dataDirId = getGSFileId_fromPath($dataDir,$asRoot);
@@ -87,7 +87,7 @@ function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verb
 		//creating project directory
 
 	$dataDirId = createProjectDir($dataDir,$dataDirP,$projectData,$asRoot);
-	
+
 	if ($verbose)
     		$_SESSION['errorData']['Info'][] = "Creating main project directory: $dataDirP ($dataDirId)";
 
@@ -102,7 +102,7 @@ function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verb
 		    $upDirId  = createGSDirBNS($dataDir."/uploads",1);
 	    if ($verbose)
 			$_SESSION['errorData']['Info'][] = "Creating  uploads directory: $dataDir/uploads ($upDirId)";
-    
+
     		if ($upDirId == "0" ){
 	    		$_SESSION['errorData']['Error'][] = "Cannot create uploads directory in $dataDir ($dataDirId) ";
     			return 0;
@@ -118,12 +118,12 @@ function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verb
 	}
 
 	//creating repository directory
-	
+
 	if ($sampleData != "0"){
     		$repDirId  = createGSDirBNS($dataDir."/repository",1);
 	    if ($verbose)
 			$_SESSION['errorData']['Info'][] = "Creating  repository directory: $dataDir/repository ($repDirId)";
-    
+
     		if ($repDirId == "0" ){
     			$_SESSION['errorData']['Error'][] = "Cannot create repository directory in $dataDir ($dataDirId) ";
     			return 0;
@@ -148,10 +148,10 @@ function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verb
 		}
 
 		// injecting sample data
-	
+
 	if ($sampleData != "0"){
-	    
-    		$r = setUserWorkSpace_sampleData($sampleData,$dataDir,$verbose);		
+
+    		$r = setUserWorkSpace_sampleData($sampleData,$dataDir,$verbose);
     		if ($r=="0"){
     			$_SESSION['errorData']['Warning'][] = "Cannot fully inject sample data '$sampleData' into user workspace.";
 	    }else{
@@ -169,7 +169,7 @@ function setUserWorkSpace($homeDir,$projectDir,$sampleData="",$projectData,$verb
 		)
     );
 
-	return $dataDirId;	
+	return $dataDirId;
 }
 
 
@@ -210,14 +210,14 @@ function setUserWorkSpace_sampleData($sampleData,$dataDir,$verbose=TRUE){
 		$_SESSION['errorData']['Warning'][]="Wrong sample data '".$dt['name']."' metadata contains elements without 'file_path' attribute. Ignoring them.";
 		continue;
 	    }
-			
+
 	    $r = save_fromSampleDataMetadata($meta_folder,$dataDir,$sampleData,"folder",$verbose);
 	    if ($r == "0")
 		$_SESSION['errorData']['Warning'][]="Failed to inject sample data '".$meta_folder['file_path']."'";
 
 	    // looking for files in the folder
 
-	    $sample_rfn = $GLOBALS['sampleData']."/".$dt['sample_path']."/".$meta_folder['file_path'];		
+	    $sample_rfn = $GLOBALS['sampleData']."/".$dt['sample_path']."/".$meta_folder['file_path'];
 	    $metaF_rfn  = "$sample_rfn/.sample_metadata.json";
 
 	    if (!is_file($metaF_rfn) ){
@@ -241,7 +241,7 @@ function setUserWorkSpace_sampleData($sampleData,$dataDir,$verbose=TRUE){
 	    }
 	}
 	return 1;
-}		
+}
 
 
 
@@ -261,7 +261,7 @@ function save_fromSampleDataMetadata($meta_folder,$dataDir,$sampleData,$type,$ve
 
 	//
     // Saving to disk
-     
+
 	if ($type== "file"){
 		// Creating file
 		if (!is_file($sample_rfn)){
@@ -303,9 +303,9 @@ function save_fromSampleDataMetadata($meta_folder,$dataDir,$sampleData,$type,$ve
 		return 0;
 	}
 
-			
+
 	//
-    // Saving to mongo	
+    // Saving to mongo
 
 	if (isset($meta_folder['mongo']) && $meta_folder['mongo'] === false){
 		return 1;
@@ -410,7 +410,7 @@ function getFilesToDisplay($dirSelection,$filter_data_types=array()) {
 	if ($filesPending){
 	foreach ($filesPending as $r){
 	    if ($r['project'] != $_SESSION['User']['activeProject']){
-		unset($filesPending[$r['_id']]);		
+		unset($filesPending[$r['_id']]);
 	    }
 	}
     }
@@ -432,7 +432,7 @@ function getFilesToDisplay($dirSelection,$filter_data_types=array()) {
 			    unset($filesPending[$r['_id']]);
 			}else{
 			    $_SESSION['errorData']['Error'][] ="Cannot display '".$filesPending[$r['_id']]['path']."'. FS inconsistency. Its parent folder ($parentId) does not exist anymore or is unaccessible.";
-		unset($filesPending[$r['_id']]);		
+		unset($filesPending[$r['_id']]);
 			}
 			continue;
 		}
@@ -480,8 +480,8 @@ function addTreeTableNodesToFiles($filesAll){
 		// Add Tree Nodes
 		if (isset($r['files'])){
 		    if (isset($filesAll[$r['_id']]['tree_id']) && $filesAll[$r['_id']]['tree_id'])
-			continue;	
-	
+			continue;
+
 		    $filesAll[$r['_id']]['tree_id']     = $n;
 		    $filesAll[$r['_id']]['size']	= calcGSUsedSpaceDir($r['_id']);
 		    $filesAll[$r['_id']]['size_parent'] = $filesAll[$r['_id']]['size'];
@@ -562,7 +562,7 @@ function printTable($filesAll=Array() ) {
 
 	</table>
 
-	<?php 
+	<?php
 	if ($autorefresh){
 		print "<input type=\"hidden\" id=\"autorefresh\" value=\"$autorefresh\"/>\n";
 	}
@@ -597,7 +597,7 @@ function printLastJobs($filesAll=Array() ) {
 				}elseif(!strpos($r['files'][0], "dummy")){
 					print parseTemplate(formatData($r), getTemplate('/LastJobsworkspace/LJ_folder.htm'));
 					$wehavejobs = true;
-					
+
 				}
 			}elseif(isset($r['pending'])){
 				if(basename($r['path']) != "repository") {
@@ -609,14 +609,14 @@ function printLastJobs($filesAll=Array() ) {
 				//empty mongo entry;
 			}
 		}
-		
+
 		if(!$wehavejobs) echo "You have not launched any job yet.";
 
 		?>
 
 	</ul>
 
-	<?php 
+	<?php
 }
 
 function getToolsByDT($data_type, $status = 1) {
@@ -639,7 +639,7 @@ function getToolsByDT($data_type, $status = 1) {
 
 	}
 
-	
+
 
 	$arrTools = array();
 
@@ -663,7 +663,7 @@ function getToolsByDT($data_type, $status = 1) {
 
 						}
 
-					}	
+					}
 
 					/*foreach($tool["input_files"] as $ti){
 
@@ -676,7 +676,7 @@ function getToolsByDT($data_type, $status = 1) {
 						}
 
 					}*/
-		
+
 				}
 
 			}
@@ -688,7 +688,7 @@ function getToolsByDT($data_type, $status = 1) {
 				$aux = array($tool["_id"], $tool["name"]);
 
 				$arrTools[] = $aux;
-			
+
 			}
 
 		}
@@ -720,7 +720,7 @@ function formatData($data) {
 			else $data['lastuploaded'] = '';
 
 			//$data['mtime'] .= $data['hoursleft'];
-		 		
+
 
 		}else{
 			$data['mtime']="";
@@ -788,7 +788,7 @@ function formatData($data) {
 			$data['longexecutionname'] = $executionName;
 		    }
 		    $data['execution'] = $executionName;
-			
+
 		}
 	//project name
 	//if (isset($data['project'])){
@@ -800,12 +800,12 @@ function formatData($data) {
 	    $p = getProject($p_code);
 	    $data['project'] = $p['name'];
 	//}
-	
+
 		// description
 		if (isset($data['description'])){
 			if(strlen($data['description']) > 50) $data['description'] = substr($data['description'], 0, 50).'...';
 		}
-		//filename 
+		//filename
 		if (isset($data['pending'])){
 			if (!isset($data['files'])){
 				$data['filename']=$data['title'];
@@ -914,7 +914,7 @@ function formatData($data) {
 		}else{
 			$data['refGenome']="";
 		}
-		//state and metadataLink  
+		//state and metadataLink
 		if (isset($data['validated']) && $data['validated'] ){
 			$data['state'] = 'enabled';
 			$data['metadataLink'] = "<li><a href=\"getdata/editFile.php?fn[]=".$data['_id_URL']."\"><i class=\"fa fa-pencil\"></i> Edit file metadata</a></li>";
@@ -927,7 +927,7 @@ function formatData($data) {
 		$data['moveLink'] = "<li><a href=\"javascript:move('".$data['_id_URL']."');\"><i class=\"fa fa-exchange\"></i> Move</a></li>";
 
 		//tools list (old school version :) delete
-	
+
 		//visualization
 		if ( isset($data['format']) ){
 
@@ -941,7 +941,7 @@ function formatData($data) {
 					$data['vis_button'] = 'block';
 					switch($vis["_id"]) {
 
-						case "ngl": 
+						case "ngl":
 							$ext = 'pdb';
 							if ($pos = strrpos($data['longfilename'], '.')) {
 								$name = substr($data['longfilename'], 0, $pos);
@@ -954,7 +954,7 @@ function formatData($data) {
 							$data['PDBView'] = "<li><a href=\"javascript:openNGL('".$data['_id']."', '".$name."', '".$e."');\"><i class=\"fa fa-window-maximize\"></i> Preview in 3D</a></li>";
 							break;
 
-						case "tadkit":				
+						case "tadkit":
 							if ($pos = strrpos($data['longfilename'], '.')) {
 								$name = substr($data['longfilename'], 0, $pos);
 								$ext = substr($data['longfilename'], $pos);
@@ -964,7 +964,7 @@ function formatData($data) {
 
 							$data['PDBView'] = "<li><a href=\"javascript:openTADbit('".$data['_id']."', '".$name."');\"><i class=\"fa fa-window-maximize\"></i> Preview in 3D</a></li>";
 							break;
-					
+
 					}
 				}
 
@@ -981,7 +981,7 @@ function formatData($data) {
 
 						case "tadkit":
 							$data['tadkitLink'] = "<li><a target=\"_blank\" href=\"visualizers/tadkit/index.php/?user=".$_SESSION['User']['id']."&fn=".$data['_id']."\"><i class=\"fa fa-cubes fa-rotate-180\"></i> View in TADkit</a></li>";
-							break;								
+							break;
 
 					}
 
@@ -995,7 +995,7 @@ function formatData($data) {
 			$data['input_files']="<tr><td>Input files:</td><td>";
 			if (count($ins)){
 				foreach ($ins as $in){
-				    $f = getGSFile_fromId($in);	
+				    $f = getGSFile_fromId($in);
 				    $data['input_files'].= "<div>";
 				    $inFolders=explode("/",dirname($f['path']));
 				    for ($i=count($inFolders)-1;$i>=1;$i--){
@@ -1023,7 +1023,7 @@ function formatData($data) {
 				}else{
 					$data['viewResultsLink']="
 <div class=\"btn-group\" style=\"float:left; position:absolute; margin-top:-10px!important;margin-left:38px;\">
-    	<button class=\"btn btn-xs purple-intense dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-expanded=\"false\"> 
+    	<button class=\"btn btn-xs purple-intense dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-expanded=\"false\">
 						<i class=\"fa fa-eye\"></i>
 						<i class=\"fa fa-angle-down\"></i>
 		</button>
@@ -1034,7 +1034,7 @@ function formatData($data) {
 				}
 			}
 		}
-		
+
 		//analyses tool
 		if (isset($data['tool'])){
 			$tool = $GLOBALS['toolsCol']->findOne(array('_id' => $data['tool']));
@@ -1103,8 +1103,8 @@ function updatePendingFiles($sessionId,$singleJob=Array()){
 	// TODO: PMES will redirect log info to log_file. Now, info extracted from $jobProcess
 	updateLogFromJobInfo($job['log_file'],$pid,$job['launcher']);
 
-	
-	//job keeps running: maintain original job data 
+
+	//job keeps running: maintain original job data
 	if (count($jobProcess)){
 	    //keep monitoring
 	    $job['state']  = $jobProcess['state'];
@@ -1120,7 +1120,7 @@ function updatePendingFiles($sessionId,$singleJob=Array()){
       }
     }
 
-    //update session and save to mongo 
+    //update session and save to mongo
     saveUserJobs($sessionId,$SGE_updated);
     return 1;
 }
@@ -1131,7 +1131,7 @@ function processPendingFiles($sessionId,$files=array()){
 
 
 	$SGE_updated = Array(); // jobs to be monitored. Stored in SESSION. Updated by checkPendingJobs.php (called by ajax)
-	$filesPending= Array(); // files to be listed 
+	$filesPending= Array(); // files to be listed
 	$debug=0;
 
 	// get files already in mongo
@@ -1154,13 +1154,13 @@ function processPendingFiles($sessionId,$files=array()){
 
 	// classify jobs
 	foreach ($lastjobs as $job){
-		
+
 		if (!isset($job['pid'])){
 			continue;
 		}
 		$pid = $job['pid'];
 		if ($debug)
-			print "<br/>\nPID = [$pid] TOOL=".$job['toolId']." WORK_DIR=".$job['working_dir']." <br/>\n";			
+			print "<br/>\nPID = [$pid] TOOL=".$job['toolId']." WORK_DIR=".$job['working_dir']." <br/>\n";
 
 	//get qstat info
 	$jobProcess = getRunningJobInfo($pid,$job['launcher'],$job['cloudName']);
@@ -1168,7 +1168,7 @@ function processPendingFiles($sessionId,$files=array()){
 
 	// TODO: PMES will redirect log info to log_file. Now, info extracted from $jobProcess
 	updateLogFromJobInfo($job['log_file'],$pid,$job['launcher']);
-	
+
     	//
     	//set as running job
     	//
@@ -1197,7 +1197,7 @@ function processPendingFiles($sessionId,$files=array()){
 		    }
 		}
 		if (!$parentDir)
-		    $parentDir = $_SESSION['User']['id']."/".$_SESSION['User']['activeProject']."/uploads"; 
+		    $parentDir = $_SESSION['User']['id']."/".$_SESSION['User']['activeProject']."/uploads";
 	    }
 
 	    //set dummy file
@@ -1224,13 +1224,13 @@ function processPendingFiles($sessionId,$files=array()){
 	    $job['state'] = $jobProcess['state'];
 	    $SGE_updated[$pid]=$job;
 
-	//    
+	//
 	// processing job non running anymore
 	//
 	}else{
 	    log_addFinish($pid,"Workspace reload detects job $pid is not running anymore");
 
-	    unset($_SESSION['errorData']);
+	    #unset($_SESSION['errorData']);
 	    $job_in_err=0;
 
 	    //get tool info
@@ -1244,9 +1244,9 @@ function processPendingFiles($sessionId,$files=array()){
 	    }
 	    if ($debug){
 		print "<br>\nBuilding outsput from toolINFO + stageout_file + stageout_data.\n<br/>STAGEOUT_DATA.<br>";
-		var_dump($job['stageout_data']);		
+		var_dump($job['stageout_data']);
 		print "<br>\nSTAGEOUT_FILE.<br>";
-		var_dump($job['stageout_file']);		
+		var_dump($job['stageout_file']);
 	    }
 
 	    // build output list merging: stageout_file + stageout_data + tool defintion data
@@ -1257,7 +1257,7 @@ function processPendingFiles($sessionId,$files=array()){
 	    }
 	    if ($debug){
 		print "<br>\nList of output to register merged.\n<br/>STAGEOUT_DATA.<br>";
-		var_dump($outs_files);		
+		var_dump($outs_files);
 		print "<br>\n";
     	    }
 	    // checking each expected job output
@@ -1271,7 +1271,7 @@ function processPendingFiles($sessionId,$files=array()){
 		$out_def = $tool['output_files'][$out_name];
 		$is_required    = output_is_required($out_def);
 		$allow_multiple = output_allow_multiple($out_def);
-			
+
 		//check requirement : allow multiple
 		if ($allow_multiple === false){
 			if (count($outs_data)>1){
@@ -1279,11 +1279,18 @@ function processPendingFiles($sessionId,$files=array()){
 			}
 			$outs_data = Array($outs_data[0]);
 		}
-				
-		// start 	
+
+		// start
 		foreach ($outs_data as $out_data){
-			if ($debug)
-				print "<br/> START OUTPUT ITEM REGISTRATION<br/>\n";
+			if ($debug){
+				print "<br/> START OUTPUT ITEM REGISTRATION FOR THE FOLLOWING OUT_DATA:<br/>\n";
+var_dump($out_data);
+			print "<\br>_____________\n";
+			var_dump($out_data['file_path']);
+			print "<\br>_____________\n";
+			var_dump($out_data['meta_data']);
+			print "<\br>_____________\n";
+		    }
 
 		    	//check requirement : required
 			if (!isset($out_data['file_path'])){
@@ -1310,12 +1317,12 @@ function processPendingFiles($sessionId,$files=array()){
 
 			//convert stage out data into MuGFile
 
-			//associated_files and associated_id/_master: convert to fileIds 
+			//associated_files and associated_id/_master: convert to fileIds
 			$metaReferences=array();
 			if (isset($out_data['meta_data']['associated_id']) || isset($out_data['meta_data']['associated_master']) ){
 			    $assoc = (isset($out_data['meta_data']['associated_id'])?$out_data['meta_data']['associated_id']:$out_data['meta_data']['associated_master']);
 			    $assoc_rfn = resolvePath_toLocalAbsolutePath($assoc, $job);
-			    $assoc_fn  = fromAbsPath_toPath($assoc_rfn); 
+			    $assoc_fn  = fromAbsPath_toPath($assoc_rfn);
 			    $assoc_id  = getGSFileId_fromPath($assoc_fn);
 			    if ($assoc_id =="0"){
 				$out_data['meta_data']['associated_id']= $assoc;
@@ -1333,7 +1340,7 @@ function processPendingFiles($sessionId,$files=array()){
 			    $assocs=array();
 			    foreach ($out_data['meta_data']['associated_files'] as $assoc){
 				$assoc_rfn = resolvePath_toLocalAbsolutePath($assoc, $job);
-				$assoc_fn  = fromAbsPath_toPath($assoc_rfn); 
+				$assoc_fn  = fromAbsPath_toPath($assoc_rfn);
 				$assoc_id  = getGSFileId_fromPath($assoc_fn);
 				if ($assoc_id == "0"){
 				    array_push($assocs,$assoc);
@@ -1356,16 +1363,16 @@ function processPendingFiles($sessionId,$files=array()){
 					$source_rfn = resolvePath_toLocalAbsolutePath($source_path, $job);
 					$source_fn = fromAbsPath_toPath($source_rfn);
 					$sourceid = getGSFileId_fromPath($source_fn);
-	
+
 					array_push($sources,$sourceid);
-		
+
 					if ($debug){
 					    print "SOURCES ORI = $source_path RFN = $source_rfn  FN = $source_fn ID = $sourceid <br/>";
 					}
-    			    	}	
+    			    	}
 			    	$out_data['sources'] = $sources;
     		    	}
-		    
+
 
 			//validate new file data
 			list($out_validation_score,$out_mug) = validateMugFile($out_data,true);
@@ -1382,11 +1389,11 @@ function processPendingFiles($sessionId,$files=array()){
 		    		}
 				logger("JOB $pid FINISHED SUCCESSFULLY");
 				log_addOutregister($pid,"Updating only outfile $out_name '$rfn' metadata from job $pid");
-					
+
 				if ($out_mug){
 					//save metadata
 					list($out_vre,$metadata) = getVREfile_fromFile($out_mug);
-					if ($out_validation_score == 1 || $out_validation_score == 0){ 
+					if ($out_validation_score == 1 || $out_validation_score == 0){
 					    $metadata['validated'] = false;
 					}
 					if ($debug){
@@ -1411,7 +1418,7 @@ function processPendingFiles($sessionId,$files=array()){
 					print "<br>VRE METADATA SEND TO saveResults IS:<br/>\n";
 					var_dump($metadata);
 		  		}
-				if ($out_validation_score == 1 || $out_validation_score == 0){ 
+				if ($out_validation_score == 1 || $out_validation_score == 0){
 					$metadata['validated'] =false;
 		    		}
 
@@ -1419,7 +1426,7 @@ function processPendingFiles($sessionId,$files=array()){
 					print "<br>VRE METADATA SEND TO saveResults IS:<br/>\n";
 					var_dump($metadata);
 		    		}
-				$fileInfo = saveResults($outPath,$metadata,$job); 
+				$fileInfo = saveResults($outPath,$metadata,$job);
 
 				//list new metadata in table
 				if (is_array($fileInfo)){
@@ -1437,9 +1444,9 @@ function processPendingFiles($sessionId,$files=array()){
 					log_addOutregister($pid,"Outfile $out_name '$rfn' sucessfully registered from job $pid");
 					logger("JOB $pid FINISHED SUCCESSFULLY");
 				}
-					
-			// job successfully finished but file metada not valid. Setting error mode 
-					
+
+			// job successfully finished but file metada not valid. Setting error mode
+
 			}elseif ((is_file($rfn)||is_dir($rfn)) && !$out_mug) {
 			       	if ($debug){
 			    		print "<br/>JOB $pid FINISHED BUT INVALID FILE ($outPath). SET ERROR <br>";
@@ -1458,7 +1465,7 @@ function processPendingFiles($sessionId,$files=array()){
 				}
 				$job_in_err=1;
 			}
-		
+
 			// Update metadata of other files referring current fileId  (associated files)
 			if ($job_in_err==0 &&  count($metaReferences)){
 			    if ($debug)
@@ -1519,7 +1526,7 @@ function processPendingFiles($sessionId,$files=array()){
 		    }
 		    if ($debug)
 			print "<br>JOB IN ERROR $fileId storing LOG $logFile <br>";
-			
+
 		    $logId  = getGSFileId_fromPath($logFile);
 		    if (!$logId){
 			$logMeta['description'] = "Job log file";
@@ -1529,7 +1536,7 @@ function processPendingFiles($sessionId,$files=array()){
 			if (is_array($logInfo))
 				$filesPending[$logInfo['_id']]=$logInfo;
 		    }
-	
+
 		// job has neither log nor all outfiles
 		}else{
 		    if ($debug)
@@ -1560,7 +1567,7 @@ function processPendingFiles($sessionId,$files=array()){
 
     }
     }
-	
+
     if ($debug){
 	print "<br/><br/>FINAL FILES PENDING yes? Num=<br/>\n";
 	var_dump(count($filesPending));
@@ -1674,7 +1681,11 @@ function  build_outputs_list($tool,$stageout_job,$stageout_file){
 				continue;
 			}
 		}
+}else{
+	    $_SESSION['errorData']['Warning'][]=date("h:i:s").": Tool stageout file '".$stageout_file."' is not found";
 	}
+print "\n__________FROM FILE________________\n";
+    $json_string = json_encode($stageout_meta, JSON_PRETTY_PRINT);
 	// check stageout data
 	$stageout_data = Array();
 	if ($stageout_job){
@@ -1690,7 +1701,7 @@ function  build_outputs_list($tool,$stageout_job,$stageout_file){
 				$_SESSION['errorData']['Warning'][]="Tool job has stageout data is bad formatted. Missing 'name' in 'output_files' list";
 				continue;
 			}
-		    }   
+		    }
 		}
 	}
 
@@ -1703,11 +1714,11 @@ function  build_outputs_list($tool,$stageout_job,$stageout_file){
 		$outs_meta[$out_name] = Array();
 		if (!isset($out_data['file'])){
 			$out_data['file']=Array();
-			//print "Tool has no file attribute for output_file '$out_name'";
+			print "Tool has no file attribute for output_file '$out_name'";
 		}
 
 		if (!isset($stageout_meta[$out_name])){
-			//print "Tool stageout file/data has no metadata for output_file '$out_name'.";
+			print "Tool stageout file/data has no metadata for output_file '$out_name'.";
 			array_push($outs_meta[$out_name],$out_data);
 			continue;
 		}
@@ -1802,7 +1813,7 @@ function navigation() {
 		return false;
 	}
 	$d = (isset($fnData['parentDir'])? $fnData['parentDir'] : 0);
-	
+
 	$dirs = array();
 	if (!topDir()) {
 		while ($d and ( $d != $_SESSION['userId'] ) ) {
@@ -1904,10 +1915,10 @@ function refresh_token($force=false){
 	}
 
 	// save in mongo
-	$user = $_SESSION['User']; 
-	$user['Token'] = $newToken; 
+	$user = $_SESSION['User'];
+	$user['Token'] = $newToken;
 	updateUser($user);
-    
+
 	// load new token in session
 	$_SESSION['User']['Token'] = $newToken;
 	return true;
@@ -2041,9 +2052,9 @@ function resolvePath_toLocalAbsolutePath($path,$job){
 	     //PMES mounts dataDir/user_id as root_dir_virtual
 		 if ($job['launcher'] == "PMES"){
 		 $rfn = str_replace($job['root_dir_virtual'],$GLOBALS['dataDir'].$_SESSION['User']['id'],$path);
-		 
+
       	     //SGE finds mounted dataDir as root_dir_virtual
-	    }elseif ($job['launcher'] == "SGE"){
+	    }elseif ($job['launcher'] == "SGE" || $job['launcher'] == "docker_SGE"){
 	   	    $rfn = str_replace($job['root_dir_mug'],$GLOBALS['dataDir'],$path);
 	    }
 	// direct from file_path
@@ -2062,11 +2073,11 @@ function resolvePath_toLocalAbsolutePath($path,$job){
 	}elseif (preg_match('/^'.$job['execution'].'/',$path)){
 		//$rfn = $GLOBALS['dataDir'].$_SESSION['User']['id']."/".$_SESSION['User']['activeProject']."/".$path;
 	    $rfn = dirname($job["output_dir"])."/".$path;
-	
+
 	// file_path is relative to root directory (userid/prj/run/file)
 	}elseif (preg_match('/^'.$_SESSION['User']['id'].'/',$path)){
 		$rfn = $GLOBALS['dataDir']."/".$path;
-	
+
 	// file_path contains $(working_dir) tag
 	    }elseif(preg_match('/(working_dir)/',$path)){
 	    $rfn = str_replace("$(working_dir)",$job['working_dir']."/",$path);
@@ -2086,12 +2097,12 @@ function resolvePath_toLocalAbsolutePath($path,$job){
 function deleteFiles($fns,$force=false){
 
     if (!is_array($fns)){
-       $fns = array($fns); 
+       $fns = array($fns);
     }
     $result  = true;
     foreach($fns as $fn){
 	//print "<br/>DELTETING file with ID = $fn<br/>";
-	$file     = getGSFile_fromId($fn);	
+	$file     = getGSFile_fromId($fn);
 	if (!$file){
 	    $_SESSION['errorData']['Error'][]="Cannot delete file with id '$fn'. Entry not found";
 	    $result = false;
@@ -2143,7 +2154,7 @@ function deleteFiles($fns,$force=false){
     			}
 		}
 	    }
-    
+
        // if has associated files, delete them
        }elseif (isset($file['associated_files'])){
 
@@ -2198,13 +2209,13 @@ function moveFiles($fns,$target_fn){
     // move each fn
     if ($result){
 	foreach($fns as $fn){
-	    $file     = getGSFile_fromId($fn);	
+	    $file     = getGSFile_fromId($fn);
 	    if (!$file){
 		$_SESSION['errorData']['Error'][]="Cannot move file with id '$fn'. Entry not found";
 		$result = false;
 		continue;
 	    }
-    
+
 	    // check file exists
 	    $file_fn  = $file['path'];
 	    $file_rfn = $GLOBALS['dataDir']."/$file_fn";
@@ -2236,11 +2247,11 @@ function moveFiles($fns,$target_fn){
 		$result = false;
 		continue;
 	    }
-    
+
 	    // move associated ids
 	    if (isset($file['associated_files'])){
 		foreach ($file['associated_files'] as $assoc_id){
-		    $assoc = getGSFile_fromId($assoc_id);	
+		    $assoc = getGSFile_fromId($assoc_id);
 		    if ($assoc){
 			$r = moveGSFileBNS($assoc['path'],"$target_dir/".basename($assoc_path));
 			if ($r == "0"){

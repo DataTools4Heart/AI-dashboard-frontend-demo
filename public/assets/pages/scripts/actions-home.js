@@ -15,11 +15,11 @@ function deleteProject(project, name){
   $.ajax({
 	type: "GET",
 	url: baseURL + "applib/manageProjects.php",
-	data: "op=deleteMsg&pr_id=" + project, 
+	data: "op=deleteMsg&pr_id=" + project,
 	success: function(data) {
 		$('#modalDeleteProject').modal({ show: 'true' });
-			$('#modalDeleteProject .modal-body').html("<p>Are you sure you want to delete the project <strong>" + name + "</strong> " + 
-			"and <strong>ALL</strong> its executions and files? This action cannot be undone. List of executions you will remove:</p>" + 
+			$('#modalDeleteProject .modal-body').html("<p>Are you sure you want to delete the project <strong>" + name + "</strong> " +
+			"and <strong>ALL</strong> its executions and files? This action cannot be undone. List of executions you will remove:</p>" +
 			data);
 		}
 	});
@@ -75,9 +75,9 @@ function rename(file){
 	$.ajax({
 		type: "POST",
 		url: baseURL + "applib/getDataMove.php",
-		data: "id=" + file + "&op=rename", 
+		data: "id=" + file + "&op=rename",
 		success: function(data) {
-			var obj = JSON.parse(data);	
+			var obj = JSON.parse(data);
 			pathRename = obj.path.replace(/\//g, "%2F") + "%2F";
 			typeRename = obj.type;
 			$('#modalRename .modal-title').html('Rename <strong>' + obj.name + '</strong>');
@@ -107,9 +107,9 @@ function move(file){
 	$.ajax({
 		type: "POST",
 		url: baseURL + "applib/getDataMove.php",
-		data: "id=" + file + "&op=move", 
+		data: "id=" + file + "&op=move",
 		success: function(data) {
-			usrPrjStr = JSON.parse(data);	
+			usrPrjStr = JSON.parse(data);
 			$('#modalMove .modal-title').html('Move <strong>' + usrPrjStr.name + '</strong>');
 			if(usrPrjStr.type == "file") {
 				$('#modalMove .modal-body p').html('File <strong>'+usrPrjStr.name+'</strong> currently located at <strong>/'+usrPrjStr.project+'/'+usrPrjStr.execution+'/</strong>');
@@ -139,7 +139,7 @@ function move(file){
 				$('#col-3-move').show();
 			}
 			$.each(usrPrjStr.projects, function(k, v) {
-				
+
 				if(v.name == usrPrjStr.project) var sel = "selected";
 				$("#project-name").append('<option value="' + v.id + '" ' + sel + '>' + v.name + '</option>');
 				if(v.name == usrPrjStr.project) {
@@ -154,7 +154,7 @@ function move(file){
 			$('#modalMove .modal-body #move-file').show();
 
 			typeMove = usrPrjStr.type;
-			
+
 		}
 	});
 }
@@ -174,7 +174,7 @@ function moveAllFiles(){
 	$.ajax({
 		type: "POST",
 		url: baseURL + "applib/getDataMove.php",
-		data: "id=1&op=move", 
+		data: "id=1&op=move",
 		success: function(data) {
 
 			$('#modalMove .modal-title').html('Move selected files');
@@ -190,7 +190,7 @@ function moveAllFiles(){
 			usrPrjStr = JSON.parse(data);
 
 			$.each(usrPrjStr.projects, function(k, v) {
-				
+
 				$("#project-name").append('<option value="' + v.id + '">' + v.name + '</option>');
 
 				if(k == 0) {
@@ -198,11 +198,11 @@ function moveAllFiles(){
 					$.each(v.executions, function(k1, v1) {
 						$("#execution-name").append('<option value="' + v1.id + '">' + v1.name + '</option>');
 					});
-	
+
 				}
 
 			});
-				
+
 			$('#modalMove .modal-body #move-file #new-name-move-file').val(usrPrjStr.name);
 
 			$('#modalMove .modal-body #loading-move').hide();
@@ -228,16 +228,16 @@ function getProgress() {
 	$.ajax({
 		type: "POST",
 		url: baseURL + "applib/getProgress.php",
-		data: "pid=" + globPID, 
+		data: "pid=" + globPID,
 		success: function(data) {
-		
+
 			console.log(data);
-	
+
 			var obj = JSON.parse(data);
 
 			$('#modalProgress .modal-body #meta-progress').html(obj.progress);
 			$('#modalProgress .modal-body #meta-log').html(obj.log);
-			
+
 			//
 
 			//if(!($("modalProgress").data('bs.modal') || {}).isShown) $('#modalProgress').modal({ show: 'true' });
@@ -257,7 +257,7 @@ function cancelJob(op, id) {
 	if(op == 'cancelJobDirSure') {
 		location.href = 'workspace/workspace.php?op=' + op + '&fn=' +  id;
 	} else if(op == 'cancelJobSure') {
-		location.href = 'workspace/workspace.php?op=' + op + '&pid=' +  id;	
+		location.href = 'workspace/workspace.php?op=' + op + '&pid=' +  id;
 	}
 
 }
@@ -323,7 +323,7 @@ function viewFileMeta(id, name, type){
 	$.ajax({
 		type: "POST",
 		url: baseURL + "applib/getMetaWS.php",
-		data: "id=" + id + "&type=" + type, 
+		data: "id=" + id + "&type=" + type,
 		success: function(data) {
 			$('#modalMeta .modal-header .modal-title').html(name.toUpperCase() + ' ' + txtID + ' Info');
 			$('#modalMeta .modal-body #meta-summary').html(data);
@@ -347,7 +347,7 @@ callShowSHfile = function(tool, sh) {
 	$.ajax({
 		type: "POST",
 		url: baseURL + "applib/showSHfile.php",
-		data: "fn=" + sh + "&tool=" + tool, 
+		data: "fn=" + sh + "&tool=" + tool,
 		success: function(data) {
 			$('#modalAnalysis .modal-body').html(data);
 		}
@@ -366,7 +366,7 @@ runTool = function(tool) {
 		if(allFiles[i].checked) {
 			query += 'fn[]=' + allFiles[i].fileId + '&';
 		}
-	} 
+	}
 	query = query.slice(0, -1);
 	location.href = baseURL + "tools/" + tool + "/input.php?" + query;
 }
@@ -377,7 +377,7 @@ runVisualizer = function(tool, user) {
 		if(allFiles[i].checked) {
 			query += 'fn[]=' + allFiles[i].fileId + '&';
 		}
-	} 
+	}
 	query = query.slice(0, -1);
 
 	var target = (tool != 'tadkit' ? 'childWindow': '_blank');
@@ -385,13 +385,15 @@ runVisualizer = function(tool, user) {
 	window.open(baseURL + "visualizers/" + tool + "/?" + query, target);
 
 }
-	
+
 viewResults = function(execution, tool) {
-		
+
 	App.blockUI({
 				boxed: true,
 		message: 'Creating tool output, this operation may take a while, please don\'t close the tab...'
 			});
+
+	setTimeout(function(){ location.href = 'tools/' + tool + '/output.php?execution=' + execution; }, 500);
 
 	$.ajax({
 		type: "POST",
@@ -400,7 +402,7 @@ viewResults = function(execution, tool) {
 		success: function(data) {
 			//d = data.replace(/(\r\n|\n|\r|\t)/gm,"");
 			/*if(d == '1'){
-				setTimeout(function(){ location.href = '/'; }, 1000);	
+				setTimeout(function(){ location.href = '/'; }, 1000);
 			}else{
 				App.unblockUI();
 			}*/
@@ -408,7 +410,7 @@ viewResults = function(execution, tool) {
 			//console.log(data);
 
 			if(data == '1'){
-				setTimeout(function(){ location.href = 'tools/' + tool + '/output.php?execution=' + execution; }, 500);	
+				setTimeout(function(){ location.href = 'tools/' + tool + '/output.php?execution=' + execution; }, 500);
 			}else if(data == '0') {
 				setTimeout(function(){ location.href = 'workspace/'; }, 500);
 			}
@@ -423,7 +425,7 @@ editAllFiles = function() {
 		if(allFiles[i].checked) {
 			query += 'fn[]=' + allFiles[i].fileId + '&';
 		}
-	} 
+	}
 	query = query.slice(0, -1);
 	location.href = baseURL + "getdata/uploadForm2.php?" + query;
 }
@@ -433,7 +435,7 @@ checkJobStatus = function() {
 	$.ajax({
 			type: "GET",
 			url: baseURL + "applib/updateUserJobs.php",
-			data: "id=1", 
+			data: "id=1",
 			success: function(data) {
 				var d = JSON.parse(data);
 				if(d.hasChanged == 1) location.href= baseURL + "workspace/";
@@ -445,7 +447,7 @@ $(document).ready(function() {
 
 	if ( $(".job-running").length ) {
 
-        // check jobs in intervals exponentially longer 
+        // check jobs in intervals exponentially longer
         var interval = 10000;
         timer = function() {
             interval=interval*1.5;
@@ -480,9 +482,9 @@ $(document).ready(function() {
 		$.ajax({
 			type: "GET",
 			url: baseURL + "applib/actionsWS.php",
-			data: "op=" + option + fn, 
+			data: "op=" + option + fn,
 			success: function(data) {
-				$('#modalDelete').modal('toggle');	
+				$('#modalDelete').modal('toggle');
 				//console.log(data);
 				location.href= baseURL + "workspace/";
 			}
@@ -497,10 +499,10 @@ $(document).ready(function() {
 		location.href = baseURL + "applib/manageProjects.php?op=delete&pr_id=" + projectName;
 
 	});
-	
+
 	// Optimalisation: Store the references outside the event handler:
   var $window = $(window);
-	
+
   function checkWidthWS() {
 		var windowsize = $window.width();
 		if (windowsize < 989){
@@ -519,7 +521,7 @@ $(document).ready(function() {
 	// Bind event listener
 	$(window).resize(checkWidthWS);
 
-	
+
 	$('#modalGuest').on('hidden.bs.modal', function () {
 		location.href = baseURL + "applib/modifyUserFirstTime.php";
 	});
@@ -575,7 +577,7 @@ $(document).ready(function() {
 
 		$("#btn-sample").click(function() {
 
-			$(this).prop('disabled', true);	
+			$(this).prop('disabled', true);
 			$(this).html('<i class="fa fa-spinner fa-pulse fa-spin"></i> Importing example dataset, please don\'t close the tab.');
 
 			$("#import-sample").submit();
@@ -592,8 +594,8 @@ $(document).ready(function() {
 	}
 
 	$("#submit-rename").click(function() {
-	
-		$(this).prop("disabled", true);	
+
+		$(this).prop("disabled", true);
 		$(this).html('Submitting <i class="fa fa-spinner fa-spin"></i>');
 
 		if(typeRename == "file") {
@@ -605,10 +607,10 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			url: baseURL + "workspace/workspace.php",
-			data: "op=" + op + "&fn=" + fileRenameID + "&target=" + pathRename + $('#modalRename .modal-body #form-rename input#new-name').val(), 
+			data: "op=" + op + "&fn=" + fileRenameID + "&target=" + pathRename + $('#modalRename .modal-body #form-rename input#new-name').val(),
 			success: function(data) {
 				var obj = JSON.parse(data);
-		
+
 				if(!obj.error) {
 					location.href = baseURL + "workspace";
 				}	else {
@@ -616,7 +618,7 @@ $(document).ready(function() {
 					$('#modalRename .modal-body .alert-danger').html('<strong>Error!</strong> ' + obj.msg);
 				}
 			}
-			
+
 		});
 
 	});
@@ -637,20 +639,20 @@ $(document).ready(function() {
 			if(v.id == exc) {
 
 				$("#execution-name").html('');
-					
+
 				$.each(v.executions, function(k1, v1) {
 					$("#execution-name").append('<option value="' + v1.id + '">' + v1.name + '</option>');
 				});
 
 			}
-				
+
 		});
 
 	});
 
 	$("#submit-move").click(function() {
-	
-		$(this).prop("disabled", true);	
+
+		$(this).prop("disabled", true);
 		$(this).html('Submitting <i class="fa fa-spinner fa-spin"></i>');
 
 		$.each(usrPrjStr.projects, function(k, v) {
@@ -662,7 +664,7 @@ $(document).ready(function() {
 				$.each(v.executions, function(k1, v1) {
 
 					if(v1.id == $("#execution-name").val()) {
-						
+
 						pathMoveFile = v1.path.replace(/\//g, "%2F") + "%2F";
 						return false;
 
@@ -690,20 +692,20 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			url: baseURL + "workspace/workspace.php",
-			data: query, 
+			data: query,
 			success: function(data) {
 				var obj = JSON.parse(data);
-		
+
 				if(!obj.error) {
 					location.href = baseURL + "workspace";
 				}	else {
-					$("#submit-move").prop("disabled", false);	
+					$("#submit-move").prop("disabled", false);
 					$("#submit-move").html('Submit <i class="fa fa-submit"></i>');
 					$('#modalMove .modal-body .alert-danger').show();
 					$('#modalMove .modal-body .alert-danger').html('<strong>Error!</strong> ' + obj.msg);
 				}
 			}
-			
+
 		});
 
 	});
@@ -718,7 +720,7 @@ $(document).ready(function() {
 });
 
 function loadWSTool(op) {
-	table.state.clear();	
+	table.state.clear();
 	location.href = baseURL + "workspace/?tool=" + op.value;
 
 }

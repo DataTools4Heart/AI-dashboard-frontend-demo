@@ -2,7 +2,7 @@
 
 /*
  * users.inc.php
- * 
+ *
  */
 
 //require_once "classes/User.php";
@@ -12,7 +12,7 @@ function checkLoggedIn(){
 
 	if (isset($_SESSION['User']) && isset($_SESSION['User']['_id']))
 		$user = $GLOBALS['usersCol']->findOne(array('_id' => $_SESSION['User']['_id']));
-	
+
 	if(isset($_SESSION['User']) && ($user['Status'] == 1)) return true;
 	else return false;
 }
@@ -51,7 +51,7 @@ function createUser(&$f) {
 	$_SESSION['User']   = $aux;
 	unset($_SESSION['crypPassword']);
 
-    // create user directory 
+    // create user directory
 	$dataDirId =  prepUserWorkSpace($aux['id'],$aux['activeProject']);
 	if (!$dataDirId){
         $_SESSION['errorData']['Error'][]="Error creating data dir";
@@ -71,7 +71,7 @@ function createUser(&$f) {
         return false;
     }
 
-    /*    
+    /*
     // register user in MuG ldap
     $r = saveNewUser_ldap($aux);
     if (!$r){
@@ -104,7 +104,7 @@ function createUserFromToken($login,$token,$userinfo=array(),$anonID=false){
             $f["Email"] = $login;
             $f["Token"] = $token;
             $f["Type"]  = 2;
-        
+
         }else{
           $f = array(
             "Email"        => $login,
@@ -160,9 +160,9 @@ function createUserFromToken($login,$token,$userinfo=array(),$anonID=false){
     }
     if ($anonID){
     	// if replacing anon user, delete old anon from mongo
-//    	$GLOBALS['usersCol']->deleteOne(array('_id'=> $anonID));    
+//    	$GLOBALS['usersCol']->deleteOne(array('_id'=> $anonID));
     }
-    
+
     //  inject user['id'] into auth server (keycloak) as 'vre_id' (so APIs will find it in /openid-connect/userinfo endpoint)
     $r = injectMugIdToKeycloak($aux['_id'],$aux['id']);
 
@@ -179,7 +179,7 @@ function createUserFromToken($login,$token,$userinfo=array(),$anonID=false){
 function createUserAnonymous($sampleData=""){
 
     // create full user oject
-    
+
     $f = array(
         "Email"        => substr(md5(rand()),0,25)."",
         "Type"         => 3,
@@ -262,7 +262,7 @@ function createUserFromAdmin(&$f) {
 
     // send mail to user, if selected
 	if($f['sendEmail'] == 1) sendPasswordToNewUser($f['Email'], $f['Name'], $f['Surname'], $f['pass1']);
-    
+
     return true;
 }
 
@@ -281,7 +281,7 @@ function setUser($f,$lastLogin=FALSE) {
 function delUser($id, $asRoot=1, $force=false){
 
     //delete data from Mongo and disk
-    
+
     $homePath =  $id;
     $homeId = getGSFileId_fromPath($homePath,$asRoot);
     if (!$homeId){
@@ -291,7 +291,7 @@ function delUser($id, $asRoot=1, $force=false){
 
     if ($homeId){
         $home   = getGSFile_fromId($homeId,"all",$asRoot);
-    
+
         $r = deleteGSDirBNS($homeId,$asRoot,$force);
         if ($r == 0){
 	        $_SESSION['errorData']['Error'][]="Cannot delete $homeId directory from database.";
@@ -335,23 +335,23 @@ var_dump($kc_user);
             if ($kc_user['attributes'])
                 $attributes = $kc_user['attributes'];
             $attributes['vre_id'] = array($id);
-            $data = array("attributes" => $attributes); 
+            $data = array("attributes" => $attributes);
 print "\nPOST DATA\n";
 var_dump(json_encode($data));
             $r = update_keycloak_user($kc_user['id'],json_encode($data),$kc_token['access_token']);
 
             if (!$r){
-                $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot update ".$aux['_id']." in its registry";
+                #      $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot update ".$aux['_id']." in its registry";
                 return false;
             }else{
                 return true;
             }
         }else{
-            $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot get ".$aux['_id']." from its registry";
+            # $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot get ".$aux['_id']." from its registry";
             return false;
         }
     }else{
-        $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Token not created";
+        # $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Token not created";
         return false;
     }
 }
@@ -371,22 +371,22 @@ function resetPasswordViaKeycloak($login,$id){
             die();
 
             if (!$r){
-                $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot update ".$aux['_id']." in its registry";
+                #              $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot update ".$aux['_id']." in its registry";
                 return false;
             }else{
                 return true;
             }
         }else{
-            $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot get ".$aux['_id']." from its registry";
+            #      $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Cannot get ".$aux['_id']." from its registry";
             return false;
         }
     }else{
-        $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Token not created";
+        # $_SESSION['errorData']['Warning'][]="User not valid to be used outside VRE. Could not inject 'vre_id' into Auth Server. Token not created";
         return false;
     }
 }
-    
-    
+
+
 function logoutUser() {
     session_unset();
 }
@@ -467,8 +467,8 @@ function loadUser($login, $pass) {
     $user['lastLogin'] = moment();
     updateUser($user);
 
-    
-    // load user into SESSION 
+
+    // load user into SESSION
     setUser($user,$auxlastlog);
 
     return $user;
@@ -480,7 +480,7 @@ function loadUserWithToken($userinfo, $token){
 
     if (!$user['_id'] || $user['Status'] == 0)
         return False;
-    
+
     $auxlastlog = $user['lastLogin'];
     $user['lastLogin'] = moment();
     $user['Token']     = $token;
@@ -493,7 +493,7 @@ function loadUserWithToken($userinfo, $token){
 }
 
 function allowedRoles($role, $allowed){
-	
+
 	if(in_array($role,$allowed)){
 		return true;
 	}else{
