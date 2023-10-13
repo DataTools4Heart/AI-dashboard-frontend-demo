@@ -6,7 +6,7 @@ redirectOutside();
 
 //Retrive sites
 
-$dt4hsites = getSitesInfo();
+$sites = getSitesInfo();
 
 $progress = ['pending', 'testing', 'active'];
 $types = ['comp'=> 'Computational', 'data'=> 'Data', 'both'=>'Data & Computational'];
@@ -111,7 +111,7 @@ $status = ['inactive', 'active'];
 
                   <tbody>
                     <!-- process and display each result row -->
-                <?php foreach ($dt4hsites as $obj) { ?>
+                <?php foreach ($sites as $obj) { ?>
                     <tr>
                         <td> <?= $obj["_id"] ?> </td>
                         <td> <?= $obj["name"] ?> </td>

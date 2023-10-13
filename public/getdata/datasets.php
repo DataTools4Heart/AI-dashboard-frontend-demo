@@ -5,7 +5,7 @@ require __DIR__ . "/../../config/bootstrap.php";
 redirectOutside();
 
 //Retrive communities
-$dt4hsites = getSitesInfo("data");
+$sites = getSitesInfo("data");
 
 // Print page
 ?>
@@ -105,7 +105,7 @@ $dt4hsites = getSitesInfo("data");
                       <th> Title </th>
                       <th> Description </th>
                       <th> Version </th>
-                      <?php foreach ($dt4hsites as $site) {?>
+                      <?php foreach ($sites as $site) {?>
                         <th><?=$site['_id']?></th>
                       <?php } ?>
                       <th> Materialize </th>
@@ -130,7 +130,7 @@ $dt4hsites = getSitesInfo("data");
 			'version' => '1.0 [2023-09-30]',
       'catalogue_url' => "https://catalogue.datatools4heart.eu/dataset/?DT4H".$i
       ];
-      foreach ($dt4hsites as $site) {
+      foreach ($sites as $site) {
         $data[$site['_id']] = rand(0,100);
       }
       $datasets[] = $data;
@@ -146,7 +146,7 @@ $dt4hsites = getSitesInfo("data");
                 <td> <?= $obj["name"]; ?> </td>
                 <td> <?= $obj["description"]; ?> </td>
                 <td> <?= $obj["version"]; ?> </td>
-                <?php foreach ($dt4hsites as $site) {?>
+                <?php foreach ($sites as $site) {?>
                   <td><?= $obj[$site['_id']]?></th>
                 <?php } ?>
 
