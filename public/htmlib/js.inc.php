@@ -83,7 +83,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 		break;
 	case 'logs':
 	case 'datasets':
-	case 'dt4hsites': ?>
+	case 'sites': ?>
 		<script src="assets/global/scripts/datatable.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
 		<script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
@@ -290,7 +290,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'datasets': ?>
 		<script src="assets/pages/scripts/table-datasets.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
-	case 'dt4hsites': ?>
+	case 'sites': ?>
 		<script src="assets/pages/scripts/table-sites.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
 	case 'logs': ?>
@@ -393,7 +393,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'index':
 	case 'home':
 	case 'datasets':
-	case 'dt4hsites':
+	case 'sites':
 	case 'usrProfile':
 	case 'restoreLink':
 	case 'uploadForm':

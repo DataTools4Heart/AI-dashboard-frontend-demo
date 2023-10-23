@@ -47,7 +47,7 @@ $sites = getSitesInfo("data");
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
           <a href="javascript:;" target="_blank"><img src="assets/layouts/layout/img/icon.png" width=100></a>
-          Available Datasets from EUCAIM catalogue
+          Available Datasets from project catalogue
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -124,11 +124,11 @@ $sites = getSitesInfo("data");
     $n = 1;
     while ($i < 1000320) {
       $data =
-			['_id'=>'EUCAIM'.$i,
-			'name'=> 'EUCAIM_UC1_'.$n,
+			['_id'=>$GLOBALS['AppPrefix'].$i,
+			'name'=> $GLOBALS['AppPrefix'].'_UC1_'.$n,
 			'description' => 'Some UC1 data '.$n,
 			'version' => '1.0 [2023-09-30]',
-      'catalogue_url' => "https://catalogue.datatools4heart.eu/dataset/?EUCAIM".$i
+      'catalogue_url' => "https://catalogue.datatools4heart.eu/dataset/?".$GLOBALS['AppPrefix'].$i
       ];
       foreach ($sites as $site) {
         $data[$site['_id']] = rand(0,100);
