@@ -585,4 +585,3 @@ function getUserJobPid($login,$pid) {
         return Array();
 }
 
-?>
