@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // system call in a subprocess
 function subprocess($cmd, &$stdout=null, &$stderr=null,$cwd=null) {
@@ -115,7 +115,7 @@ function printErrorDivision(){
                 }
                 print "<div class=\"$errType\">";
                 foreach ($_SESSION['errorData'] as $subTitle => $txts) {
-                        print "$subTitle<br/>"; 
+                        print "$subTitle<br/>";
                         foreach ($txts as $txt) {
                                 print "<div style=\"margin-left:20px;\">$txt</div>";
                         }
@@ -149,7 +149,7 @@ function printFilePath_fromPath($path,$asRoot=0){
     $path = str_replace(array("\\\\","\\/", "//", "\\/","/\\"), "/", $path);
 
     // parse file path
-    
+
     $p = explode("/", $path);
 
     $filePath = "";
@@ -163,7 +163,7 @@ function printFilePath_fromPath($path,$asRoot=0){
     }else{
         $_SESSION['errorData']['Warning'][]=" Cannot show file '$path'. It has an invalid path.";
     }
-    // if path has project Dir 
+    // if path has project Dir
     if (preg_match('/__PROJ/',$p[0]) ){
         $projDir  = array_shift($p);
         $filePath = $p;
@@ -174,7 +174,7 @@ function printFilePath_fromPath($path,$asRoot=0){
             $proj = array("name" => $projDir);
         }
 
-    // if path has NO project Dir 
+    // if path has NO project Dir
     }else{
         $_SESSION['errorData']['Internal'][]="Error: incorrect file. Path contains no project ($path)";
         $proj = array("name" => "Foo Project");
@@ -206,8 +206,8 @@ function printFilePath_fromPath($path,$asRoot=0){
 }
 
 
-    
-   
+
+
 function fromPrefix2Program($prefix){
 
         $tools   = $GLOBALS['toolsCol']->find(array('prefix' => array('$exists'=> true)));
@@ -236,7 +236,7 @@ function getJobDescription($descrip0,$jobSGE,$lastjobs){
 
 		# get info for dependent jobs from lastjobs
 	        if (isset($jobSGE['jid_predecessor_list'])){
-	                $depText = "";  
+	                $depText = "";
 	               $depPids = explode(",",$jobSGE['jid_predecessor_list']);
 	               foreach ($depPids as $depPid){
 	                        if (isset($lastjobs[$depPid])){
@@ -309,7 +309,7 @@ function saveMetadataUpload($fn,$request,$validationState){
         // filters known metadata fields
         $insertMeta = prepMetadataUpload($request,$validationState);
 
-        // save to mongo        
+        // save to mongo
         $r = modifyMetadataBNS($fn,$insertMeta);
         return $r;
 }
@@ -526,7 +526,7 @@ function prepMetadataResult($meta,$fnPath=0,$lastjob=Array() ){
 
         if (!isset($meta['format']) && $fnPath)
                 $meta['format']= strtoupper($extension);
-        
+
         if (!isset($meta['input_files']) && isset($lastjob['input_files']) ){
             $input_ids = array();
             array_walk_recursive($lastjob['input_files'], function($v, $k) use (&$input_ids){ $input_ids[] = $v; });
@@ -588,7 +588,7 @@ function prepMetadataResult($meta,$fnPath=0,$lastjob=Array() ){
                     #$BAM = $relatedBAMS->current();
                     #if (!empty($BAM))
                     #      $meta['refGenome'] = $BAM['refGenome'];
-		} 
+		}
 
             }
         }
@@ -630,7 +630,7 @@ function validateMugFile($file,$is_output=false){
 	if ($file['type']=="dir"){
 		if (!isset($file['meta_data']['files'])){
 			$file['meta_data']['files']=Array();
-			//$_SESSION['errorData']['Error'][]= "Invalid MuG Directory. Attribute 'meta_data->files' is required when 'type=dir'.";	
+			//$_SESSION['errorData']['Error'][]= "Invalid Directory. Attribute 'meta_data->files' is required when 'type=dir'.";
 			//return array($val_score, $file);
 		}
 	}elseif($file['type']=="file" ){
@@ -645,7 +645,7 @@ function validateMugFile($file,$is_output=false){
 
 	if (!isset($file['compressed']))
 		$file['compressed']=false;
-	
+
 	if (!isset($file['sources'])){
 		if (isset($file['meta_data']['tool'])){
 	         	$_SESSION['errorData']['Warning'][]="Invalid File. Attribute 'sources' required if metadata 'tool' is set";
@@ -657,7 +657,7 @@ function validateMugFile($file,$is_output=false){
 	}
 	if (!isset($file['meta_data']['visible']))
 		$file['meta_data']['visible']=true;
-	
+
 	if ($is_output){
             if (!isset($file['meta_data']['tool'])){
 		//TODO tool value is a valid tool_id
@@ -678,7 +678,7 @@ function output_is_required($out_def){
 		return $out_def['required'];
 	else
 		return false;
-}		
+}
 
 function output_allow_multiple($out_def){
 	if (isset($out_def['allow_multiple']))
@@ -716,7 +716,7 @@ function flattenArray($arr,$dot_keynames=true,$narr = array(), $nkey = '') {
                 } else {
                     $narr[$nkey . $key] = $value;
                 }
-        
+
         }else{
             	if (is_array($value) && count($value)) {
                     $narr = array_merge($narr, flattenArray($value, $dot_keynames, $narr, ''));
@@ -758,7 +758,7 @@ function post($data,$url,$headers=array(),$auth_basic=array()){
             curl_setopt($c, CURLOPT_HTTPHEADER, $headers);
         if (isset($auth_basic['user']) && isset($auth_basic['pass']))
             curl_setopt($c, CURLOPT_USERPWD, $auth_basic['user'].":".$auth_basic['pass']);
-            
+
 		$r = curl_exec ($c);
         $info = curl_getinfo($c);
 
@@ -766,7 +766,7 @@ function post($data,$url,$headers=array(),$auth_basic=array()){
 			$errno = curl_errno($c);
 			$msg = curl_strerror($errno);
             $err = "POST call failed. Curl says: [$errno] $msg";
-		    $_SESSION['errorData']['Error'][]=$err;	
+		    $_SESSION['errorData']['Error'][]=$err;
 			return array(0,$info);
 		}
 		curl_close($c);
@@ -783,7 +783,7 @@ function get($url,$headers=array(),$auth_basic=array()){
         if (isset($_SERVER['HTTP_USER_AGENT'])){                      curl_setopt($c, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);}
         if (count($headers)){                                         curl_setopt($c, CURLOPT_HTTPHEADER, $headers);}
         if (isset($auth_basic['user']) && isset($auth_basic['pass'])){curl_setopt($c, CURLOPT_USERPWD, $auth_basic['user'].":".$auth_basic['pass']);}
-            
+
 		$r = curl_exec ($c);
 		$info = curl_getinfo($c);
 
@@ -791,7 +791,7 @@ function get($url,$headers=array(),$auth_basic=array()){
 			$errno = curl_errno($c);
 			$msg = curl_strerror($errno);
             $err = "GET call failed. Curl says: [$errno] $msg";
-		    $_SESSION['errorData']['Error'][]=$err;	
+		    $_SESSION['errorData']['Error'][]=$err;
 			return array(0,$info);
 		}
 		curl_close($c);
@@ -812,7 +812,7 @@ function put($data,$url,$headers=array(),$auth_basic=array()){
             curl_setopt($c, CURLOPT_HTTPHEADER, $headers);
         if (isset($auth_basic['user']) && isset($auth_basic['pass']))
             curl_setopt($c, CURLOPT_USERPWD, $auth_basic['user'].":".$auth_basic['pass']);
-            
+
 		$r = curl_exec ($c);
 		$info = curl_getinfo($c);
 
@@ -820,7 +820,7 @@ function put($data,$url,$headers=array(),$auth_basic=array()){
 			$errno = curl_errno($c);
             $msg = curl_strerror($errno);
             $err = "PUT call failed. Curl says: [$errno] $msg";
-		    $_SESSION['errorData']['Error'][]=$err;	
+		    $_SESSION['errorData']['Error'][]=$err;
 			return array(0,$info);
 		}
 		curl_close($c);
@@ -829,18 +829,18 @@ function put($data,$url,$headers=array(),$auth_basic=array()){
 }
 
 function is_url($url){
-    $regex = "((https?|ftps?)\:\/\/)?"; 
-    $regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?"; // User and Pass 
-    $regex .= "([a-z0-9-.]*)\.([a-z]{2,3})"; // Host or IP 
-    $regex .= "(\:[0-9]{2,5})?"; // Port 
-    $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path 
-    $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query 
+    $regex = "((https?|ftps?)\:\/\/)?";
+    $regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?"; // User and Pass
+    $regex .= "([a-z0-9-.]*)\.([a-z]{2,3})"; // Host or IP
+    $regex .= "(\:[0-9]{2,5})?"; // Port
+    $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path
+    $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query
     $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor
     if(preg_match("/^$regex$/i", $url))
         return true;
     else
         return false;
-    
+
     //return filter_var($url, FILTER_VALIDATE_URL);
 }
 
@@ -853,7 +853,7 @@ function fromTaxonID2TaxonName($taxon_id){
     }else{
         $resp = json_decode($resp);
         if ($resp->scientificName){
-            return $resp->scientificName;  
+            return $resp->scientificName;
         }else{
             return "Unknown";
         }
@@ -884,7 +884,7 @@ function getFileExtension($fnPath){
 		$fileExtension2_ori = pathinfo($fnPath2, PATHINFO_EXTENSION);
 		$fileBaseName       = pathinfo($fnPath2, PATHINFO_FILENAME);
 		$fileExtension      = preg_replace('/_\d$/',"",strtoupper($fileExtension2_ori));
-		
+
 		// if real fileExtension is also a compression type, append it to fileCompression (tar.gz)
 		if (in_array(".".$fileExtension,$compressExtensions )){
 			$fileCompression = "$fileExtension.$fileCompression";
@@ -990,7 +990,7 @@ function hex2rgb($hex) {
    }
 
    $rgb = array($r, $g, $b);
-   return implode(",", $rgb); 
+   return implode(",", $rgb);
 }
 
 function file_get_contents_chunked($file,$chunk_size,$callback){
@@ -1024,4 +1024,4 @@ function indexArray($multiArray,$attr="_id"){
     return $assocArray;
 }
 
- 
+

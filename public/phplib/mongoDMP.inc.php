@@ -2,7 +2,7 @@
 
 
 function DMP_http($method,$service,$data=false){
-    
+
     $resp = 0;
     $info = array();
 
@@ -40,12 +40,12 @@ function DMP_http($method,$service,$data=false){
     if ($info['http_code'] != 200 && $info['http_code'] != 204){
         if ($resp){
             $err = json_decode($resp,TRUE);
-            $_SESSION['errorData']['DMP'][]="MuG data manager (DM) returned error. [".$err['error']."]: ".$err['error_description'];
+            $_SESSION['errorData']['DMP'][]="Data manager (DM) returned error. [".$err['error']."]: ".$err['error_description'];
         }else{
-            $_SESSION['errorData']['DMP'][]="MuG data manager (DM) returned HTTP code = ".$info['http_code'];
+            $_SESSION['errorData']['DMP'][]="Data manager (DM) returned HTTP code = ".$info['http_code'];
         }
         return false;
-    } 
+    }
     $resp = json_decode($resp,TRUE);
     return $resp;
 }
@@ -84,7 +84,7 @@ function getGSFileId_fromPath_TEST($fnPath,$asRoot=0) {
     }
 }
 
-function getGSFilesFromDir_TEST($dirId,$onlyVisible=0){  ### !OJO: old params were ($dataSelection=Array(),$onlyVisible=0) !!! 
+function getGSFilesFromDir_TEST($dirId,$onlyVisible=0){  ### !OJO: old params were ($dataSelection=Array(),$onlyVisible=0) !!!
 
     $files=Array();
 
@@ -119,7 +119,7 @@ function getGSFilesFromDir_TEST($dirId,$onlyVisible=0){  ### !OJO: old params we
 	    if ( $fData['path'] == $_SESSION['User']['id']){continue; }
        	if (is_object($fData['mtime'])){$fData['mtime'] = $fData['mtime']->toDateTime()->format('U');}
         //append
-        $files[$fData['_id']] = $fData; 
+        $files[$fData['_id']] = $fData;
 
         if (isset($fData['files']) && count($fData['files'])>0 ){
 	    	foreach ($fData['files'] as $dd) {
@@ -128,7 +128,7 @@ function getGSFilesFromDir_TEST($dirId,$onlyVisible=0){  ### !OJO: old params we
                 if ($onlyVisible && (isset($ffData['visible']) || $ffData['visible'] === false) ){ continue;}
        			if (is_object($ffData['mtime'])){$ffData['mtime'] = $ffData['mtime']->toDateTime()->format('U');}
                 //append
-        		$files[$ffData['_id']] = $ffData; 
+        		$files[$ffData['_id']] = $ffData;
     		}
 	    }
     }
@@ -156,12 +156,12 @@ function getGSFile_fromId_TEST($fn,$filter="",$asRoot=0) {
         if (empty($fileMeta))
             return 0;
         return $fileMeta;
-    
+
     }elseif($filter == "onlyData"){
         if (empty($fileData))
             return 0;
         return $fileData;
-    
+
     }else{
         if (empty($fileData))
             return 0;
@@ -191,7 +191,7 @@ function getGSFiles_filteredBy_TEST($fn,$filters) {
 	elseif (empty($fileMeta))
 		return $fileData;
 	else
-		return array_merge($fileData,$fileMeta);	
+		return array_merge($fileData,$fileMeta);
 }
 
 function getAttr_fromGSFileId_TEST($fnId,$attr) {
@@ -225,7 +225,7 @@ function getSizeDirBNS_TEST($dir){
     		$s += $childObj['size'];
     	}
 	}
-	return $s; 
+	return $s;
 }
 
 // create new directory registry
@@ -238,7 +238,7 @@ function createGSDirBNS_TEST($dirPath,$asRoot=0) {
 		return 0;
 	}
 	list($dirPath,$r) = absolutePathGSDir($dirPath,$asRoot);
-	
+
     if ($r == "0"){
 		$_SESSION['errorData']['mongoDB'][]="Cannot create $dirPath . Target not under root directory ".$_SESSION['User']['id']." ?";
 		return 0;
@@ -255,11 +255,11 @@ function createGSDirBNS_TEST($dirPath,$asRoot=0) {
 	}
 
 	// already there?
-	$r = getGSFileId_fromPath_TEST($dirPath,1); # OJO TODO: asroot=1 
+	$r = getGSFileId_fromPath_TEST($dirPath,1); # OJO TODO: asroot=1
 	if ($r != "0"){
 		return $r;
 	}
-	
+
 	//check parent
 	if ( $dirPath == $_SESSION['User']['id'] ){
 		$parentId = 0;

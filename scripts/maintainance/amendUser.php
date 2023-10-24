@@ -56,17 +56,17 @@ foreach ( array_values(iterator_to_array($fu)) as $u ){
     print "<br/>\n-------------<br/>\n USER ID => $id (".$u['_id'].")<br/>\n<br/>\n";
 
     // ckeck if user exists in disk
-    
+
     $homeDir = $GLOBALS['dataDir'] . "/$id";
     print "- homeDir = $homeDir<br/>\n";
     if (!is_dir($homeDir)){
         print "Id $id has no home dir: $homeDir";
         continue;
-        
+
     }
 
     // check if user has orphan files (MONGO)
-    
+
     $homeId = getGSFileId_fromPath($id,1);
     print "- homeId = $homeId<br/>\n";
     if (! $homeId){
@@ -90,7 +90,7 @@ foreach ( array_values(iterator_to_array($fu)) as $u ){
             array_push($orphanIds,$dirId);
         }
     }
-    
+
     print "- Num Orphan dirs = ".count($orphanIds)."<br/>\n";
     foreach ($orphanIds as $f_id){
         $f =  getGSFile_fromId($f_id,"",1);
@@ -124,15 +124,15 @@ foreach ( array_values(iterator_to_array($fu)) as $u ){
         print "- Creating foo project! - user is old model, have  no other projects<br/>\n";
 
         if ($_REQUEST['dryrun']){continue;}
-                
+
         $proj_code = createLabel_proj();
         //$proj_code = "__PROJ5b4e0c02decf67.81076887";
         $proj_sd   = "0";
-        $proj_data = array("name"=> "MyProject", "keywords"=> "compatibilityMode","description"=> "This is an automatic project that puts together all your data. It has been set to ensure the compatibility of your workspace data with the new MuGVRE - where user's data is organized by 'projects'. You can manage it as any other project!");
+        $proj_data = array("name"=> "MyProject", "keywords"=> "compatibilityMode","description"=> "This is an automatic project that puts together all your data. It has been set to ensure the compatibility of your workspace data with the new openVRE - where user's data is organized by 'projects'. You can manage it as any other project!");
 
         $proj_id = prepUserWorkSpace($id,$proj_code,$proj_sd,$proj_data,FALSE,1);
         //$proj_id = "MuGUSER5a0c0314c20d1_5b4e0c02e1f354.18716647";
-        $proj    = getProject($proj_id,1,$id);  
+        $proj    = getProject($proj_id,1,$id);
         print "- Foo project created [code (id)] = $proj_code ($proj_id)<br/>\n";
 
     // If orphans but already  projs, check project
@@ -157,10 +157,10 @@ foreach ( array_values(iterator_to_array($fu)) as $u ){
 
             $proj_code = createLabel_proj();
             $proj_sd   = "0";
-            $proj_data = array("name"=> "MyProject", "keywords"=> "compatibilityMode","description"=> "This is an automatic project that puts together all your data. It has been set to ensure the compatibility of your workspace data with the new MuGVRE - where user's data is organized by 'projects'. You can manage it as any other project!");
-    
+            $proj_data = array("name"=> "MyProject", "keywords"=> "compatibilityMode","description"=> "This is an automatic project that puts together all your data. It has been set to ensure the compatibility of your workspace data with the new openVRE - where user's data is organized by 'projects'. You can manage it as any other project!");
+
             $proj_id = prepUserWorkSpace($id,$proj_code,$proj_sd,$proj_data,FALSE,1);
-            $proj    = getProject($proj_id,1,$id);  
+            $proj    = getProject($proj_id,1,$id);
             print "- Foo project created [code (id)] = $proj_code ($proj_id)<br/>\n";
         }
     }
@@ -183,10 +183,10 @@ foreach ( array_values(iterator_to_array($fu)) as $u ){
                 if (!$proj_id){
                     $_SESSION['errorData']['error'][]="Cannot update User dataDir. Cannot find a 'compatibilityMode' project identifier ($id/$proj_code).";
                     continue;
-                    
+
                 }
                 print "- ActiveProject= $proj_code -- dataDir = $proj_id<br/>\n";
-            
+
             }else{
                 $_SESSION['errorData']['error'][]="Cannot update User dataDir. Cannot find a 'compatibilityMode' project.";
                 continue;
@@ -225,7 +225,7 @@ foreach ( array_values(iterator_to_array($fu)) as $u ){
             }
             // Move dir in DB
             $r = moveGSDirBNS($dir_pathOld,$dir_pathNew,1,$id);
-                
+
             if ($r == "0"){
                 $_SESSION['errorData']['Error'][]="Error while registering orphan directory into foo project";
                 continue;
@@ -239,7 +239,7 @@ foreach ( array_values(iterator_to_array($fu)) as $u ){
         }
     }
     // If orphans in disk, move each dir into foo project
-     
+
     $homeFilesDisk = scanDir($homeDir);
     $orphanPaths = array();
     foreach ($homeFilesDisk as $f){

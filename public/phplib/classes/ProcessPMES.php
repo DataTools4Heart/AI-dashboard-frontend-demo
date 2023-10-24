@@ -19,7 +19,7 @@ class ProcessPMES{
 			if ($this->cloud == "0")
 				$cloudName="mug-bsc";
 		}elseif(!in_array($cloudName,array_keys($GLOBALS['clouds'])) ){
-			$_SESSION['errorData']['Warning'][]="No MuG cloud named '$cloudName' is registered. Instead, attempting 'mug-bsc' infrastructure";
+			$_SESSION['errorData']['Warning'][]="No cloud named '$cloudName' is registered. Instead, attempting 'mug-bsc' infrastructure";
 			$cloudName="mug-bsc";
 		}else{
 			$this->cloud = $GLOBALS['clouds'][$cloudName];
@@ -58,18 +58,18 @@ class ProcessPMES{
 		logger("PMES POST call. URL = '$url'");
 
 		$data_string = json_encode($data);
-	
+
 		//print "<br>POST DATA IS <br>";
         //print "<pre>".json_encode($data, JSON_PRETTY_PRINT)."</pre>";
-		
-	
+
+
 		if (!strlen($data_string)){
 		    $_SESSION['errorData']['Error'][]="Curl: cannot POST request. Data to send is empty";
 		    return 0;
 		}
 		logger("PMES POST call. POST_DATA = '".json_encode($data). "'");
         logger("curl -H \"Content-Type: application/json\" -H \"Content-Length: ".strlen($data_string)."\" -X POST -d '".json_encode($data)."'  $url");
-        
+
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: '. strlen($data_string)
@@ -208,7 +208,7 @@ class ProcessPMES{
 			    return $cloudInfo;
             }
 		}
-		$_SESSION['errorData']['Warning'][]="No MuG cloud associated to current host domain '".$_SERVER['HTTP_HOST']."'";
+		$_SESSION['errorData']['Warning'][]="No cloud associated to current host domain '".$_SERVER['HTTP_HOST']."'";
 		return 0;
 	}
 
@@ -240,7 +240,7 @@ class ProcessPMES{
         $cmd = "curl -H \"Content-Type: application/json\" -X POST -d '".json_encode($data)."'  $url";
         subprocess($cmd,$r_str,$stdErr);
 
-        $r = json_decode($r_str, true); 
+        $r = json_decode($r_str, true);
         var_dump($r);
 
 

@@ -24,7 +24,7 @@ try {
 
 } catch (MongoConnectionException $e){
 	//die('Error Connecting Mongo DB: ' . $e->getMessage());
-	header('Location: '.$GLOBALS['BASEURL'].'/htmlib/errordb.php?msg=Cannot connect to VRE MuG database');
+	header('Location: '.$GLOBALS['BASEURL'].'/htmlib/errordb.php?msg=Cannot connect to openVRE database');
 
 } catch (MongoException $e) {
 	die('Error: ' . $e->getMessage());

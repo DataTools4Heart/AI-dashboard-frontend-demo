@@ -2,14 +2,14 @@
 
 /*
  * users.inc.php
- * 
+ *
  */
 
 function check_password($password, $hash){
     if ($hash == ''){
         return FALSE;
     }
- 
+
     if (substr($hash,0,7) == '{crypt}'){
         if (crypt($password, substr($hash,7)) == substr($hash,7))
             return TRUE;
@@ -22,7 +22,7 @@ function check_password($password, $hash){
 
     }elseif (substr($hash,0,5) == '{MD5}'){
         $encrypted_password = '{MD5}' . base64_encode(md5( $password,TRUE));
-    
+
     }elseif (substr($hash,0,6) == '{SHA1}'){
         $encrypted_password = '{SHA}' . base64_encode(sha1( $password, TRUE ));
 
@@ -34,7 +34,7 @@ function check_password($password, $hash){
         $_SESSION['ErrorData']['Error'][] = "Unsupported password hash format ".substr($hash,0,9)."...";
         return FALSE;
     }
- 
+
     if ($hash == $encrypted_password)
         return TRUE;
         return FALSE;
@@ -63,11 +63,11 @@ function fromMongoToLdap($UserMongo){
     }
 
     $info['uidNumber']    = getLastUidNumber()+1;
-    $info['gidNumber']    = '8901'; // mug posixGroup 
+    $info['gidNumber']    = '8901'; // mug posixGroup
     $info['loginShell' ]  = '/bin/bash';
     $info['homeDirectory']= "/home/".$UserMongo['id'];
-    $info['description']  = 'MuG user created from VRE';
-/*  
+    $info['description']  = 'User created from VRE';
+/*
     $info['shadowExpire']='-1';
     $info['shadowFlag']='0';
     $info['shadowWarning']='7';
@@ -92,7 +92,7 @@ function saveNewUser_ldap($mongoObj){
     //check new entry
     $sr = ldap_search($GLOBALS['ldap'],$GLOBALS['ldap_dn'],"cn=".$ldif['cn']);
     $info = ldap_get_entries($GLOBALS['ldap'],$sr);
-    
+
     if ($info[0]["dn"])
         return true;
         return false;
@@ -103,7 +103,7 @@ function checkUserLoginExists_ldap($login) {
 
     $sr = ldap_search($GLOBALS['ldap'],$GLOBALS['ldap_dn'],"uid=".$login);
     $info = ldap_get_entries($GLOBALS['ldap'],$sr);
-    
+
     if ($info[0]["dn"])
         return true;
         return false;
@@ -117,7 +117,7 @@ function delUser_ldap($login) {
         $_SESSION['errorData']['Error'][] = "Cannot delete user. LDAP says: [".ldap_errno($GLOBALS['ldap'])."] ".ldap_error($GLOBALS['ldap']);
         return false;
     }
-  }    
+  }
   return true;
 }
 

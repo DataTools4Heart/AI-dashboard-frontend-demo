@@ -1,6 +1,6 @@
 <?php
 /*
- * 
+ *
  */
 
 // get chr names from ref genome description file
@@ -29,7 +29,7 @@ function get_chrNames($ref){
 }
 
 // get chr possible alternative names
-function get_chrAlternatives(){ 
+function get_chrAlternatives(){
 	return Array (
 		'1'  => 'I',
 		'2'  => 'II',
@@ -161,7 +161,7 @@ function validateUPLOAD($fn,$inFn,$refGenome,$format){
                         return (false);
                 }
 
-	    # Any chr name found in file. Wrong format? 
+	    # Any chr name found in file. Wrong format?
 	    }else{
                 $_SESSION['errorData']['error'][]="Cannot retrieve any chromosome name from ".basename($inFn).". Please, check format.";
                 return (false);
@@ -328,7 +328,7 @@ function getChrFromBAM($bamFn){
 				if (!isset($m[1])){continue;}
 				array_push($chrNames,$m[1]);
 			}
-		}		
+		}
 	}
 	# check chromosome names reading BAM
 //	if (count($chrNames)==0){
@@ -337,7 +337,7 @@ function getChrFromBAM($bamFn){
 //			$_SESSION['errorData']['error'][]="Error extracting chromosome names: $stdErr";
 //			return (false);
 //		}
-//		if (count($SQs)) {	
+//		if (count($SQs)) {
 //			foreach (explode('/$/',$SQs) as $chr){
 //				if (!strlen($chr)){continue;}
 //				array_push($chrNames,$m[1]);
@@ -404,7 +404,7 @@ function validateWIG($inFn,$refGenome){
 							$chrs[$chr]=$chrRefRoot.$chrAlt[$post];
 						}else{
 							$chrs[$chr]=false;
-						}	
+						}
 					}
 				}
 			}
@@ -471,7 +471,7 @@ function validateBAM($bamFn,$refGenome){
 							$chrs[$chr]=$chrRefRoot.$chrAlt[$post];
 						}else{
 							$chrs[$chr]=false;
-						}	
+						}
 					}
 				}
 			}
@@ -485,7 +485,7 @@ function validateBAM($bamFn,$refGenome){
 			$_SESSION['errorData']['error'][]="Error extracting chromosome names: $stdEr\n";
 			return (false);
 		}
-		if (count($SQs)) {	
+		if (count($SQs)) {
 			foreach (explode("\n",$SQs) as $chr){
 				if (!strlen($chr)){continue;}
 				if ( in_array($chr,$chrRef)){
@@ -499,7 +499,7 @@ function validateBAM($bamFn,$refGenome){
 							$chrs[$chr]=$chrRef[0].$chrAlt[$post];
 						}else{
 							$chrs[$chr]=false;
-						}	
+						}
 					}
 				}
 			}
@@ -538,7 +538,7 @@ function get_seds_fromChrNameValidation($fn){
     				}elseif ($format == "BAM" ){
     					//print " sed 's/".$m[1]."\\t/".$m[2]."\\t/g' <br/> ";
     					array_push($subs," sed 's/".$m[1]."\\t/".$m[2]."\\t/g' ");
-    				}else{	
+    				}else{
     					//print " sed 's/".$m[1]."/".$m[2]."/g' <br/> ";
     					array_push($subs," sed 's/".$m[1]."/".$m[2]."/g' ");
     				}
@@ -554,10 +554,10 @@ function processBAM($bamId,$type,$cores){
 	$bamFn    = $GLOBALS['dataDir']."/".$bam;
 	$samtools = "/orozco/services/Rdata/Web/apps/samtools/bin/samtools";
     $dirTmp   = $GLOBALS['dataDir']."/".$_SESSION['User']['id']."/".$_SESSION['User']['activeProject']."/".$GLOBALS['tmpUser_dir'];
-	$bamNew   = $dirTmp. "/".basename($bam); 
+	$bamNew   = $dirTmp. "/".basename($bam);
 
-	# edit/sort BAM according SESSION[validation] 
-	
+	# edit/sort BAM according SESSION[validation]
+
 	$subs  = get_seds_fromChrNameValidation($bamId);
 	$sort  = (preg_grep('/will be sorted/', $_SESSION['validation'])? true:false);
 	$index = (preg_grep('/indexed/', $_SESSION['validation'])? true:false);
@@ -603,7 +603,7 @@ function processUPLOAD($inId){
 	$inFn     = $GLOBALS['dataDir']."/".$in;
 	$outFn    = $dirTmp. "/".basename($in);
 
-	# edit file according SESSION[validation] 
+	# edit file according SESSION[validation]
     $subs  = get_seds_fromChrNameValidation($inId);
 
 	$cmd = "";
@@ -660,7 +660,7 @@ function convert2BW_getCmd($input,$bw,$refGenome){
 		$_SESSION['errorData']['error'][]= "Cannot convert $input to BIGWIG. Cannot guess file format. Expected .wig or .bedgraph";
 		return (false);
 	}
-	
+
 	if (! is_file($chrSizes)){
 		$_SESSION['errorData']['error'][]="No file with chromosome sizes given to the UCSC script. File $chrSizes not found.";
 		return (false);
@@ -688,7 +688,7 @@ function convert2BW($fn,$BW,$refGenome,$format){
 		$_SESSION['errorData']['error'][]= "Cannot convert $input from format $format. Expected wig or bedgraph";
 		return (false);
 	}
-	
+
 	if (! is_file($chrSizes)){
 		$_SESSION['errorData']['error'][]="No file with chromosome sizes given to the UCSC script. File $chrSizes not found.";
 		return (false);
@@ -720,7 +720,7 @@ function convert2BW($fn,$BW,$refGenome,$format){
 	$r = deleteGSFileBNS($fn);
     if ($r == 0)
     	return false;
-	unlink ($input);	
+	unlink ($input);
 
 	return (true);
 }
@@ -732,7 +732,7 @@ function saveMetadataUpload($fn,$request,$validationState){
 	// filters known metadata fields
 	$insertMeta = prepMetadataUpload($request,$validationState);
 
-	// save to mongo 	
+	// save to mongo
 	$r = modifyMetadataBNS($fn,$insertMeta);
 	return $r;
 
@@ -866,7 +866,7 @@ function queueBAMvalidation ($prepNum,$tmpdir,$outdir,$bamFn,$type,$sort,$subs,$
 	return 0;
     }
     fwrite($fout, "#!/bin/bash\n");
-    fwrite($fout, "# generated by MuG VRE\n");
+    fwrite($fout, "# generated by openVRE\n");
     fwrite($fout, "cd $tmpdir\n");
 
     fwrite($fout, "\n# Running BAM preprocessing ...\n");
@@ -877,8 +877,8 @@ function queueBAMvalidation ($prepNum,$tmpdir,$outdir,$bamFn,$type,$sort,$subs,$
 	fwrite($fout, "$samtools view '$bamFn' | cut -f3 | sort -u >> $outdir/PP_$prepNum.log 2>&1\n");
 	fwrite($fout, "\necho \"#Matching chromosome names to reference genome names\" >  $outdir/PP_$prepNum.log\n");
 	fwrite($fout, "php matchChrNames.php?format=format&chrs=chrFile&refGenome=refGenome >> $outdir/PP_$prepNum.log 2>&1\n");
-	
-    }	
+
+    }
 
     if (count($subs) || $sort){
         if (count($subs)){

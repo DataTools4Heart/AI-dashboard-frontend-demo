@@ -41,7 +41,7 @@ $messageUser = '
 	Request type: '.$req.$tool_name.'<br>
 	Request subject: '.$_REQUEST["Subject"].'<br>
 	Request message: '.$_REQUEST["Message"].'<br><br>
-	MuG VRE Technical Team';
+	'.$GLOBALS['AppPrefix'].' VRE Technical Team';
 
 if(sendEmail($GLOBALS['ADMINMAIL'], "[".$ticketnumber."]: ".$req." - ".$_REQUEST["Subject"], $message, $_REQUEST["Email"], $toolContact)) {
 
@@ -55,6 +55,6 @@ if(sendEmail($GLOBALS['ADMINMAIL'], "[".$ticketnumber."]: ".$req." - ".$_REQUEST
 	$_SESSION['errorData']['Error'][] = "Error opening ticket, please try again later.";
 	redirect($_SERVER['HTTP_REFERER']);
 
-}	
-	
+}
+
 
