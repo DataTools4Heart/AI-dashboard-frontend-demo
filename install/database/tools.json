@@ -54,7 +54,7 @@
             "help": "Set to 'true' to enable file logging."
         }
     ],
-    "has_custom_viewer": false,
+    "has_custom_viewer": true,
     "output_files": [{
         "name": "Dataset_report",
         "required": true,
@@ -157,7 +157,7 @@
         [{ "data_manifest": 1 }]
     ],
     "arguments": [],
-    "has_custom_viewer": false,
+    "has_custom_viewer": true,
     "output_files": [{ "name": "Dataset_quality_report", "required": true, "allow_multiple": false, "file": { "file_type": "JSON", "data_type": "data_quality_report", "meta_data": { "visible": true, "tool": "dataQuality", "description": "Report on the quality of selected datasets" }, "file_path": "Dataset_quality_report.json" } }]
 } {
     "_id": "siteDiscovery",
@@ -220,7 +220,7 @@
             "help": "Set to 'true' to enable file logging."
         }
     ],
-    "has_custom_viewer": false,
+    "has_custom_viewer": true,
     "output_files": [{
         "name": "Sites_report",
         "required": true,
