@@ -8,9 +8,9 @@
 // Main config
 $GLOBALS['SERVER']    = "http://".$_ENV['HOSTNAME'].":8089"; // domain
 $GLOBALS['BASEURL']   = "/"; // prefix url path. Set "/" for no prefix
-$GLOBALS['AppPrefix'] = "DT4H"; // project url acronym
-$GLOBALS['NAME']      = "DataTools4Heart UI"; // project name
-$GLOBALS['SITETITLE'] = "DataTools4Heart | Virtual Research Environment"; // site title
+$GLOBALS['AppPrefix'] = "PROJECT"; // project url acronym
+$GLOBALS['NAME']      = "PROJECT_NAME"; // project name
+$GLOBALS['SITETITLE'] = "PROJECT_TITLE | Virtual Research Environment"; // site title
 $GLOBALS['TIMEOUT']   = 3600; // session and cookies timeout
 
 // Email
@@ -27,8 +27,8 @@ $GLOBALS['dbname_VRE']     = "openVRE"; // Database name
 
 //VRE installation paths
 $GLOBALS['root']       = dirname(__DIR__); // VRE root directory
-$GLOBALS['logFile']    = $GLOBALS['root']."/logs/application.log"; // Log file path
 $GLOBALS['shared']     = "/shared_data/"; // VRE data directory
+$GLOBALS['logFile']    = $GLOBALS['root']."/logs/application.log"; // Log file path
 $GLOBALS['dataDir']    = $GLOBALS['shared']."userdata/"; // User data directory
 $GLOBALS['pubDir']     = $GLOBALS['shared']."public/"; // Public data directory
 $GLOBALS['sampleData'] = $GLOBALS['shared']."sampleData/"; // Tool dataset directory
@@ -49,6 +49,7 @@ $GLOBALS['tool_dev_sample']     = $GLOBALS['root']."/install/data/tool_schemas/t
 $GLOBALS['tool_io_dev_sample']  = $GLOBALS['root']."/install/data/tool_schemas/tool_specification/examples/example_io.json"; // template for tool registration - step 1 I/O
 
 // Oauth2 authentification
+$GLOBALS['auth_required']          = False; // Forces login
 $GLOBALS['auth_credentials']       = __DIR__."/oauth2.conf"; // oauth2 client credentials
 $GLOBALS['authAdmin_credentials']  = __DIR__."/oauth2_admin.conf"; // oauth2 client credentials with admin privileges
 #$GLOBALS['authServer']             = 'http://84.88.186.195:8089/auth'; // external oauth2 server
@@ -179,3 +180,6 @@ $GLOBALS['clouds'] = Array(
 			)
 	    )
 );
+
+# Get host path (Provisional)
+$GLOBALS['host_path'] = trim(file_get_contents($GLOBALS['shared'].".pwd"));
