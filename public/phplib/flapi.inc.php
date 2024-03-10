@@ -23,18 +23,18 @@ function doPost($url, $contents, $method="POST", $oauthToken='') {
     $headers = ['Content-type: application/x-www-form-urlencoded'];
     if ($oauthToken) {
         $headers[] = 'Authorization: Bearer '. $oauthToken;
-        $headers[] = 'Accept: application/json;
+        $headers[] = 'Accept: application/json';
     }
     $options = [
         'http' => [
           'header'  => $headers,
           'method'  => $method,
           'content' => http_build_query($contents)
-        )
-      );
+        ]
+      ];
       $context  = stream_context_create($options);
       $resp = file_get_contents($url, false, $context);
-    return json_decore($resp, assoc=True);
+    return json_decode($resp, $assoc=True);
 }
 // API endpoints
 function flAPIToken($username, $password) { // Possibly use token from keycloak
@@ -46,42 +46,53 @@ function flAPIToken($username, $password) { // Possibly use token from keycloak
         'client_id' => '',
         'client_secret' => ''
     ];
-    return doPost('token', http_build_query($data))
+    return doPost('token', http_build_query($data));
 }
 
 function getToolList($oauthToken='') {
     return doGet('tools', $oauthToken);
 }
+
 function getTool($toolId, $oauthToken='') {
     return doGet('tools/$toolId', $oauthToken);
 }
+
 function getTaskList($oauthToken='') {
     return doGet('tasks', $oauthToken);
 }
+
 function getJob($toolName, $oauthToken='') {
     return doGet('job/$toolName', $oauthToken);
 }
-function getHostsList($oauthToken='' {
+
+function getHostsList($oauthToken='') {
     return doGet('hosts', $oauthToken);
 }
+
 function getHostHealth($nodes, $oauthToken='') {
-    $query=??;
+    $query='??';//TODO
     foreach ($node as $nodes) {
         $query .= 'nodes='.$node;
     }
     return doGet('hosts/health/?$query', $oauthToken);
 }
+
 function getHost ($hostId, $oauthToken='') {
     return doGet('hosts/$hostId', $oauthToken);
 }
+
 function getFileList ($oauthToken='') {
     return doGet('files', $oauthToken);
 }
+
 function getFile ($fileId, $oauthToken='') {
     return doGet('files/$fileId', $oauthToken);
 }
+
 function getFileAccessURI ($fileId, $oauthToken='') {
-    return doGet('files/$fileId/access', $oauthToken)
+    return doGet('files/$fileId/access', $oauthToken);
 }
+
 function putNewPath($filePath, $oauthToken='') {
-    return doPost('files/$filePath', $method='PUT', $oauthToken)}
+    return doPost('files/$filePath', $method='PUT', $oauthToken);
+}
