@@ -37,6 +37,7 @@
 				<link href="assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
 				<link href="assets/pages/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 			<?php } break;
+		case 'index-vre':
 		case 'index': ?>
 			<?php if (basename(dirname($_SERVER['PHP_SELF'])) == 'workspace') { ?>
 				<link href="assets/pages/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
@@ -163,6 +164,7 @@
 			<?php } ?>
 			<?php break;
 		case 'resetPassword':
+		case 'index-vre':
 		case 'index': ?>
 			<?php if (basename(dirname($_SERVER['PHP_SELF'])) == 'workspace') { ?>
 			<?php } elseif ((basename(dirname($_SERVER['PHP_SELF'])) == 'home') || (basename(dirname($_SERVER['PHP_SELF'])) == 'publicsite')) { ?>
@@ -191,6 +193,7 @@
 	<?php
 	switch (pathinfo($_SERVER['PHP_SELF'])['filename']) {
 		case 'index2':
+		case 'index-vre':
 		case 'index':
 		case 'home':
 		case 'usrProfile':

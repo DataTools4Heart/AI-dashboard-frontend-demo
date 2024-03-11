@@ -12,6 +12,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'vmURL':
 	case 'createTest':
 	case 'index':
+	case 'index-vre':
 	case 'index2':
 	case 'dashboard':
 	case 'uploadForm':
@@ -55,6 +56,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 		<?php }
 		break;
 	case 'resetPassword':
+	case 'index-vre':
 	case 'index': ?>
 		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>
 			<script src="assets/global/scripts/jquery.dataTables.min.js" type="text/javascript"></script>
@@ -261,6 +263,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'resetPassword': ?>
 		<script src="assets/pages/scripts/resetPassword.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
+	case 'index-vre':
 	case 'index': ?>
 		<?php if(basename(dirname($_SERVER['PHP_SELF'])) == 'workspace'){ ?>
 			<script src="assets/pages/scripts/datatables-page.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
@@ -390,6 +393,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 <?php
 switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'index2':
+	case 'index-vre':
 	case 'index':
 	case 'home':
 	case 'datasets':
@@ -482,6 +486,7 @@ switch(pathinfo($_SERVER['PHP_SELF'])['filename']){
 	case 'visualizers':?>
 		<script src="assets/pages/scripts/cookie.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 		<?php break;
+	case 'index-vre':
 	case 'index':
 		if((basename(dirname($_SERVER['PHP_SELF'])) == 'workspace') || (basename(dirname($_SERVER['PHP_SELF'])) == '/home')){ ?>
 			<script src="assets/pages/scripts/cookie.js?v=<?php echo rand(); ?>" type="text/javascript"></script>

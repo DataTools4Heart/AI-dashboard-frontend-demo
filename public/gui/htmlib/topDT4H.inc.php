@@ -26,8 +26,8 @@ if (file_exists($avatarImg)) {
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="/index.php">
-                <img src="assets/DT4H/logo_color.png" alt="logo" class="logo-default"/>
+            <a href="gui/index.php">
+                <img src="DT4H/logo_color.png" alt="logo" class="logo-default"/>
             </a>
         </div>
         <!-- END LOGO -->
@@ -56,12 +56,12 @@ if (file_exists($avatarImg)) {
                         <ul class="dropdown-menu dropdown-menu-default">
 
                             <li>
-                                <a href="user/usrProfile.php">
+                                <a href="../user/usrProfile.php">
                                     <i class="glyphicon glyphicon-user"></i> My Profile </a>
                             </li>
                             <?php if ((allowedRoles($_SESSION['User']['Type'], $GLOBALS['ADMIN'])) && (!allowedRoles($_SESSION['User']['Type'], $GLOBALS['TOOLDEV']))) { ?>
                                 <li>
-                                    <a href="admin/dashboard.php">
+                                    <a href="../admin/dashboard.php">
                                         <i class="glyphicon glyphicon-dashboard"></i> Dashboard </a>
                                 </li>
                             <?php } ?>
