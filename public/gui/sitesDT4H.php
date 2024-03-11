@@ -48,7 +48,7 @@ $status = ['inactive', 'active'];
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-          <a href="javascript:;" target="_blank"><img src="../assets/layouts/layout/img/icon.png" width=100></a>
+          <a href="javascript:;" target="_blank"><img src="assets/layouts/layout/img/icon.png" width=100></a>
           DT4H Network
         </h1>
         <!-- END PAGE TITLE-->
