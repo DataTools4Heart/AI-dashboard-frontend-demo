@@ -15,13 +15,12 @@ $status = ['inactive', 'active'];
 
 ?>
 
-<?php require "../htmlib/header.inc.php"; ?>
+<?php require "htmlib/headerDT4H.inc.php"; ?>
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-container-bg-solid page-sidebar-fixed">
   <div class="page-wrapper">
 
-    <?php require "../htmlib/top.inc.php"; ?>
-    <?php require "../htmlib/menu.inc.php"; ?>
+    <?php require "htmlib/topDT4H.inc.php"; ?>
 
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
@@ -140,6 +139,6 @@ $status = ['inactive', 'active'];
     <!-- END CONTENT -->
 
 <?php
-require "../htmlib/footer.inc.php";
-require "../htmlib/js.inc.php";
+require "htmlib/footerDT4H.inc.php";
+require "htmlib/jsDT4H.inc.php";
 
