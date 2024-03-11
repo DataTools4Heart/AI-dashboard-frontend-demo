@@ -6,7 +6,7 @@ $firstLetterSurname =  substr($_SESSION['User']['Surname'], 0, 1);
 $avatarColors = array('#0f7e8c', '#a3d86d', '#9113ff', '#edc642', '#2ac5a3', '#ffb858', '#955216');
 $bgColorAvatar = array_rand($avatarColors, 1);
 
-$filename = glob('../assets/avatars/' . $_SESSION['User']['id'] . '.*');
+$filename = glob('assets/avatars/' . $_SESSION['User']['id'] . '.*');
 $avatarImg = (isset($filename[0])?$filename[0]:false);
 if (file_exists($avatarImg)) {
     $avatarExists = 1;
@@ -27,7 +27,7 @@ if (file_exists($avatarImg)) {
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="gui/index.php">
-                <img src="DT4H/logo_color.png" alt="logo" class="logo-default"/>
+                <img src="gui/img/logo_color.png" alt="logo" class="logo-default"/>
             </a>
         </div>
         <!-- END LOGO -->
@@ -56,12 +56,12 @@ if (file_exists($avatarImg)) {
                         <ul class="dropdown-menu dropdown-menu-default">
 
                             <li>
-                                <a href="../user/usrProfile.php">
+                                <a href="user/usrProfile.php">
                                     <i class="glyphicon glyphicon-user"></i> My Profile </a>
                             </li>
                             <?php if ((allowedRoles($_SESSION['User']['Type'], $GLOBALS['ADMIN'])) && (!allowedRoles($_SESSION['User']['Type'], $GLOBALS['TOOLDEV']))) { ?>
                                 <li>
-                                    <a href="../admin/dashboard.php">
+                                    <a href="admin/dashboard.php">
                                         <i class="glyphicon glyphicon-dashboard"></i> Dashboard </a>
                                 </li>
                             <?php } ?>

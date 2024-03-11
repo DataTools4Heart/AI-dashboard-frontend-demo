@@ -8,7 +8,7 @@ require __DIR__."/../../config/bootstrap.php";
 $r = checkLoggedIn();
 // if $GLOBALS['auth_required'] force login
 if ($GLOBALS['auth_required']) {
-    redirect("../login.php");
+    redirect("login.php");
 }
 
 // Recover guest user
@@ -36,22 +36,22 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
       <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
         <!-- BEGIN PAGE TITLE-->
-        <p class=page-title> DT4H UI</p>
+        <p class=page-title>DT4H User Interface</p>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <div class="group-box">
           <div class="group-box-title">Data</div>
           <div class="group-box-content">
             <div class="group-box-item">
-              <a href="catalog.dt4h.bsc.es"><img src="assets/DT4H/METADATA-CATALOGUE.jpg"/>
+              <a href="https://catalog.dt4h.bsc.es"><img src="gui/img/METADATA-CATALOGUE.jpg"/>
               <p>Meta-Data Catalogue</p></a>
             </div>
             <div class="group-box-item">
-              <a href="#"><img src="assets/DT4H/COMMON-DATA-MODEL.jpg"/>
+              <a href="#"><img src="gui/img/COMMON-DATA-MODEL.jpg"/>
               <p>Data Processing</p></a>
             </div>
             <div class="group-box-item">
-              <a href="#"><img src="assets/DT4H/MULTILINGUAL-NATURAL-LANGUAGE-PROCESSING-SUITE.jpg"/>
+              <a href="#"><img src="gui/img/MULTILINGUAL-NATURAL-LANGUAGE-PROCESSING-SUITE.jpg"/>
               <p>Natural Language processing</p></a>
             </div>
           </div>
@@ -60,14 +60,14 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
           <div class="group-box-title">Federated analysis</div>
           <div class="group-box-content">
             <div class="group-box-item">
-              <a href="sitesDT4H.php">
-                <img src="assets/DT4H/network.png" style="width:75px">
+              <a href="gui/sitesDT4H.php">
+                <img src="gui/img/network.png" style="width:75px">
                 <p>DT4H Network</p>
               </a>
             </div>
             <div class="group-box-item">
-              <a href="vre/index.php" target="_blank">
-                <img src="assets/DT4H/FEDERATED-LEARNING.jpg">
+              <a href="index.php" target="_blank">
+                <img src="gui/img/FEDERATED-LEARNING.jpg">
                 <p>Federated processing</p>
               </a>
             </div>
