@@ -43,16 +43,21 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
           <div class="group-box-title">Data</div>
           <div class="group-box-content">
             <div class="group-box-item">
-              <a href="https://catalogue.datatools4heart.bsc.es"><img src="gui/img/METADATA-CATALOGUE.jpg"/>
+              <a href="https://catalogue.datatools4heart.bsc.es" target="_blank"><img src="gui/img/METADATA-CATALOGUE.jpg"/>
               <p>Meta-Data Catalogue</p></a>
             </div>
+            <div class="group-box-item">
+              <a href="https://va.datatools4heart.eu"  target="_blank"><img src="gui/img/ARTIFICIAL-INTELLIGENCE.jpg"/>
+              <p>Virtual Assistant</p></a>
+            </div>
+
             <div class="group-box-item">
               <a href="#"><img src="gui/img/COMMON-DATA-MODEL.jpg"/>
               <p>Data Processing</p></a>
             </div>
             <div class="group-box-item">
               <a href="#"><img src="gui/img/MULTILINGUAL-NATURAL-LANGUAGE-PROCESSING-SUITE.jpg"/>
-              <p>Natural Language processing</p></a>
+              <p>Natural Language Processing</p></a>
             </div>
           </div>
         </div>
@@ -60,9 +65,15 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
           <div class="group-box-title">Federated analysis</div>
           <div class="group-box-content">
             <div class="group-box-item">
-              <a href="gui/sitesDT4H.php">
-                <img src="gui/img/network.png" style="width:75px">
+              <a href="gui/sitesDT4H.php"  target="_blank">
+                <img src="gui/img/network.png" style="width:70px">
                 <p>DT4H Network</p>
+              </a>
+            </div>
+            <div class="group-box-item">
+              <a href="gui/toolsDT4H.php"  target="_blank">
+                <img src="gui/img/tools.png" style="width:70px">
+                <p>Available Tools</p>
               </a>
             </div>
             <div class="group-box-item">
