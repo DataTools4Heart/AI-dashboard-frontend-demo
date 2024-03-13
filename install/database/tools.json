@@ -246,7 +246,7 @@
     }]
 }
 {
-    "_id":"data_materializer_dt4h",
+    "_id":"dt4h_data_materializer",
     "name":"DT4H Materialize Datasets",
     "title":"DT4H Materialize Datasets",
     "short_description":"Materialize datasets from Feature Extration tool",
@@ -755,8 +755,8 @@
     "status":1,
     "external":true,
     "type_execution": "federated",
-    "keywords":["federated_learning"],
-    "keywords_tool":["federated_learning"],
+    "keywords":["data_management"],
+    "keywords_tool":["data_management"],
     "infrastructure":{
         "memory":12,
         "container_image": "registry.gitlab.bsc.es/inb/dt4h/gui_mockup/get_output_vre",
