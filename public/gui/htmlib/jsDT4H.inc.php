@@ -26,7 +26,6 @@
 <script src="../assets/layouts/layout/scripts/main.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 <script src="../assets/layouts/layout/scripts/cookie-toolbar.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
-<script src="../assets/pages/scripts/cookie.js?v=<?php echo rand(); ?>" type="text/javascript"></script>
 
 <!-- GOOGLE ANALYTICS -->
 

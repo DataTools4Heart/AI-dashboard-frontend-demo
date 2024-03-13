@@ -88,9 +88,9 @@ if ($GLOBALS['RunningMode'] != 'local') {
                 <p>Federated processing<br/>environment</p>
               </a>
             </div>
-            <div class="group_box_item">
+            <div class="group_box-item">
               <a href="https://hbpmip.link" target="_blank">
-                <img src="https://hbpmip.link/services/assets/logo.png">
+                <img src="https://hbpmip.link/services/assets/logo.png" style="width:70px">
                 <p>Medical Informatics Platform</p>
               </a>
             </div>
@@ -115,4 +115,4 @@ if ($GLOBALS['RunningMode'] != 'local') {
       <!-- END CONTENT -->
   <?php require "htmlib/footerDT4H.inc.php";?>
 </div>
-<?php require "htmlib/jsDT4H.inc.php";
+<?php // require "htmlib/jsDT4H.inc.php";
