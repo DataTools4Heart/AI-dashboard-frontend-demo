@@ -85,7 +85,13 @@ if ($GLOBALS['RunningMode'] != 'local') {
             <div class="group-box-item">
               <a href="index.php" target="_blank">
                 <img src="gui/img/FEDERATED-LEARNING.jpg">
-                <p>Federated processing<br/> environment</p>
+                <p>Federated processing<br/>environment</p>
+              </a>
+            </div>
+            <div class="group_box_item">
+              <a href="https://hbpmip.link" target="_blank">
+                <img src="https://hbpmip.link/services/assets/logo.png">
+                <p>Medical Informatics Platform</p>
               </a>
             </div>
             <div class="group-box-item">
