@@ -79,3 +79,4 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
       <!-- END CONTENT -->
   <?php require "htmlib/footerDT4H.inc.php";?>
 </div>
+<?php require "htmlib/jsDT4H.inc.php";
