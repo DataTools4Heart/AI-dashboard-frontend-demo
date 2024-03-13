@@ -2299,6 +2299,7 @@ Page content
 .group-box-content {
     display: flex;
     padding: 10px;
+    justify-content: space-around;
 }
 
 .group-box-item {
