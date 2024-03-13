@@ -2307,6 +2307,7 @@ Page content
     border-width: 3px;
     margin: 0 10px;
     display: flex;
+    text-align: center;
 }
 
 .group-box-item-disabled {
