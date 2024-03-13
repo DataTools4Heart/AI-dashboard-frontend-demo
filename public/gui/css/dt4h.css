@@ -2299,6 +2299,7 @@ Page content
 .group-box-content {
     display: flex;
     padding: 10px;
+    justify-content: space-around;
 }
 
 .group-box-item {
@@ -2308,14 +2309,33 @@ Page content
     display: flex;
 }
 
+.group-box-item-disabled {
+    border-color: #ae0d1b;
+    border-width: 3px;
+    margin: 0 10px;
+    display: flex;
+    color: #ccc;
+}
+
 .group-box-item img {
     height: 75px;
     margin: 10px;
     align-content: center;
 }
+.group-box-item-disabled img {
+    height: 75px;
+    margin: 10px;
+    align-content: center;
+    opacity: 0.5;
+}
 
 .group-box-item a {
     color: #ae0d1b;
+}
+
+.group-box-item-disabled a {
+    color: #ccc;
+    cursor: not-allowed;
 }
 
 .bannerEU {

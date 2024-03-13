@@ -2,7 +2,6 @@
 
 require __DIR__."/../../config/bootstrap.php";
 
-#redirect("index_vre.php");
 
 // Check if PHP session exists
 $r = checkLoggedIn();
@@ -20,6 +19,12 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
 
 }
 // Do not create guest here, deferred to VRE start
+
+if ($GLOBALS['RunningMode'] != 'local') {
+  $group_box_item_class = 'group-box-item-disabled';
+} else {
+  $group_box_item_class = 'group-box-item';
+}
 
 ?>
 
@@ -40,38 +45,39 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <div class="group-box">
-          <div class="group-box-title">Data</div>
+          <div class="group-box-title">Data Management</div>
           <div class="group-box-content">
             <div class="group-box-item">
               <a href="https://catalogue.datatools4heart.bsc.es" target="_blank"><img src="gui/img/METADATA-CATALOGUE.jpg"/>
-              <p>Meta-Data Catalogue</p></a>
+              <p>Data Catalogue</p></a>
             </div>
             <div class="group-box-item">
               <a href="https://va.datatools4heart.eu"  target="_blank"><img src="gui/img/ARTIFICIAL-INTELLIGENCE.jpg"/>
               <p>Virtual Assistant</p></a>
             </div>
 
-            <div class="group-box-item">
-              <a href="#"><img src="gui/img/COMMON-DATA-MODEL.jpg"/>
+            <div class="<?= $group_box_item_class ?>">
+              <a href="#" ><img src="gui/img/COMMON-DATA-MODEL.jpg"/>
               <p>Data Processing</p></a>
             </div>
-            <div class="group-box-item">
-              <a href="#"><img src="gui/img/MULTILINGUAL-NATURAL-LANGUAGE-PROCESSING-SUITE.jpg"/>
+
+            <div class="<?= $group_box_item_class ?>">
+              <a href="#" ><img src="gui/img/MULTILINGUAL-NATURAL-LANGUAGE-PROCESSING-SUITE.jpg"/>
               <p>Natural Language Processing</p></a>
             </div>
           </div>
         </div>
         <div class="group-box">
-          <div class="group-box-title">Federated analysis</div>
+          <div class="group-box-title">Federated processing</div>
           <div class="group-box-content">
             <div class="group-box-item">
-              <a href="gui/sitesDT4H.php"  target="_blank">
+              <a href="gui/sitesDT4H.php" >
                 <img src="gui/img/network.png" style="width:70px">
                 <p>DT4H Network</p>
               </a>
             </div>
             <div class="group-box-item">
-              <a href="gui/toolsDT4H.php"  target="_blank">
+              <a href="gui/toolsDT4H.php" >
                 <img src="gui/img/tools.png" style="width:70px">
                 <p>Available Tools</p>
               </a>
@@ -79,7 +85,26 @@ if (isset($_REQUEST['id']) && $_REQUEST['id']) {
             <div class="group-box-item">
               <a href="index.php" target="_blank">
                 <img src="gui/img/FEDERATED-LEARNING.jpg">
-                <p>Federated processing</p>
+                <p>Federated processing<br/>environment</p>
+              </a>
+            </div>
+            <div class="group_box_item">
+              <a href="https://hbpmip.link" target="_blank">
+                <img src="https://hbpmip.link/services/assets/logo.png">
+                <p>Medical Informatics Platform</p>
+              </a>
+            </div>
+            <div class="group-box-item">
+              <a href="https://fl.bsc.es/flmanager/API/v1/docs" target="_blank">
+                <img src="gui/img/openAPI.png">
+                <p>FLManager API <br/>Documentation</p>
+              </a>
+            </div>
+
+            <div class="<?= $group_box_item_class ?>">
+              <a href="gui/runJupyterLab.php" target="_blank">
+                <img src="gui/img/jupyter.png">
+                <p>Jupyter Lab</p>
               </a>
             </div>
           </div>
