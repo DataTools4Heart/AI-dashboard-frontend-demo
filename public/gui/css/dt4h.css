@@ -2281,7 +2281,7 @@ Page content
 
 .group-box {
     background-color: #fff;
-    width: 60%;
+    width: 80%;
     padding: 0px;
     margin-left: 150px;
     margin-bottom: 20px;
@@ -2316,6 +2316,7 @@ Page content
     margin: 0 10px;
     display: flex;
     color: #ccc;
+    text-align: center;
 }
 
 .group-box-item img {

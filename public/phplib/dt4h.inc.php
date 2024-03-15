@@ -24,7 +24,7 @@ function getToolsInfo($refresh=False) {
             $tool['inputs'][] = formatToolInputDesc($inputf);
         }
         foreach ($tool['output_files'] as $outputf) {
-            $tool['outputs'][] = formatToolInputDesc($outputf);
+            $tool['outputs'][] = formatToolOutputDesc($outputf);
         }
         foreach ($tool['input_files_combinations'] as $op) {
             $tool['ops'][] = $op['description'];
@@ -40,14 +40,14 @@ function formatToolInputDesc($inputf) {
     if ($inputf['required']) {
         $inptxt .= "*";
     }
-    if ($inputf['allow_multiple']) {
-        $inptxt .= " xN";
-    }
+//    if ($inputf['allow_multiple']) {
+//        $inptxt .= " xN";
+//    }
     return $inptxt;
 }
 
 function formatToolOutputDesc($outputf) {
     $outtxt = $outputf['name'];
-    $outtxt .= " (".join(',', $outputf['file']['data_type']).":".join(',', $outputf['file']['file_type']).")";
+    //$outtxt .= " (".join(',', $outputf['file'][0]['data_type']).":".join(',', $outputf['file'][0]['file_type']).")";
     return $outtxt;
 }

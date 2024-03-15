@@ -98,7 +98,7 @@ $status = ['inactive', 'active'];
                         <td> <?= join(", ", $obj["keywords"]) ?> </td>
                         <td> <?= join("<br/>\n",$obj["inputs"]) ?> </td>
                         <td> <?= join("<br/>\n",$obj["outputs"]) ?> </td>
-                        <td> <?= $obj["nodes"] ?> </td>
+                        <td> <?= join(", ", $obj["infrastructure"]["nodes_available"]) ?> </td>
                     </tr>
                 <?php } ?>
 
