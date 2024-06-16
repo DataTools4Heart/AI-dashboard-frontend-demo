@@ -1,7 +1,24 @@
 <?php
 
+$conf = [];
+
+if (($F = fopen($GLOBALS['flapi_credentials'], "r")) !== FALSE) {
+    while (($data = fgetcsv($F, 1000, ";")) !== FALSE) {
+	    foreach ($data as $a){
+        	$r = explode(":",$a);
+            if (isset($r[1])){
+                array_push($conf,$r[1]);
+            }
+	    }
+    }
+    fclose($F);
+}
+#Get Token
+$GLOBALS['FLToken'] = flAPIToken($conf[0], $conf[1], $conf[2], $conf[3])['access_token'];
+
+
 function doGet($url, $oauthToken='') {
-    $fullURL = $GLOBALS['FLAPIPrefix'].$url;
+    $fullURL = $GLOBALS['FLAPIPrefix']."/$url";
     if ($oauthToken) {
         $headers = [
             'Authorization: Bearer '. $oauthToken,
@@ -19,7 +36,7 @@ function doGet($url, $oauthToken='') {
 }
 
 function doPost($url, $contents, $method="POST", $oauthToken='') {
-    $fullURL = $GLOBALS['FLAPIPrefix'].$url;
+    $fullURL = $GLOBALS['FLAPIPrefix']."/$url";
     $headers = ['Content-type: application/x-www-form-urlencoded'];
     if ($oauthToken) {
         $headers[] = 'Authorization: Bearer '. $oauthToken;
@@ -33,20 +50,19 @@ function doPost($url, $contents, $method="POST", $oauthToken='') {
         ]
       ];
       $context  = stream_context_create($options);
-      $resp = file_get_contents($url, false, $context);
+      $resp = file_get_contents($fullURL, false, $context);
     return json_decode($resp, $assoc=True);
 }
 // API endpoints
-function flAPIToken($username, $password) { // Possibly use token from keycloak
+function flAPIToken($username, $password, $client_id, $client_secret) { // Possibly use token from keycloak
     $data = [
         'grant_type' => 'password',
         'username' => $username,
         'password' => $password,
-        'scope' => 'OAuthBearer....',
-        'client_id' => '',
-        'client_secret' => ''
+        'client_id' => $client_id,
+        'client_secret' => $client_secret
     ];
-    return doPost('token', http_build_query($data));
+    return doPost('token', $data);
 }
 
 function getToolList($oauthToken='') {
@@ -70,7 +86,6 @@ function getHostsList($oauthToken='') {
 }
 
 function getHostHealth($nodes, $oauthToken='') {
-    $query='??';//TODO
     foreach ($node as $nodes) {
         $query .= 'nodes='.$node;
     }
