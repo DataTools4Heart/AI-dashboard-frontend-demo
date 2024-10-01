@@ -1,32 +1,17 @@
-Open Virtual Research Environment (openVRE)
-=========
+# DT4H AI Dashboard front-end Demo
 
-openVRE is a cloud-based working environment that allow to rapidly build your own computational platform. It offers:
+This repository contains the front-end of an [openVRE](https://github.com/inab/openVRE)-based analysis platform customized for DT4H. It corresponds to a PHP-based web application enabling a cloud-based analysis environment offering
 - a user-friendly web-based interface that integrates a number of pluggable resources:
 	- analysis tools or pipelines,
 	- interfaces to external data repositories,
 	- visualizaters
 - an scalable backend for cloud computing compatible with OCCI middlewares like OpenNebula or OpenStack.
 
+> **_NOTE:_**  Currently, the AI Dashboard is only for demonstration purposes.
 
-### Flavors
-
-Several research projects have adopted openVRE as the framework for rapidly prototying their computational platforms:
-
-| Project     | Title | URL | Repository |
-| ----------- | ----- | ----| -----------|
-| MuG         | Virtual Research Enviroment for Multiscale Complex Genomics  | https://vre.multiscalegenomics.eu | [Code](https://github.com/Multiscale-Genomics/VRE) |
-| OpenEBench  | ELIXIR Benchmarking Platform | https://openebench.bsc.es/vre | [Code](https://github.com/inab/openEBench_vre) |
-| euCanSHare  | Computational environment for cardiovascular research | https://vre.eucanshare.bsc.es/ | [Code](https://github.com/euCanSHare/vre/) |
-| IPC         | Individualized Paediatric Cancer Analysis Platform | https://vre.ipc-project.bsc.es/ |  [Code](https://gitlab.bsc.es/inb/ipc/openvre) |
-| euCanImage  | Cancer imaging analysis platform enhanced by Artificial Intelligence| https://vre.eucanimage.eu/ |[Code](https://gitlab.bsc.es/inb/eucanimage/vre) | 
-
-
-### Components
-
-This repository contains the code of the openVRE core, the central web server managing and distributing the executions to plugged-in elements. However, a fully functional infrastructure include other elements depicted here:
-
-![arch](https://eucanshare.bsc.es/platform/wp-content/themes/eucanshare/img/figure2.png)
+## Related repositories
+- Dashboard Demo full compute platform deployment: https://github.com/DataTools4Heart/AI-dashboard-platform-demo/
+- Dashboard Runner for FEM tasks: https://gitlab.bsc.es/inb/dt4h/FEM-runner
 
 ### Requirements
 - Web Server (*e.g.* Apache2)
